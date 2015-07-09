@@ -1,0 +1,53 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .jumbotron {
+    padding-top: 30px;
+  }
+  .jumbotron h1 {
+    font-size: 42px;
+  }
+  .jumbotron p {
+    font-size: 18px;
+  }
+  .navbar-nav {
+    float: right;
+  }
+  .navbar-brand {
+    display: none;
+  }
+  .jumbotron #header, .jumbotron hr {
+    display: block;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .jumbotron h1 {
+    font-size: 56px;
+  }
+  .jumbotron p {
+    font-size: 21px;
+  }
+  .navbar-nav>li {
+    margin-right: 30px;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .navbar-nav>li {
+    margin-right: 60px;
+  }
+}
