@@ -2,7 +2,7 @@
 var app = angular.module('bmpApp', ['ngRoute']);
 
 // configure routes
-app.config(function($routeProvider){
+app.config(function($routeProvider, $locationProvider){
   $routeProvider
 
     // home
@@ -29,7 +29,12 @@ app.config(function($routeProvider){
     .when('/contact', {
       templateUrl: 'pages/contact.html',
       controller: 'contactCtrl'
-    });
+    })
+    // catch all
+    .otherwise({ redirectTo: '/' });
+
+    // HTML5 History API
+    $locationProvider.html5Mode(true);
 });
 
 // controllers
