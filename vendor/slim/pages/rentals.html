@@ -1,5 +1,32 @@
-<div>
-  <h1>Rentals Page</h1>
-</div>
+<div id="rentals">
 
-{{ message }}
+  <h1>Rentals</h1>
+
+    <p>Email <a href="mailto:orders@bachovich.com">orders@bachovich.com</a> to inquire about the rental price of orchestra parts/conductor score.  Additionally, each movement of a multi-movement work can be rented individually.  Email us for more information.</p>
+
+    <!-- rentals table -->
+    <div class="table-responsive">
+    <table class="table table-striped table-condensed">
+      <tr>
+        <th>ID</th>
+        <th>Composer</th>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Contents</th>
+      </tr>
+      <!-- data -->
+      <tr ng-repeat="rental in rentals | orderBy: 'lname'">
+        <td>&#35;{{rental.rental_id}}</td>
+        <td>
+          <span ng-if="rental.composer">{{rental.composer}}&#47;</span>
+          {{rental.lname}},&nbsp;{{rental.fname}}
+        </td>
+        <td>{{rental.title}}</td>
+        <td>
+          <span ng-if="rental.length">[{{rental.length}}]</span>
+        </td>
+        <td>{{rental.contents}}</td>
+      </tr>
+    </table>
+    </div>
+</div>

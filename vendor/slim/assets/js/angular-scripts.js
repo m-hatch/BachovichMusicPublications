@@ -47,8 +47,11 @@ app.controller('mediaCtrl', function($scope){
 app.controller('artistCtrl', function($scope){
   $scope.message = 'Artists';
 });
-app.controller('rentalCtrl', function($scope){
-  $scope.message = 'Rentals';
+app.controller('rentalCtrl', function($scope, $http){
+  $http.get("api/rentals")
+  .success(function(response) {
+    $scope.rentals = response;
+  });
 });
 app.controller('contactCtrl', function($scope){
   $scope.message = 'Contact';
