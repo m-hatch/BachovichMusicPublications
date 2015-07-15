@@ -296,13 +296,20 @@ li.open {
 #artists .artist-list a {
   color: #999999;
 }
+#artist-search {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#artist-search span {
+  font-size: 1.1em;
+  color: green;
+}
 #artist-detail {
   margin-top: 20px;
 }
 #artist-detail .artist-img {
   width: 120px;
   height: 120px;
-  float: left;
   box-shadow: 3px 3px 2px;
   margin-right: 15px;
 }

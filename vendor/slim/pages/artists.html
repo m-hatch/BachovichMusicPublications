@@ -2,13 +2,23 @@
 
   <h2>Composers, Arrangers, &amp; Recording Artists</h2>
 
+  <!-- search artists -->
+  <div class="clearfix">
+    <div id="artist-search">
+      <span>Search Artists:&nbsp;</span>
+      <input type="text" ng-model="search_artists" />
+    </div>
+    <hr>
+  </div>
+
+
   <!-- Artist list -->
   <div class="row">
-    <div ng-repeat="artist in artists | orderBy: 'lname'">
+    <div ng-repeat="artist in artists | filter: search_artists | orderBy: 'lname'">
       <div class="artist-list col-xs-6 col-sm-6 col-md-4 col-lg-3">
         <a ng-href="artist/{{ artist.artist_id }}">{{ artist.fname }}&nbsp;{{ artist.lname }}</a>
       </div>
     </div>
   </div>
-  
+
 </div>
