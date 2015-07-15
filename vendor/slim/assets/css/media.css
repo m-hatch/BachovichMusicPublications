@@ -10,6 +10,10 @@
   #artists .col-xs-6 {
     width: 33.33333%;
   }
+  #artist-detail .artist-img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -32,6 +36,9 @@
   .jumbotron #header, .jumbotron hr {
     display: block;
   }
+  #artist-detail {
+    margin-top: 40px;
+  }
 }
 
 /* Medium Devices, Desktops */
@@ -44,6 +51,10 @@
   }
   .navbar-nav>li {
     margin-right: 30px;
+  }
+  #artist-detail .artist-img {
+    width: 150px;
+    height: 150px;
   }
 }
 

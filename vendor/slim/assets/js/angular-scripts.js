@@ -58,7 +58,7 @@ app.controller('artistsCtrl', function($scope, $http){
 app.controller('artistCtrl', function($scope, $http, $routeParams){
   $http.get('api/artist/' + $routeParams.id)
   .success(function(response) {
-      $scope.message = response;
+      $scope.artist = response;
     });
 });
 app.controller('rentalCtrl', function($scope, $http){
