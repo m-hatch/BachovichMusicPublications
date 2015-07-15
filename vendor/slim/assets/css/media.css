@@ -6,8 +6,10 @@
 }
 
 /* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
-
+@media only screen and (min-width : 480px) and (max-width: 767px) {
+  #artists .col-xs-6 {
+    width: 33.33333%;
+  }
 }
 
 /* Small Devices, Tablets */

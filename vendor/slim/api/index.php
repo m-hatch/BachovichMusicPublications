@@ -32,7 +32,7 @@ function getDB() {
 function getArtists() {
  
     $app = \Slim\Slim::getInstance();
-    $sql = "SELECT fname, lname 
+    $sql = "SELECT artist_id, fname, lname 
             FROM artists";
  
     try {

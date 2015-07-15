@@ -288,3 +288,10 @@ li.open {
 #rentals .table-responsive {
   margin-top: 40px;
 }
+
+#artists .artist-list {
+  font-size: 1.2em;
+}
+#artists .artist-list a {
+  color: #999999;
+}

@@ -18,6 +18,11 @@ app.config(function($routeProvider, $locationProvider){
     // artists
     .when('/artists', {
       templateUrl: 'pages/artists.html',
+      controller: 'artistsCtrl'
+    })
+    // artist detail
+    .when('/artist/:id', {
+      templateUrl: 'pages/artist.html',
       controller: 'artistCtrl'
     })
     // rentals
@@ -44,11 +49,20 @@ app.controller('mainCtrl', function($scope){
 app.controller('mediaCtrl', function($scope){
   $scope.message = 'Media';
 });
-app.controller('artistCtrl', function($scope){
-  $scope.message = 'Artists';
+app.controller('artistsCtrl', function($scope, $http){
+  $http.get('api/artists')
+  .success(function(response) {
+    $scope.artists = response;
+  });
+});
+app.controller('artistCtrl', function($scope, $http, $routeParams){
+  $http.get('api/artist/' + $routeParams.id)
+  .success(function(response) {
+      $scope.message = response;
+    });
 });
 app.controller('rentalCtrl', function($scope, $http){
-  $http.get("api/rentals")
+  $http.get('api/rentals')
   .success(function(response) {
     $scope.rentals = response;
   });

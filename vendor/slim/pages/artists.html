@@ -1,5 +1,13 @@
-<div>
-  <h1>Artists Page</h1>
-</div>
+<div id="artists">
 
-{{ message }}
+  <h2>Composers, Arrangers, &amp; Recording Artists</h2>
+
+  <!-- Artist list -->
+  <div class="row">
+    <div ng-repeat="artist in artists | orderBy: 'lname'">
+      <div class="artist-list col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <a ng-href="artist/{{ artist.artist_id }}">{{ artist.fname }}&nbsp;{{ artist.lname }}</a>
+      </div>
+    </div>
+  </div>
+</div>
