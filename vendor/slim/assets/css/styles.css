@@ -93,7 +93,7 @@ img.logo {
 
 #sidebar-wrapper {
     z-index: 1000;
-    position: absolute;
+    /*position: absolute;*/
     left: 250px;
     width: 0;
     height: 100%;
@@ -104,6 +104,15 @@ img.logo {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+}
+
+.sidebar-sticky {
+  position: fixed;
+  top: 0;
+}
+
+.sidebar-unsticky {
+  position: absolute;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -253,8 +262,8 @@ li.open {
 
 /* ==================== page content ====================== */
 .page-content-wrapper {
-  /*background-color: yellow;*/
   min-width: 300px;
+  /*margin-top: -20px;*/
 }
 #page-content a {
   color: #336D2B;

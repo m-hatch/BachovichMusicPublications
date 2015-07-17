@@ -8,6 +8,22 @@
         $("#wrapper").toggleClass("toggled");
     });
 
+    // Sticky Sidebar on Scroll
+    $(window).on('scroll',function() {
+      var scrolltop = $(this).scrollTop();
+      var pos = $('#wrapper').position().top;
+      var windowHeight = $(window).height()
+      $('.page-content-wrapper').css("min-height", windowHeight - 20);
+      console.log('pos ' + pos + ' scroll ' + scrolltop);
+      if(scrolltop >= pos) {
+        $('#sidebar-wrapper').removeClass( "sidebar-unsticky" ).addClass( "sidebar-sticky" );
+      }
+       
+      else {
+        $('#sidebar-wrapper').removeClass( "sidebar-sticky" ).addClass( "sidebar-unsticky" );
+      }
+    });
+
     // Sidebar Submenu Script
     $('#sidebar-wrapper li.has-sub>a').on('click', function(){
       console.log('clicked');
