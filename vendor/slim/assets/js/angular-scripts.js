@@ -46,8 +46,11 @@ app.config(function($routeProvider, $locationProvider){
 app.controller('mainCtrl', function($scope){
   $scope.message = 'Home';
 });
-app.controller('mediaCtrl', function($scope){
-  $scope.message = 'Media';
+app.controller('mediaCtrl', function($scope, $http){
+  $http.get('api/medias')
+  .success(function(response) {
+    $scope.medias = response;
+  });
 });
 app.controller('artistsCtrl', function($scope, $http){
   $http.get('api/artists')

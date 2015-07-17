@@ -259,8 +259,16 @@ li.open {
 #page-content a {
   color: #336D2B;
 }
+.search {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.search span {
+  font-size: 1.1em;
+  color: green;
+}
 
-/* ===================== contact ======================== */
+/* ===================== contact ======================== 
 #contact {
   font-family: UbuntuBold, Geneva, sans-serif;
 }
@@ -282,7 +290,7 @@ li.open {
   font-weight: normal;
   font-size: .9em;
   line-height: 1.4em;
-}
+} */
 
 /* ===================== rentals ======================== */
 #rentals .table-responsive {
@@ -296,14 +304,6 @@ li.open {
 #artists .artist-list a {
   color: #999999;
 }
-#artist-search {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-#artist-search span {
-  font-size: 1.1em;
-  color: green;
-}
 #artist-detail {
   margin-top: 20px;
 }
@@ -312,4 +312,25 @@ li.open {
   height: 120px;
   box-shadow: 3px 3px 2px;
   margin-right: 15px;
+}
+#artists .artist-row:nth-child(2n+1) {
+    clear: both;
+  }
+
+/* ===================== media ======================== */
+#media .nav a {
+  font-size: 30px;
+  color: #333;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;;
+}
+#media .media-list {
+  padding: 14px;
+}
+#media .img-responsive {
+  width: 100%;
+}
+#media .media-desc {
+  margin-top: 15px;
 }

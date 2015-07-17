@@ -4,7 +4,7 @@
 
   <!-- search artists -->
   <div class="clearfix">
-    <div id="artist-search">
+    <div class="search">
       <span>Search Artists:&nbsp;</span>
       <input type="text" ng-model="search_artists" />
     </div>
@@ -14,9 +14,12 @@
 
   <!-- Artist list -->
   <div class="row">
-    <div ng-repeat="artist in artists | filter: search_artists | orderBy: 'lname'">
+    <div class="artist-row" ng-repeat="artist in artists | filter: search_artists | orderBy: 'lname'">
       <div class="artist-list col-xs-6 col-sm-6 col-md-4 col-lg-3">
-        <a ng-href="artist/{{ artist.artist_id }}">{{ artist.fname }}&nbsp;{{ artist.lname }}</a>
+        <a ng-href="artist/{{ artist.artist_id }}">
+          <span ng-if="artist.fname">{{ artist.fname }}&nbsp;</span>
+          {{ artist.lname }}
+        </a>
       </div>
     </div>
   </div>

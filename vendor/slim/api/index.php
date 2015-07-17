@@ -11,6 +11,7 @@ $app->get('/', function() use($app) {
     $app->response->setStatus(200);
     echo "This is the service root";
 });
+$app->get('/medias', 'getMedias');
 $app->get('/artists', 'getArtists');
 $app->get('/artist/:id', 'getArtist');
 $app->post('/add/artist', 'addArtist');
@@ -27,6 +28,47 @@ function getDB() {
 }
  
 // *********** service functions ****************
+
+// return audio/video list
+function getMedias() {
+ 
+    $app = \Slim\Slim::getInstance();
+    $sql = "SELECT m.media_id, m.type, a.lname, a.fname, m.title, m.description, m.price, m.img
+            FROM medias m INNER JOIN artists a 
+            ON m.artist_id = a.artist_id";
+ 
+    try {
+        $db = getDB();
+
+        $stmt = $db->prepare($sql);
+ 
+        $stmt->execute();
+ 
+        $medias = array();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+
+        // fetch data into $artists array
+        $i = 0;
+        while($row = $stmt->fetch()) {
+            $medias[$i] = $row;
+            $i++;
+        }
+        
+        // return data
+        if($medias) {
+            $app->response->setStatus(200);
+            $app->response()->headers->set('Content-Type', 'application/json');
+            echo json_encode($medias);
+            $db = null;
+        } else {
+            throw new PDOException('No audio/video found.');
+        }
+ 
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo errorHandle($e);
+    }
+}
 
 // return artist names
 function getArtists() {
@@ -203,7 +245,7 @@ function deleteArtist($id) {
 function getRentals() {
  
     $app = \Slim\Slim::getInstance();
-    $sql = "SELECT r.rental_id, r.composer, a.lname, a.fname, r.title, r.length, r.contents
+    $sql = "SELECT r.rental_id, r.composer, a.lname, a.fname, r.title, r.duration, r.contents
             FROM rentals r INNER JOIN artists a 
             ON r.artist_id = a.artist_id";
  

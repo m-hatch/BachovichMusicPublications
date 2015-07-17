@@ -21,9 +21,9 @@
           <span ng-if="rental.composer">{{rental.composer}}&#47;</span>
           {{rental.lname}},&nbsp;{{rental.fname}}
         </td>
-        <td>{{rental.title}}</td>
+        <td><em>{{rental.title}}</em></td>
         <td>
-          <span ng-if="rental.length">[{{rental.length}}]</span>
+          <span ng-if="rental.duration">[{{rental.duration}}]</span>
         </td>
         <td>{{rental.contents}}</td>
       </tr>

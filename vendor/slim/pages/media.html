@@ -1,5 +1,27 @@
-<div>
-  <h1>Media Page</h1>
-</div>
+<div id="media">
 
-{{ message }}
+  <h1>Audio/Video</h1>
+
+  <!-- search media -->
+  <div class="clearfix">
+    <div class="search">
+      <span>Search Media:&nbsp;</span>
+      <input type="text" ng-model="search_media" />
+    </div>
+    <hr>
+  </div>
+
+  <!-- media content -->
+  <div class="row">
+    <div class="media-row" ng-repeat="media in medias | filter: search_media | orderBy: 'lname'">
+      <div class="media-list col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <img class="img-responsive" ng-src="assets/images/audio_video/{{ media.img }}" />
+        <div class="media-desc">
+          <p>{{ media.fname + ' ' + media.lname + ': ' }}&nbsp;<em>{{ media.title }}</em></p>
+          <p>{{ '$' + media.price + ' - #' + media.media_id + ' - ' + media.type}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

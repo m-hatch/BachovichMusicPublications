@@ -10,9 +10,21 @@
   #artists .col-xs-6 {
     width: 33.33333%;
   }
+  #artists .artist-row:nth-child(2n+1) {
+    clear: none;
+  }
+  #artists .artist-row:nth-child(3n+1) {
+    clear: both;
+  }
   #artist-detail .artist-img {
     width: 150px;
     height: 150px;
+  }
+  #media .col-xs-12 {
+    width: 50%;
+  }
+  #media .media-row:nth-child(2n+1) {
+    clear: both;
   }
 }
 
@@ -39,6 +51,9 @@
   #artist-detail {
     margin-top: 40px;
   }
+  #media .media-row:nth-child(2n+1) {
+    clear: both;
+  }
 }
 
 /* Medium Devices, Desktops */
@@ -52,9 +67,21 @@
   .navbar-nav>li {
     margin-right: 30px;
   }
+  #artists .artist-row:nth-child(2n+1) {
+    clear: none;
+  }
+  #artists .artist-row:nth-child(3n+1) {
+    clear: both;
+  }
   #artist-detail .artist-img {
     width: 150px;
     height: 150px;
+  }
+  #media .media-row:nth-child(2n+1) {
+    clear: none;
+  }
+  #media .media-row:nth-child(3n+1) {
+    clear: both;
   }
 }
 
@@ -62,5 +89,17 @@
 @media only screen and (min-width : 1200px) {
   .navbar-nav>li {
     margin-right: 60px;
+  }
+  #artists .artist-row:nth-child(3n+1) {
+    clear: none;
+  }
+  #artists .artist-row:nth-child(4n+1) {
+    clear: both;
+  }
+  #media .media-row:nth-child(3n+1) {
+    clear: none;
+  }
+  #media .media-row:nth-child(4n+1) {
+    clear: both;
   }
 }
