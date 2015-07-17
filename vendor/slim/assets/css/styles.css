@@ -330,6 +330,7 @@ li.open {
 }
 #media .img-responsive {
   width: 100%;
+  box-shadow: 3px 3px 2px;
 }
 #media .media-desc {
   margin-top: 15px;

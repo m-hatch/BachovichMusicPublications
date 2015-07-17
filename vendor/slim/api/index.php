@@ -33,7 +33,7 @@ function getDB() {
 function getMedias() {
  
     $app = \Slim\Slim::getInstance();
-    $sql = "SELECT m.media_id, m.type, a.lname, a.fname, m.title, m.description, m.price, m.img
+    $sql = "SELECT m.media_id, m.type, a.lname, a.fname, m.title, m.description, m.price, m.img, m.shipping
             FROM medias m INNER JOIN artists a 
             ON m.artist_id = a.artist_id";
  

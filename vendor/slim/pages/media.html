@@ -15,11 +15,38 @@
   <div class="row">
     <div class="media-row" ng-repeat="media in medias | filter: search_media | orderBy: 'lname'">
       <div class="media-list col-xs-12 col-sm-6 col-md-4 col-lg-3">
+
         <img class="img-responsive" ng-src="assets/images/audio_video/{{ media.img }}" />
+
+        <!-- description -->
         <div class="media-desc">
           <p>{{ media.fname + ' ' + media.lname + ': ' }}&nbsp;<em>{{ media.title }}</em></p>
           <p>{{ '$' + media.price + ' - #' + media.media_id + ' - ' + media.type}}</p>
         </div>
+
+        <!-- PayPal button -->
+        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    
+          <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          
+          <input type="hidden" name="add" value="1">
+          <input type="hidden" name="cmd" value="_cart">
+          <input type="hidden" name="business" value="orders@bachovich.com">
+          <input type="hidden" name="no_shipping" value="2">
+          <input type="hidden" name="no_note" value="1">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="lc" value="US">
+          <input type="hidden" name="bn" value="PP-ShopCartBF">
+          
+          <!-- dynamically genereated values -->
+          <input type="hidden" name="item_name" ng-value="'#' + media.media_id + ' - ' + media.type + ' - ' + media.fname + ' ' + media.lname + ': ' + media.title">
+          <input type="hidden" name="item_number" ng-value="media.media_id"> 
+          <input type="hidden" name="amount" ng-value="media.price">
+          <input type="hidden" name="shipping" ng-value="media.shipping">
+          
+        </form>
+
       </div>
     </div>
   </div>
