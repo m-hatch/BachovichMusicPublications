@@ -170,7 +170,7 @@ function addArtist() {
         $db = null;
 
         // for trial test in command line
-        //curl -i -X POST -H 'Content-Type: application/json' -d '{"fname": "x", "lname": "y", "bio": "amigo", "img": null}' http://localhost:3000/vendor/slim/api/add/artist
+        //curl -i -X POST -H 'Content-Type: application/json' -d '{"fname": "x", "lname": "y", "bio": "amigo", "img": null}' http://localhost:3000/api/add/artist
 
     } catch(PDOException $e) {
         $app->response()->setStatus(404);
@@ -207,7 +207,7 @@ function updateArtist($id) {
         $db = null;
 
         // for trial test in command line
-        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"fname": "new", "lname": "name", "bio": "chicas", "img": null}' http://localhost:3000/vendor/slim/api/update/artist/12
+        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"fname": "new", "lname": "name", "bio": "chicas", "img": null}' http://localhost:3000/api/update/artist/12
 
     } catch(PDOException $e) {
         $app->response()->setStatus(404);
@@ -234,7 +234,7 @@ function deleteArtist($id) {
         $db = null;
 
         // for trial test in command line
-        //curl -i -X DELETE http://localhost:3000/vendor/slim/api/delete/artist/12
+        //curl -i -X DELETE http://localhost:3000/api/delete/artist/12
 
     } catch(PDOException $e) {
         echo '{"error":{"text":'. $e->getMessage() .'}}';
