@@ -70,6 +70,26 @@ img.logo {
   color: #fff;
 }
 
+/* ======================== footer ====================== */
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  /* background-color: #502256; */
+}
+p#copy {
+  margin: 20px 0;
+  font-size: .80em;
+  line-height: 1.4em;
+  color: #999999;
+  text-align: center;
+}
+#copy a {
+  color: #336D2B;
+}
+
 /* ==================== sidebar menu =================== */
 /*!
  * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
@@ -209,6 +229,10 @@ img.logo {
     #menu-toggle {
         display: none;
     }
+
+    #footer {
+        padding-left: 250px;
+    }
 }
 
 /* styles added for submenus */
@@ -264,6 +288,8 @@ li.open {
 .page-content-wrapper {
   min-width: 300px;
   /*margin-top: -20px;*/
+  position: relative;
+  padding-bottom: 100px; /* for footer */
 }
 #page-content a {
   color: #336D2B;

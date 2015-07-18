@@ -9,12 +9,13 @@
     });
 
     // Sticky Sidebar on Scroll
+    var windowHeight = $(window).height();
+    $('.page-content-wrapper').css("min-height", windowHeight - 20);
+
     $(window).on('scroll',function() {
       var scrolltop = $(this).scrollTop();
       var pos = $('#wrapper').position().top;
-      var windowHeight = $(window).height()
-      $('.page-content-wrapper').css("min-height", windowHeight - 20);
-      console.log('pos ' + pos + ' scroll ' + scrolltop);
+      
       if(scrolltop >= pos) {
         $('#sidebar-wrapper').removeClass( "sidebar-unsticky" ).addClass( "sidebar-sticky" );
       }
