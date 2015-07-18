@@ -2,9 +2,51 @@
 
   <h1>Contact</h1>
 
-  <h2>Bachovich Music Publications</h2>
-  <p>PO Box 744<br />
-  New York, NY 10040<br />
-  email -  <a href="mailto:orders@bachovich.com">orders@bachovich.com</a><br /></p>
+  <div id="address">
+    <h2>Bachovich Music Publications</h2>
+    <p>PO Box 744<br />
+    New York, NY 10040<br />
+    email -  <a href="mailto:orders@bachovich.com">orders@bachovich.com</a><br /></p>
+  </div>
+
+  <hr>
+
+  <!-- Email Newsletter Signup Form -->
+  <div id="email-signup" class="panel panel-default">
+
+    <div class="panel-heading">
+      <h4>Sign up for the Bachovich Newsletter</h4>
+    </div>
+
+    <form method="post" action="https://app.icontact.com/icp/signup.php" name="icpsignup" id="icpsignup5700" accept-charset="UTF-8" onsubmit="return verifyRequired5700();">
+      <div class="form-group">
+        <label for="exampleInputEmail">Email address:</label>
+        <div class="has-success input-wrapper">
+          <input type="text" class="form-control" name="fields_email" placeholder="Enter email" required>
+
+          <!-- iContact fields -->
+          <input type="hidden" name="listid" value="38980">
+          <input type="hidden" name="specialid:38980" value="W25U">
+          <input type="hidden" name="clientid" value="1017816">
+          <input type="hidden" name="formid" value="5700">
+          <input type="hidden" name="reallistid" value="1">
+          <input type="hidden" name="doubleopt" value="0">
+
+          <!-- Redirect on Submit --
+          <input type="hidden" name="redirect" value="http://www.bachovich.com/">
+          <input type="hidden" name="errorredirect" value="http://www.bachovich.com/">-->
+
+          <button type="submit" class="btn btn-success">Sign Up!</button>
+        </div>
+      </div>  
+    </form>
+    
+  </div>
+
+  <script type="text/javascript">
+    var icpForm5700 = document.getElementById('icpsignup5700');
+    if (document.location.protocol === "https:")
+      icpForm5700.action = "https://app.icontact.com/icp/signup.php";
+  </script>
   
 </div>

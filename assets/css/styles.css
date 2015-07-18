@@ -87,7 +87,10 @@ p#copy {
   text-align: center;
 }
 #copy a {
-  color: #336D2B;
+  color: #696;
+}
+#copy a:hover {
+  color: #6C6;
 }
 
 /* ==================== sidebar menu =================== */
@@ -293,7 +296,10 @@ li.open {
   padding-bottom: 100px; /* for footer */
 }
 #page-content a {
-  color: #336D2B;
+  color: #696;
+}
+#page-content a:hover {
+  color: #6C6;
 }
 .search {
   margin-top: 10px;
@@ -301,7 +307,7 @@ li.open {
 }
 .search span {
   font-size: 1.1em;
-  color: green;
+  color: #696;
 }
 
 /* ===================== contact ======================== 
@@ -327,6 +333,38 @@ li.open {
   font-size: .9em;
   line-height: 1.4em;
 } */
+
+#contact h2 {
+  font-size: 20px;
+}
+#address {
+  margin-bottom: 60px;
+}
+#email-signup {
+  background-color: #F5F5F5;
+  border-color: #DCDCDC;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+#email-signup .form-control {
+  max-width: 450px;
+}
+#email-signup .input-wrapper {
+  padding: 0 15px;
+}
+#email-signup .form-group label {
+  margin-left: 15px;
+}
+#email-signup .form-group button {
+  margin-top: 10px;
+}
+#email-signup .panel-heading {
+  background-color: #E8E8E8;
+  border-color: #DCDCDC;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
 
 /* ===================== rentals ======================== */
 #rentals .table-responsive {
