@@ -12,6 +12,12 @@
     var windowHeight = $(window).height();
     $('.page-content-wrapper').css("min-height", windowHeight - 20);
 
+    // update on window resize
+    $( window ).resize(function() {
+      windowHeight = $(window).height();
+      $('.page-content-wrapper').css("min-height", windowHeight - 20);
+    });
+
     $(window).on('scroll',function() {
       var scrolltop = $(this).scrollTop();
       var pos = $('#wrapper').position().top;

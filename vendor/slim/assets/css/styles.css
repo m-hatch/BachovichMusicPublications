@@ -158,6 +158,7 @@ p#copy {
     width: 250px;
     margin: 0;
     padding: 0;
+    padding-bottom: 20px;
     list-style: none;
 }
 
