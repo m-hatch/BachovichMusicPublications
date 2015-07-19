@@ -1,6 +1,6 @@
 <div id="artist-detail">
 
-  <img class="artist-img pull-left" ng-src="assets/images/{{ artist.img }}" />
+  <img class="artist-img pull-left" ng-if="artist.img" ng-src="assets/images/artists/{{ artist.img }}" />
   <h3>
     <span ng-if="artist.fname">{{ artist.fname }}&nbsp;</span>
     {{ artist.lname }}
