@@ -70,29 +70,6 @@ img.logo {
   color: #fff;
 }
 
-/* ======================== footer ====================== */
-#footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  /* background-color: #502256; */
-}
-p#copy {
-  margin: 20px 0;
-  font-size: .80em;
-  line-height: 1.4em;
-  color: #999999;
-  text-align: center;
-}
-#copy a {
-  color: #696;
-}
-#copy a:hover {
-  color: #6C6;
-}
-
 /* ==================== sidebar menu =================== */
 /*!
  * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
@@ -288,6 +265,29 @@ li.open {
   background-color: #2A5A24;
 }
 
+/* ======================== footer ====================== */
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  /* background-color: #502256; */
+}
+p#copy {
+  margin: 20px 0;
+  font-size: .80em;
+  line-height: 1.4em;
+  color: #999999;
+  text-align: center;
+}
+#copy a {
+  color: #696;
+}
+#copy a:hover {
+  color: #6C6;
+}
+
 /* ==================== page content ====================== */
 .page-content-wrapper {
   min-width: 300px;
@@ -308,6 +308,50 @@ li.open {
 .search span {
   font-size: 1.1em;
   color: #696;
+}
+
+/* ===================== media ======================== */
+#media .nav a {
+  font-size: 30px;
+  color: #333;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;;
+}
+#media .media-list {
+  padding: 14px;
+}
+#media .img-responsive {
+  width: 100%;
+  box-shadow: 3px 3px 2px;
+}
+#media .media-desc {
+  margin-top: 15px;
+}
+
+/* ===================== artists ======================== */
+#artists .artist-list {
+  font-size: 1.2em;
+}
+#artists .artist-list a {
+  color: #999999;
+}
+#artist-detail {
+  margin-top: 20px;
+}
+#artist-detail .artist-img {
+  width: 120px;
+  height: 120px;
+  box-shadow: 3px 3px 2px;
+  margin-right: 15px;
+}
+#artists .artist-row:nth-child(2n+1) {
+    clear: both;
+  }
+
+/* ===================== rentals ======================== */
+#rentals .table-responsive {
+  margin-top: 40px;
 }
 
 /* ===================== contact ======================== 
@@ -364,48 +408,4 @@ li.open {
   border-color: #DCDCDC;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-}
-
-/* ===================== rentals ======================== */
-#rentals .table-responsive {
-  margin-top: 40px;
-}
-
-/* ===================== artists ======================== */
-#artists .artist-list {
-  font-size: 1.2em;
-}
-#artists .artist-list a {
-  color: #999999;
-}
-#artist-detail {
-  margin-top: 20px;
-}
-#artist-detail .artist-img {
-  width: 120px;
-  height: 120px;
-  box-shadow: 3px 3px 2px;
-  margin-right: 15px;
-}
-#artists .artist-row:nth-child(2n+1) {
-    clear: both;
-  }
-
-/* ===================== media ======================== */
-#media .nav a {
-  font-size: 30px;
-  color: #333;
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.1;;
-}
-#media .media-list {
-  padding: 14px;
-}
-#media .img-responsive {
-  width: 100%;
-  box-shadow: 3px 3px 2px;
-}
-#media .media-desc {
-  margin-top: 15px;
 }
