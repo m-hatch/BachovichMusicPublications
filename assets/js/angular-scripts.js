@@ -35,6 +35,52 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: 'pages/contact.html',
       controller: 'contactCtrl'
     })
+    // solos
+    .when('/solos/marimba', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/marimba-vibes', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/xylophone', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/gyil', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/hand-drum', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/vibes', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/timpani', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/drumset', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/multi', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/snare', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+    .when('/solos/pan', {
+      templateUrl: 'pages/contact.html',
+      controller: 'contactCtrl'
+    })
+
     // catch all
     .otherwise({ redirectTo: '/' });
 
@@ -42,7 +88,9 @@ app.config(function($routeProvider, $locationProvider){
     $locationProvider.html5Mode(true);
 });
 
-// controllers
+/************************** controllers **************************/
+
+// main nav controllers
 app.controller('mainCtrl', function($scope){
   $scope.message = 'Home';
 });
@@ -73,3 +121,5 @@ app.controller('rentalCtrl', function($scope, $http){
 app.controller('contactCtrl', function($scope){
   $scope.message = 'Contact';
 });
+
+// solos controllers

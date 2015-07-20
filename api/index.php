@@ -30,10 +30,10 @@ $app->get('/rentals', 'getRentals');
 
 // sheet music solos
 $app->get('/solos/marimba', 'getMarimbaSolos');
-$app->get('/solos/marimbavibes', 'getMarimbaVibesSolos');
+$app->get('/solos/marimba-vibes', 'getMarimbaVibesSolos');
 $app->get('/solos/xylophone', 'getXyloSolos');
 $app->get('/solos/gyil', 'getGyilSolos');
-$app->get('/solos/hand', 'getHandDrSolos');
+$app->get('/solos/hand-drum', 'getHandDrSolos');
 $app->get('/solos/vibes', 'getVibeSolos');
 $app->get('/solos/timpani', 'getTimpSolos');
 $app->get('/solos/drumset', 'getDrumsetSolos');

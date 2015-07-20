@@ -56,7 +56,7 @@ function getMarimbaSolos() {
 
 }
 
-// return solo/marimbavibes list
+// return solo/marimba-vibes list
 function getMarimbaVibesSolos() {
 
     $sql = sheetMusicsSubType1('solo', 'marimba/vibes');
@@ -80,7 +80,7 @@ function getGyilSolos() {
 
 }
 
-// return solo/hand list
+// return solo/hand-drum list
 function getHandDrSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'hand drum');
