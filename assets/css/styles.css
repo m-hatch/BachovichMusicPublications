@@ -409,3 +409,21 @@ p#copy {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
+
+/* ===================== sheet music ======================== */
+#sheet-music h1 {
+  margin-bottom: 20px;
+}
+#sheet-music .music-row:last-of-type hr {
+  display: none;
+}
+#sheet-music .music-row hr {
+  border-color: #cdcdcd;
+}
+#sheet-music .img-responsive {
+  width: 100%;
+  box-shadow: 3px 3px 2px;
+}
+#sheet-music .music-row .duration {
+  font-size: 16px;
+}

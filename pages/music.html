@@ -1,0 +1,55 @@
+<div id="sheet-music">
+
+  <h1>{{ heading }}</h1>
+
+  <!-- sheet music listing -->
+  <div class="music-row" ng-repeat="music in musics | orderBy: 'lname'">
+    <div class="row">
+
+      <div ng-if="music.img">
+        <div class="col-xs-6 col-sm-3">
+          <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ music.img }}" />
+        </div>
+      </div>
+
+      <!-- description -->
+      <div class="music-desc col-sm-9">
+        <h4>
+          <span ng-if="music.composer">{{ music.composer }}&#47;</span>
+          {{ music.fname + ' ' + music.lname + ': ' }}<em>{{ music.title }}</em>
+          <span class="duration" ng-if="music.duration">&nbsp;{{ '[' + music.duration + ']' }}</span>
+          <span ng-if="music.contents">&nbsp;{{ '(' + music.contents + ')' }}</span>
+        </h4>
+        <p>{{ '$' + music.price + ' - #' + music.music_id }}</p>
+      
+        <!-- PayPal button -->
+        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    
+          <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          
+          <input type="hidden" name="add" value="1">
+          <input type="hidden" name="cmd" value="_cart">
+          <input type="hidden" name="business" value="orders@bachovich.com">
+          <input type="hidden" name="no_shipping" value="2">
+          <input type="hidden" name="no_note" value="1">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="lc" value="US">
+          <input type="hidden" name="bn" value="PP-ShopCartBF">
+          
+          <!-- dynamically genereated values -->
+          <input type="hidden" name="item_name" ng-value="'#' + music.music_id + ' - ' + music.fname + ' ' + music.lname + ': ' + music.title + ' [' + music.duration + ']'">
+          <input type="hidden" name="item_number" ng-value="music.music_id"> 
+          <input type="hidden" name="amount" ng-value="music.price">
+          <input type="hidden" name="shipping" ng-value="music.shipping">
+          
+        </form>
+
+      </div>
+
+    </div><!-- end .row -->
+    <hr>
+
+  </div><!-- end .music-row -->
+
+</div>

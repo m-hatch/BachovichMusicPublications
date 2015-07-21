@@ -16,12 +16,14 @@
     <div class="media-row" ng-repeat="media in medias | filter: search_media | orderBy: 'lname'">
       <div class="media-list col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
-        <img class="img-responsive" ng-src="assets/images/audio_video/{{ media.img }}" />
+        <div ng-if="media.img">
+          <img class="img-responsive" ng-src="assets/images/audio_video/{{ media.img }}" />
+        </div>
 
         <!-- description -->
         <div class="media-desc">
           <p>{{ media.fname + ' ' + media.lname + ': ' }}&nbsp;<em>{{ media.title }}</em></p>
-          <p>{{ '$' + media.price + ' - #' + media.media_id + ' - ' + media.type}}</p>
+          <p>{{ '$' + media.price + ' - #' + media.media_id + ' - ' + media.type }}</p>
         </div>
 
         <!-- PayPal button -->

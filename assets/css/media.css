@@ -26,6 +26,9 @@
   #media .media-row:nth-child(2n+1) {
     clear: both;
   }
+  #sheet-music .col-xs-6 {
+    width: 33.33333%;
+  }
 }
 
 /* Small Devices, Tablets */
