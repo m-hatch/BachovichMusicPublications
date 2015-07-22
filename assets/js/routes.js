@@ -120,39 +120,39 @@ app.config(function($routeProvider, $locationProvider){
     })
     .when('/duets/timpani', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetTimpCtrl'
     })
     .when('/duets/timpani-piano', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetTimpPnoCtrl'
     })
     .when('/duets/timpani-woodwinds', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetTimpWwCtrl'
     })
     .when('/duets/timpani-perc', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetTimpPercCtrl'
     })
     .when('/duets/vibes-piano', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetVibePnoCtrl'
     })
     .when('/duets/vibes-strings', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetVibeStrCtrl'
     })
     .when('/duets/multi', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetMultiCtrl'
     })
     .when('/duets/multi-voice', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetMultiVoxCtrl'
     })
     .when('/duets/multi-woodwinds', {
       templateUrl: 'pages/music.html',
-      controller: 'mainCtrl'
+      controller: 'duetMultiWwCtrl'
     })
 
     // catch all

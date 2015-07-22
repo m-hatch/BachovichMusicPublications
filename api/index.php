@@ -55,6 +55,14 @@ $app->get('/duets/marimba-voice', 'getMarimbaVoice');
 $app->get('/duets/marimba-timpani', 'getMarimbaTimp');
 $app->get('/duets/marimba-perc', 'getMarimbaPerc');
 $app->get('/duets/marimba-woodwinds', 'getMarimbaWw');
-
+$app->get('/duets/timpani', 'getTimpDuos');
+$app->get('/duets/timpani-piano', 'getTimpPno');
+$app->get('/duets/timpani-woodwinds', 'getTimpWw');
+$app->get('/duets/timpani-perc', 'getTimpPerc');
+$app->get('/duets/vibes-piano', 'getVibePno');
+$app->get('/duets/vibes-strings', 'getVibeStr');
+$app->get('/duets/multi', 'getMultiDuos');
+$app->get('/duets/multi-voice', 'getMultiVox');
+$app->get('/duets/multi-woodwinds', 'getMultiWw');
 
 $app->run();
