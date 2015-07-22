@@ -2,52 +2,6 @@
 
 // *********** solos service functions ****************
 
-// get sheet music by sub_type1
-function sheetMusicsSubType1($type, $sub){
-    $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
-    s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
-    FROM sheetmusics s INNER JOIN artists a 
-    ON s.artist_id = a.artist_id
-    WHERE s.type = '" . $type . "' AND s.sub_type1 = '" . $sub . "'";
-
-    return $sql;
-}
-
-// return data rows abstract
-function getDataRows($sql) {
- 
-    $app = \Slim\Slim::getInstance();
- 
-    try {
-        $db = getDB();
-        $stmt = $db->prepare($sql);
-        $stmt->execute();
-        $data = array();
-        $stmt->setFetchMode(PDO::FETCH_OBJ);
-
-        // fetch data into array
-        $i = 0;
-        while($row = $stmt->fetch()) {
-            $data[$i] = $row;
-            $i++;
-        }
-        
-        // return data
-        if($data) {
-            $app->response->setStatus(200);
-            $app->response()->headers->set('Content-Type', 'application/json');
-            echo json_encode($data);
-            $db = null;
-        } else {
-            throw new PDOException('No works found.');
-        }
- 
-    } catch(PDOException $e) {
-        $app->response()->setStatus(404);
-        echo $e->getTrace();
-    }
-}
-
 // return solo/marimba list
 function getMarimbaSolos() {
 

@@ -108,3 +108,75 @@ app.controller('soloPanCtrl', function($scope, $http){
     $scope.musics = response;
   });
 });
+
+// duets controllers
+app.controller('duetSnareCtrl', function($scope, $http){
+  $http.get('api/duets/snare')
+  .success(function(response) {
+    $scope.heading = 'Duets - Snare Drum'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMarHpCtrl', function($scope, $http){
+  $http.get('api/duets/marimba-harp')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba/Harp'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMarCtrl', function($scope, $http){
+  $http.get('api/duets/marimba')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMvCtrl', function($scope, $http){
+  $http.get('api/duets/marimba-vibes')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba/Vibes'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMarStrCtrl', function($scope, $http){
+  $http.get('api/duets/marimba-strings')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba/Strings'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMarGuitarCtrl', function($scope, $http){
+  $http.get('api/duets/marimba-guitar')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba/Guitar'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMarVoxCtrl', function($scope, $http){
+  $http.get('api/duets/marimba-voice')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba/Voice'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMarTimpCtrl', function($scope, $http){
+  $http.get('api/duets/marimba-timpani')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba/Timpani'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMarPercCtrl', function($scope, $http){
+  $http.get('api/duets/marimba-perc')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba/Percussion'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMarWwCtrl', function($scope, $http){
+  $http.get('api/duets/marimba-woodwinds')
+  .success(function(response) {
+    $scope.heading = 'Duets - Marimba/Woodwinds'
+    $scope.musics = response;
+  });
+});

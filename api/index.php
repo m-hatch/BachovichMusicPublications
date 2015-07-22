@@ -8,7 +8,10 @@ include 'functions/db.php';
 include 'functions/medias.php';
 include 'functions/artists.php';
 include 'functions/rentals.php';
+include 'functions/sql_stmts.php';
+include 'functions/data_functions.php';
 include 'functions/solos.php';
+include 'functions/duos.php';
 
 // initialize app
 $app = new \Slim\Slim();
@@ -40,6 +43,18 @@ $app->get('/solos/drumset', 'getDrumsetSolos');
 $app->get('/solos/multi', 'getMultiSolos');
 $app->get('/solos/snare', 'getSnareSolos');
 $app->get('/solos/pan', 'getPanSolos');
+
+// sheet music duets
+$app->get('/duets/snare', 'getSnareDuos');
+$app->get('/duets/marimba-harp', 'getMarimbaHarp');
+$app->get('/duets/marimba', 'getMarimbaDuos');
+$app->get('/duets/marimba-vibes', 'getMarimbaVibes');
+$app->get('/duets/marimba-strings', 'getMarimbaStr');
+$app->get('/duets/marimba-guitar', 'getMarimbaGuitar');
+$app->get('/duets/marimba-voice', 'getMarimbaVoice');
+$app->get('/duets/marimba-timpani', 'getMarimbaTimp');
+$app->get('/duets/marimba-perc', 'getMarimbaPerc');
+$app->get('/duets/marimba-woodwinds', 'getMarimbaWw');
 
 
 $app->run();

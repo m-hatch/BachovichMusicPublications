@@ -33,7 +33,7 @@
 
     // Sidebar Submenu Script
     $('#sidebar-wrapper li.has-sub>a').on('click', function(){
-      console.log('clicked');
+      
         $(this).removeAttr('href');
         var element = $(this).parent('li');
         if (element.hasClass('open')) {

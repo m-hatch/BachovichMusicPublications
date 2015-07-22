@@ -77,6 +77,48 @@ app.config(function($routeProvider, $locationProvider){
       controller: 'soloPanCtrl'
     })
 
+    // duets
+    .when('/duets/snare', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetSnareCtrl'
+    })
+    .when('/duets/marimba-harp', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMarHpCtrl'
+    })
+    .when('/duets/marimba', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMarCtrl'
+    })
+    .when('/duets/marimba-vibes', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMvCtrl'
+    })
+    .when('/duets/marimba-strings', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMarStrCtrl'
+    })
+    .when('/duets/marimba-guitar', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMarGuitarCtrl'
+    })
+    .when('/duets/marimba-voice', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMarVoxCtrl'
+    })
+    .when('/duets/marimba-timpani', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMarTimpCtrl'
+    })
+    .when('/duets/marimba-perc', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMarPercCtrl'
+    })
+    .when('/duets/marimba-woodwinds', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMarWwCtrl'
+    })
+
     // catch all
     .otherwise({ redirectTo: '/' });
 
