@@ -46,7 +46,7 @@ CREATE TABLE SheetMusic(
   sub_type2 VARCHAR(40),
   title VARCHAR(100) NOT NULL,
   duration VARCHAR(15),
-  contents VARCHAR(100),
+  contents VARCHAR(150),
   description TEXT,
   price DECIMAL(8,2) NOT NULL,
   img VARCHAR(100),
