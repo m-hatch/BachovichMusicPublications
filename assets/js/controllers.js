@@ -180,3 +180,66 @@ app.controller('duetMarWwCtrl', function($scope, $http){
     $scope.musics = response;
   });
 });
+app.controller('duetTimpCtrl', function($scope, $http){
+  $http.get('api/duets/timpani')
+  .success(function(response) {
+    $scope.heading = 'Duets - Timpani'
+    $scope.musics = response;
+  });
+});
+app.controller('duetTimpPnoCtrl', function($scope, $http){
+  $http.get('api/duets/timpani-piano')
+  .success(function(response) {
+    $scope.heading = 'Duets - Timpani/Piano'
+    $scope.musics = response;
+  });
+});
+app.controller('duetTimpWwCtrl', function($scope, $http){
+  $http.get('api/duets/timpani-woodwinds')
+  .success(function(response) {
+    $scope.heading = 'Duets - Timpani/Woodwinds'
+    $scope.musics = response;
+  });
+});
+app.controller('duetTimpPercCtrl', function($scope, $http){
+  $http.get('api/duets/timpani-perc')
+  .success(function(response) {
+    $scope.heading = 'Duets - Timpani/Percussion'
+    $scope.musics = response;
+  });
+});
+app.controller('duetVibePnoCtrl', function($scope, $http){
+  $http.get('api/duets/vibes-piano')
+  .success(function(response) {
+    $scope.heading = 'Duets - Vibes/Piano'
+    $scope.musics = response;
+  });
+});
+app.controller('duetVibeStrCtrl', function($scope, $http){
+  $http.get('api/duets/vibes-strings')
+  .success(function(response) {
+    $scope.heading = 'Duets - Vibes/Strings'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMultiCtrl', function($scope, $http){
+  $http.get('api/duets/multi')
+  .success(function(response) {
+    $scope.heading = 'Duets - Multi-Percussion'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMultiVoxCtrl', function($scope, $http){
+  $http.get('api/duets/multi-voice')
+  .success(function(response) {
+    $scope.heading = 'Duets - Multi-Percussion/Voice'
+    $scope.musics = response;
+  });
+});
+app.controller('duetMultiWwCtrl', function($scope, $http){
+  $http.get('api/duets/multi-woodwinds')
+  .success(function(response) {
+    $scope.heading = 'Duets - Multi-Percussion/Woodwinds'
+    $scope.musics = response;
+  });
+});

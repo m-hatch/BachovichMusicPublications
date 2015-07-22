@@ -118,6 +118,42 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: 'pages/music.html',
       controller: 'duetMarWwCtrl'
     })
+    .when('/duets/timpani', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
+    .when('/duets/timpani-piano', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
+    .when('/duets/timpani-woodwinds', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
+    .when('/duets/timpani-perc', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
+    .when('/duets/vibes-piano', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
+    .when('/duets/vibes-strings', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
+    .when('/duets/multi', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
+    .when('/duets/multi-voice', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
+    .when('/duets/multi-woodwinds', {
+      templateUrl: 'pages/music.html',
+      controller: 'mainCtrl'
+    })
 
     // catch all
     .otherwise({ redirectTo: '/' });
