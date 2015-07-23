@@ -12,11 +12,16 @@ include 'functions/sql_stmts.php';
 include 'functions/data_functions.php';
 include 'functions/solos.php';
 include 'functions/duos.php';
+include 'functions/sheetmusic.php';
 
 // initialize app
 $app = new \Slim\Slim();
 
-/* define service endpoints */
+/* --------------------------------------------------------------- *
+*                                                                  *
+*                     define service endpoints                     *
+*                                                                  *
+* -----------------------------------------------------------------*/
 $app->get('/', function() use($app) {
     $app->response->setStatus(200);
     echo "This is the service root";
@@ -64,5 +69,17 @@ $app->get('/duets/vibes-strings', 'getVibeStr');
 $app->get('/duets/multi', 'getMultiDuos');
 $app->get('/duets/multi-voice', 'getMultiVox');
 $app->get('/duets/multi-woodwinds', 'getMultiWw');
+
+// sheet music no sub-menu
+$app->get('/trios', 'getTrios');
+$app->get('/quartets', 'getQuartets');
+$app->get('/ensemble', 'getEns');
+$app->get('/steelband', 'getSteel');
+$app->get('/tape', 'getTape');
+$app->get('/orchestra', 'getOrch');
+$app->get('/band', 'getBand');
+$app->get('/mixed', 'getMixed');
+
+// sheet music method books
 
 $app->run();

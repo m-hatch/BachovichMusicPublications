@@ -31,6 +31,6 @@ function getDataRows($sql) {
  
     } catch(PDOException $e) {
         $app->response()->setStatus(404);
-        echo $e->getTrace();
+        echo $e;
     }
 }
