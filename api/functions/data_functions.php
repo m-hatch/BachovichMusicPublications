@@ -36,9 +36,9 @@ function getDataRows($sql) {
 }
 
 // return selected row
-function getRow($appObj, $sql) {
+function getRow($sql) {
  
-    $app = $appObj;
+    $app = \Slim\Slim::getInstance();
  
     try {
         $db = getDB();
@@ -62,8 +62,10 @@ function getRow($appObj, $sql) {
     }
 }
 
-// add data row
-function addRow($sql) {
+// add data row #### broken. pass in $app? $db->prepare($sql) must take str, gets object?
+function addRow($appObj, $sql) {
+
+    $app = $appObj;
 
     try {
         $db = getDB();

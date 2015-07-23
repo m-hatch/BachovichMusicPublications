@@ -427,3 +427,13 @@ p#copy {
 #sheet-music .music-row .duration {
   font-size: 16px;
 }
+#sheet-music .search-music {
+  float: right;
+  margin-bottom: 18px;
+}
+#sheet-music .search-music button {
+  padding: 2px 12px;
+}
+#sheet-music .clear {
+  clear: both;
+}

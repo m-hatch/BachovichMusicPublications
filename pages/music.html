@@ -2,6 +2,17 @@
 
   <h2>{{ heading }}</h2>
 
+  <!-- search music -->
+  <div class="clearfix">
+    <div class="search-music">
+      <span>Search Music:&nbsp;</span>
+      <input type="text" />
+      <input type="submit" value="Go!" />
+      <button type="submit" class="btn btn-default">Go!</button>
+    </div>
+    <hr class="clear">
+  </div>
+
   <!-- sheet music listing -->
   <div class="music-row" ng-repeat="music in musics | orderBy: 'lname'">
     <div class="row">
