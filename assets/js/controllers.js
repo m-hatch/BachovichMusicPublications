@@ -1,3 +1,8 @@
+/* --------------------------------------------------------------- *
+*                                                                  *
+*                              main nav                            *
+*                                                                  *
+* -----------------------------------------------------------------*/
 // main nav controllers
 app.controller('mainCtrl', function($scope){
   $scope.message = 'Home';
@@ -30,6 +35,11 @@ app.controller('contactCtrl', function($scope){
   $scope.message = 'Contact';
 });
 
+/* --------------------------------------------------------------- *
+*                                                                  *
+*                              solos                               *
+*                                                                  *
+* -----------------------------------------------------------------*/
 // solos controllers
 app.controller('soloMarCtrl', function($scope, $http){
   $http.get('api/solos/marimba')
@@ -109,6 +119,11 @@ app.controller('soloPanCtrl', function($scope, $http){
   });
 });
 
+/* --------------------------------------------------------------- *
+*                                                                  *
+*                              duets                               *
+*                                                                  *
+* -----------------------------------------------------------------*/
 // duets controllers
 app.controller('duetSnareCtrl', function($scope, $http){
   $http.get('api/duets/snare')
@@ -243,3 +258,9 @@ app.controller('duetMultiWwCtrl', function($scope, $http){
     $scope.musics = response;
   });
 });
+
+/* --------------------------------------------------------------- *
+*                                                                  *
+*                           no sub-menu                            *
+*                                                                  *
+* -----------------------------------------------------------------*/

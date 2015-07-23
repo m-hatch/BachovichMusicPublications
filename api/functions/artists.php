@@ -5,80 +5,25 @@
 // return artist names
 function getArtists() {
  
-    $app = \Slim\Slim::getInstance();
     $sql = "SELECT artist_id, fname, lname 
             FROM artists";
- 
-    try {
-        $db = getDB();
-
-        $stmt = $db->prepare($sql);
- 
-        $stmt->execute();
- 
-        $artists = array();
-        $stmt->setFetchMode(PDO::FETCH_OBJ);
-
-        // fetch data into $artists array
-        $i = 0;
-        while($row = $stmt->fetch()) {
-            $artists[$i] = $row;
-            $i++;
-        }
-        
-        // return data
-        if($artists) {
-            $app->response->setStatus(200);
-            $app->response()->headers->set('Content-Type', 'application/json');
-            echo json_encode($artists);
-            $db = null;
-        } else {
-            throw new PDOException('No artists found.');
-        }
- 
-    } catch(PDOException $e) {
-        $app->response()->setStatus(404);
-        echo errorHandle($e);
-    }
+    getDataRows($sql);
 }
 
 // return selected artist
 function getArtist($id) {
- 
-    $app = \Slim\Slim::getInstance();
+
     $sql = "SELECT * 
             FROM artists
-            WHERE artist_id = :id";
- 
-    try {
-        $db = getDB();
-
-        $stmt = $db->prepare($sql);
- 
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
- 
-        $artist = $stmt->fetch(PDO::FETCH_OBJ);
- 
-        if($artist) {
-            $app->response->setStatus(200);
-            $app->response()->headers->set('Content-Type', 'application/json');
-            echo json_encode($artist);
-            $db = null;
-        } else {
-            throw new PDOException('Artist not found.');
-        }
- 
-    } catch(PDOException $e) {
-        $app->response()->setStatus(404);
-        echo '{"error":{"text":'. $e->getMessage() .'}}';
-    }
+            WHERE artist_id = " . $id;
+    getRow($sql);
 }
 
 // add artists
 function addArtist() {
 
     $app = \Slim\Slim::getInstance()->request();
+
     $artist = json_decode($app->getBody());
     $sql = "INSERT INTO artists (fname, lname, bio, img) 
             VALUES (:fname, :lname, :bio, :img)";
@@ -139,7 +84,7 @@ function updateArtist($id) {
         $db = null;
 
         // for trial test in command line
-        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"fname": "new", "lname": "name", "bio": "chicas", "img": null}' http://localhost:3000/api/update/artist/12
+        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"fname": "new", "lname": "name", "bio": "chicas", "img": null}' http://localhost:3000/api/update/artist/1
 
     } catch(PDOException $e) {
         $app->response()->setStatus(404);
@@ -166,7 +111,7 @@ function deleteArtist($id) {
         $db = null;
 
         // for trial test in command line
-        //curl -i -X DELETE http://localhost:3000/api/delete/artist/12
+        //curl -i -X DELETE http://localhost:3000/api/delete/artist/1
 
     } catch(PDOException $e) {
         echo '{"error":{"text":'. $e->getMessage() .'}}';
