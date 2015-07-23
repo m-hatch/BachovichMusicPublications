@@ -34,14 +34,6 @@ function getSteel() {
 
 }
 
-// return tape list
-function getTape() {
-
-    $sql = sheetMusicsType('tape');
-    getDataRows($sql);
-
-}
-
 // return orchestra list
 function getOrch() {
 
