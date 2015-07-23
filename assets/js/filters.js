@@ -31,4 +31,40 @@ app.filter('search_artists', function($log) {
 
     return output;
   }
-})
+});
+
+/* --------------------------------------------------------------- *
+*                           search medias                          *
+* ---------------------------------------------------------------- */
+app.filter('search_medias', function($log) {
+  return function(input, query) {
+    // return all artists if nothing in query box
+    if (!query) return input;
+
+    //split query terms by space character
+    var terms = query.split(' ');
+    var output = [];
+
+    // iterate through input array
+    input.forEach(function(media){
+      var found = false;
+      passTest = true;
+
+      // iterate through terms found in query box
+      terms.forEach(function(term){
+       
+        // if all terms are found set boolean to true
+        found = (media.fname.toLowerCase().indexOf(term.toLowerCase()) > -1) 
+          || (media.lname.toLowerCase().indexOf(term.toLowerCase()) > -1)
+          || (media.title.toLowerCase().indexOf(term.toLowerCase()) > -1);
+        
+        passTest = passTest && found;
+      });
+
+      // Add media to output array only if passTest is true -- all search terms were found in media
+      if (passTest) { output.push(media); }
+    });
+
+    return output;
+  }
+});
