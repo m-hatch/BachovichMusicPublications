@@ -155,6 +155,36 @@ app.config(function($routeProvider, $locationProvider){
       controller: 'duetMultiWwCtrl'
     })
 
+    // non sub-menu
+    .when('/trios', {
+      templateUrl: 'pages/music.html',
+      controller: 'triosCtrl'
+    })
+    .when('/quartets', {
+      templateUrl: 'pages/music.html',
+      controller: 'quartetsCtrl'
+    })
+    .when('/ensemble', {
+      templateUrl: 'pages/music.html',
+      controller: 'ensCtrl'
+    })
+    .when('/steelband', {
+      templateUrl: 'pages/music.html',
+      controller: 'steelCtrl'
+    })
+    .when('/orchestra', {
+      templateUrl: 'pages/music.html',
+      controller: 'orchCtrl'
+    })
+    .when('/band', {
+      templateUrl: 'pages/music.html',
+      controller: 'bandCtrl'
+    })
+    .when('/mixed', {
+      templateUrl: 'pages/music.html',
+      controller: 'mixedCtrl'
+    })
+
     // catch all
     .otherwise({ redirectTo: '/' });
 

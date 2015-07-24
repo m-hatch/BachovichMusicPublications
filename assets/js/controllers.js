@@ -264,3 +264,53 @@ app.controller('duetMultiWwCtrl', function($scope, $http){
 *                           no sub-menu                            *
 *                                                                  *
 * -----------------------------------------------------------------*/
+// no sub-menu controllers
+app.controller('triosCtrl', function($scope, $http){
+  $http.get('api/trios')
+  .success(function(response) {
+    $scope.heading = 'Trios'
+    $scope.musics = response;
+  });
+});
+app.controller('quartetsCtrl', function($scope, $http){
+  $http.get('api/quartets')
+  .success(function(response) {
+    $scope.heading = 'Quartets'
+    $scope.musics = response;
+  });
+});
+app.controller('ensCtrl', function($scope, $http){
+  $http.get('api/ensemble')
+  .success(function(response) {
+    $scope.heading = 'Percussion Ensemble'
+    $scope.musics = response;
+  });
+});
+app.controller('steelCtrl', function($scope, $http){
+  $http.get('api/steelband')
+  .success(function(response) {
+    $scope.heading = 'Steel Band'
+    $scope.musics = response;
+  });
+});
+app.controller('orchCtrl', function($scope, $http){
+  $http.get('api/orchestra')
+  .success(function(response) {
+    $scope.heading = 'Orchestra'
+    $scope.musics = response;
+  });
+});
+app.controller('bandCtrl', function($scope, $http){
+  $http.get('api/band')
+  .success(function(response) {
+    $scope.heading = 'Concert Band'
+    $scope.musics = response;
+  });
+});
+app.controller('mixedCtrl', function($scope, $http){
+  $http.get('api/mixed')
+  .success(function(response) {
+    $scope.heading = 'Mixed Ensemble'
+    $scope.musics = response;
+  });
+});
