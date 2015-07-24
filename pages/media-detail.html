@@ -1,0 +1,56 @@
+<div id="media-detail">
+  
+  <!-- media detail -->
+  <div class="row">
+
+    <div ng-if="media_detail.img">
+      <div class="col-sm-3">
+        <img class="img-responsive" ng-src="assets/images/audio_video/{{ media_detail.img }}" />
+      </div>
+    </div>
+
+    <!-- title etc. -->
+    <div class="music-desc col-sm-9">
+      <h4>
+        {{ media_detail.fname + ' ' + media_detail.lname + ': ' }}
+        <em>{{ media_detail.title }}</em>
+      </h4>
+      <p>
+        {{ '$' + media_detail.price + ' - #' + media_detail.music_id + ' - ' + media_detail.type }}
+      </p>
+
+      <!-- PayPal button -->
+      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  
+        <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        
+        <input type="hidden" name="add" value="1">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="business" value="orders@bachovich.com">
+        <input type="hidden" name="no_shipping" value="2">
+        <input type="hidden" name="no_note" value="1">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="lc" value="US">
+        <input type="hidden" name="bn" value="PP-ShopCartBF">
+        
+        <!-- dynamically genereated values -->
+        <input type="hidden" name="item_name" ng-value="'#' + media_detail.media_id + ' - ' + media_detail.type + ' - ' + media_detail.fname + ' ' + media_detail.lname + ': ' + media_detail.title">
+        <input type="hidden" name="item_number" ng-value="media_detail.music_id"> 
+        <input type="hidden" name="amount" ng-value="media_detail.price">
+        <input type="hidden" name="shipping" ng-value="media_detail.shipping">
+        
+      </form>
+
+    </div>
+
+  </div><!-- end .row -->
+
+  <!-- item details -->
+  <div class="media-info">
+    <p>{{ media_detail.description }}</p>
+  </div>
+
+  <p><a href="media">Back to Audio/Video</a></p>
+  
+</div>

@@ -7,10 +7,16 @@
 app.controller('mainCtrl', function($scope){
   $scope.message = 'Home';
 });
-app.controller('mediaCtrl', function($scope, $http){
+app.controller('mediasCtrl', function($scope, $http){
   $http.get('api/medias')
   .success(function(response) {
     $scope.medias = response;
+  });
+});
+app.controller('mediaCtrl', function($scope, $http, $routeParams){
+  $http.get('api/media/' + $routeParams.id)
+  .success(function(response) {
+    $scope.media_detail = response;
   });
 });
 app.controller('artistsCtrl', function($scope, $http){

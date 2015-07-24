@@ -26,6 +26,9 @@
   #media .media-row:nth-child(2n+1) {
     clear: both;
   }
+  #media-detail .img-responsive {
+    max-width: 250px;
+  }
   #sheet-music .col-xs-6 {
     width: 33.33333%;
   }

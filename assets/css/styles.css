@@ -301,6 +301,10 @@ p#copy {
 #page-content a:hover {
   color: #6C6;
 }
+.img-responsive {
+  width: 100%;
+  box-shadow: 3px 3px 2px;
+}
 .search {
   margin-top: 10px;
   margin-bottom: 20px;
@@ -332,12 +336,14 @@ p#copy {
 #media .media-list {
   padding: 14px;
 }
-#media .img-responsive {
-  width: 100%;
-  box-shadow: 3px 3px 2px;
-}
 #media .media-desc {
   margin-top: 15px;
+}
+#media-detail {
+  margin-top: 30px;
+}
+#media-detail .media-info {
+  margin-top: 20px;
 }
 
 /* ===================== artists ======================== */
@@ -430,10 +436,6 @@ p#copy {
 }
 #sheet-music .music-row hr {
   border-color: #cdcdcd;
-}
-#sheet-music .img-responsive {
-  width: 100%;
-  box-shadow: 3px 3px 2px;
 }
 #sheet-music .music-row .sub-title {
   font-size: 16px;

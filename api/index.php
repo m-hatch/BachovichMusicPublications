@@ -27,6 +27,7 @@ $app->get('/', function() use($app) {
 
 // main nav pages
 $app->get('/medias', 'getMedias');
+$app->get('/media/:id', 'getMediaDetail');
 $app->get('/artists', 'getArtists');
 $app->get('/artist/:id', 'getArtist');
 $app->get('/rentals', 'getRentals');

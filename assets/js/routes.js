@@ -12,6 +12,10 @@ app.config(function($routeProvider, $locationProvider){
     })
     .when('/media', {
       templateUrl: 'pages/media.html',
+      controller: 'mediasCtrl'
+    })
+    .when('/media/:id', {
+      templateUrl: 'pages/media-detail.html',
       controller: 'mediaCtrl'
     })
     .when('/artists', {
