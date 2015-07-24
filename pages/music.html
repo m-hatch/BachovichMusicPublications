@@ -27,12 +27,27 @@
       <div class="music-desc col-sm-9">
         <h4>
           <span ng-if="music.composer">{{ music.composer }}&#47;</span>
-          {{ music.fname + ' ' + music.lname + ': ' }}<em>{{ music.title }}</em>
-          <span class="duration" ng-if="music.duration">&nbsp;{{ '[' + music.duration + ']' }}</span>
-          <span ng-if="music.contents">&nbsp;{{ '(' + music.contents + ')' }}</span>
+          {{ music.fname + ' ' + music.lname + ': ' }}<em>{{ music.title }}&nbsp;</em>
+          <span class="sub-title" ng-if="music.duration">&nbsp;{{ '[' + music.duration + ']' }}</span>
+          <span class="sub-title" ng-if="music.contents">{{ '(' + music.contents + ')' }}</span>
         </h4>
         <p>{{ '$' + music.price + ' - #' + music.music_id }}</p>
-      
+
+        <!-- info toggles -->
+        <div ng-if="music.description">
+          <p><a href="" ng-click="toggleItem = ! toggleItem">Click Here for more information</a></p>
+          <div class="info-tab" ng-class="{ 'display': ! toggleItem }">
+            {{ music.description }}
+          </div>
+        </div>
+        <!--  Audio Link
+        <div ng-if="music.description">
+          <p><a href="" ng-click="toggleItem = ! toggleItem">Click Here for audio/video</a></p>
+          <div class="info-tab" ng-class="{ 'display': ! toggleItem }">
+            {{ music.description }}
+          </div>
+        </div>-->
+              
         <!-- PayPal button -->
         <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
     

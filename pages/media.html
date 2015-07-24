@@ -26,6 +26,21 @@
           <p>{{ '$' + media.price + ' - #' + media.media_id + ' - ' + media.type }}</p>
         </div>
 
+        <!-- info toggles -->
+        <div ng-if="media.description">
+          <p><a href="" ng-click="toggleItem = ! toggleItem">Click Here for more</a></p>
+          <div class="info-tab" ng-class="{ 'display': ! toggleItem }">
+            <!--{{ media.description }} ## make new view template -->
+          </div>
+        </div>
+        <!--  Audio Link
+        <div ng-if="music.description">
+          <p><a href="" ng-click="toggleItem = ! toggleItem">Click Here for audio/video</a></p>
+          <div class="info-tab" ng-class="{ 'display': ! toggleItem }">
+            {{ music.description }}
+          </div>
+        </div>-->
+
         <!-- PayPal button -->
         <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
     
