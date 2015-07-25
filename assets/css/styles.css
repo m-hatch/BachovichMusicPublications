@@ -295,6 +295,9 @@ p#copy {
   position: relative;
   padding-bottom: 100px; /* for footer */
 }
+#page-content {
+  padding-top: 20px;
+}
 #page-content a {
   color: #696;
 }
@@ -340,7 +343,7 @@ p#copy {
   margin-top: 15px;
 }
 #media-detail {
-  margin-top: 30px;
+  padding-top: 16px;
 }
 #media-detail .media-info {
   margin-top: 20px;
@@ -352,9 +355,6 @@ p#copy {
 }
 #artists .artist-list a {
   color: #999999;
-}
-#artist-detail {
-  margin-top: 20px;
 }
 #artist-detail .artist-img {
   width: 120px;

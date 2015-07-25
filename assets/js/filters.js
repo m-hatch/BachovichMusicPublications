@@ -36,7 +36,7 @@ app.filter('search_artists', function($log) {
 /* --------------------------------------------------------------- *
 *                           search medias                          *
 * ---------------------------------------------------------------- */
-app.filter('search_medias', function($log) {
+app.filter('search_products', function($log) {
   return function(input, query) {
     // return all artists if nothing in query box
     if (!query) return input;
@@ -46,7 +46,7 @@ app.filter('search_medias', function($log) {
     var output = [];
 
     // iterate through input array
-    input.forEach(function(media){
+    input.forEach(function(product){
       var found = false;
       passTest = true;
 
@@ -54,15 +54,15 @@ app.filter('search_medias', function($log) {
       terms.forEach(function(term){
        
         // if all terms are found set boolean to true
-        found = (media.fname.toLowerCase().indexOf(term.toLowerCase()) > -1) 
-          || (media.lname.toLowerCase().indexOf(term.toLowerCase()) > -1)
-          || (media.title.toLowerCase().indexOf(term.toLowerCase()) > -1);
+        found = (product.fname.toLowerCase().indexOf(term.toLowerCase()) > -1) 
+          || (product.lname.toLowerCase().indexOf(term.toLowerCase()) > -1)
+          || (product.title.toLowerCase().indexOf(term.toLowerCase()) > -1);
         
         passTest = passTest && found;
       });
 
-      // Add media to output array only if passTest is true -- all search terms were found in media
-      if (passTest) { output.push(media); }
+      // Add product to output array only if passTest is true -- all search terms were found in product
+      if (passTest) { output.push(product); }
     });
 
     return output;

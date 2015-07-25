@@ -54,9 +54,6 @@
   .jumbotron #header, .jumbotron hr {
     display: block;
   }
-  #artist-detail {
-    margin-top: 40px;
-  }
   #media .media-row:nth-child(2n+1) {
     clear: both;
   }
