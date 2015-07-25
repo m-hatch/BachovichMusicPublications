@@ -1,62 +1,35 @@
-/* Sticky Top Nav and Sidebar on Scroll 
+/* Sticky Top Nav and Sidebar on Scroll */
 
 ( function( $ ) {
   $( document ).ready(function() {
+      var scrolltop = $(this).scrollTop();
+      var pos = $('#page-body').position().top;
 
-    // insure content window height
-    var windowHeight = $(window).height();
-    $('.page-content-wrapper').css("min-height", windowHeight - 72);
+    // update on scroll
+    $(window).on('scroll',function() {
+      scrolltop = $(this).scrollTop();
+      pos = $('#page-body').position().top;
+      sticky();
+    });
 
     // update on window resize
     $( window ).resize(function() {
-      windowHeight = $(window).height();
-      $('.page-content-wrapper').css("min-height", windowHeight - 72);
+      scrolltop = $(this).scrollTop();
+      pos = $('#page-body').position().top;
+      sticky();
     });
 
-    // stick/unstick on scroll
-    $(window).on('scroll',function() {
-      var scrolltop = $(this).scrollTop();
-      var pos = $('#wrapper').position().top - 52;
-      
+    function sticky() {
       if(scrolltop >= pos) {
-        $('#sidebar-wrapper').removeClass( "sidebar-unsticky" ).addClass( "sidebar-sticky" );
-        $('#top-nav').removeClass( "nav-unsticky" ).addClass( "nav-sticky" );
+        $('#top-nav').removeClass( "unsticky" ).addClass( "sticky" );
+        $('#sidebar-wrapper').removeClass( "unsticky" ).addClass( "sticky" );
       }
        
       else {
-        $('#sidebar-wrapper').removeClass( "sidebar-sticky" ).addClass( "sidebar-unsticky" );
-        $('#top-nav').removeClass( "nav-sticky" ).addClass( "nav-unsticky" );
+        $('#top-nav').removeClass( "sticky" ).addClass( "unsticky" );
+        $('#sidebar-wrapper').removeClass( "sticky" ).addClass( "unsticky" );
       }
-    });
-
-  });
-} )( jQuery ); */
-
-( function( $ ) {
-  $( document ).ready(function() {
-
-    // Sticky Sidebar on Scroll
-    var windowHeight = $(window).height();
-    $('.page-content-wrapper').css("min-height", windowHeight - 20);
-
-    // update on window resize
-    $( window ).resize(function() {
-      windowHeight = $(window).height();
-      $('.page-content-wrapper').css("min-height", windowHeight - 20);
-    });
-
-    $(window).on('scroll',function() {
-      var scrolltop = $(this).scrollTop();
-      var pos = $('#wrapper').position().top;
-      
-      if(scrolltop >= pos) {
-        $('#sidebar-wrapper').removeClass( "sidebar-unsticky" ).addClass( "sidebar-sticky" );
-      }
-       
-      else {
-        $('#sidebar-wrapper').removeClass( "sidebar-sticky" ).addClass( "sidebar-unsticky" );
-      }
-    });
+    }
 
   });
 } )( jQuery );

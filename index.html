@@ -23,16 +23,21 @@
   <!-- header -->
   <div ng-include="'shared/header.html'"></div>
 
-  <!-- main content wrapper -->
-  <div id="wrapper" class="container">
-
-    <!-- sidebar menu -->
-    <div ng-include="'shared/sidebar.html'"></div>
+  <!-- menus -->
+  <div id="menus">
     
-    <!-- page body -->
-    <div class="page-content-wrapper">
+    <div ng-include="'shared/topnav.html'"></div>
+    <div ng-include="'shared/sidebar.html'"></div>
 
+    <div class="wrapper sticky">
       <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Open Menu</a>
+    </div>
+
+  </div>
+    
+  <!-- page body -->
+  <div id="page-body" class="wrapper">
+    <div class="page-content-wrapper container">
 
       <!-- page content template-->
       <div id="page-content" ng-view></div>
@@ -41,7 +46,6 @@
       <div ng-include="'shared/footer.html'"></div>
 
     </div><!-- end .page-content-wrapper -->
-
   </div><!-- end .wrapper -->
   
 

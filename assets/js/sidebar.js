@@ -2,10 +2,22 @@
 ( function( $ ) {
   $( document ).ready(function() {
 
+    // Set height and update on window resize
+    var windowHeight = $(window).height();
+    $('.page-content-wrapper').css("min-height", windowHeight - 52);
+    $('#sidebar-wrapper').css("height", windowHeight - 52);
+
+    $( window ).resize(function() {
+      windowHeight = $(window).height();
+      $('.page-content-wrapper').css("min-height", windowHeight - 52);
+      $('#sidebar-wrapper').css("height", windowHeight - 52);
+    });
+
     // Sidebar Menu Toggle
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+        $("#menus").toggleClass("toggled");
+        $(".wrapper").toggleClass("toggled");
     });
 
     // Sidebar Submenu Script
