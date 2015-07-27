@@ -276,9 +276,14 @@ p#copy {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-.search span {
+.search span,
+.search-music span {
   font-size: 1.1em;
   color: #696;
+}
+.empty-search {
+  color: #999999;
+  font-size: 1.1em;
 }
 .info-tab {
   max-height: 2000px;
@@ -327,8 +332,8 @@ p#copy {
   margin-right: 15px;
 }
 #artists .artist-row:nth-child(2n+1) {
-    clear: both;
-  }
+  clear: both;
+}
 
 /* ===================== rentals ======================== */
 #rentals .table-responsive {
@@ -408,8 +413,7 @@ p#copy {
   margin-top: 5px;
 }
 #sheet-music .search-music {
-  float: right;
-  margin-top: 0;
+  /*float: right;*/
   margin-bottom: 18px;
 }
 #sheet-music .search-music button {

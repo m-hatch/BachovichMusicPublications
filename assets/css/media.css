@@ -89,6 +89,9 @@
   #media .media-row:nth-child(3n+1) {
     clear: both;
   }
+  #sheet-music .search-music {
+    float: right;
+  }
 }
 
 /* Large Devices, Wide Screens */
