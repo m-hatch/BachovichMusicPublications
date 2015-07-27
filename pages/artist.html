@@ -6,6 +6,10 @@
     {{ artist.lname }}
   </h3>
   <p>{{ artist.bio }}</p>
+
+  <!-- not found message -->
+  <p ng-if="artist.error"><em>Artist not found.</em></p>
+
   <p><a href="artists">Back to Artists</a></p>
   
 </div>

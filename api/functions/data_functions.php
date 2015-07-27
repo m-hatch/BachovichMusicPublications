@@ -11,6 +11,7 @@ function getDataRows($sql) {
         $stmt->execute();
         $data = array();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $error = array('error' => 'No match found');
 
         // fetch data into array
         $i = 0;
@@ -24,10 +25,12 @@ function getDataRows($sql) {
             $app->response->setStatus(200);
             $app->response()->headers->set('Content-Type', 'application/json');
             echo json_encode($data);
-            $db = null;
         } else {
-            throw new PDOException('No match found.');
+            $app->response->setStatus(200);
+            $app->response()->headers->set('Content-Type', 'application/json');
+            echo json_encode($error);
         }
+        $db = null;
  
     } catch(PDOException $e) {
         $app->response()->setStatus(404);
@@ -45,16 +48,19 @@ function getRow($sql) {
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_OBJ);
+        $error = array('error' => 'No match found');
  
         // return data
         if($row) {
             $app->response->setStatus(200);
             $app->response()->headers->set('Content-Type', 'application/json');
             echo json_encode($row);
-            $db = null;
         } else {
-            throw new PDOException('Match not found.');
+            $app->response->setStatus(200);
+            $app->response()->headers->set('Content-Type', 'application/json');
+            echo json_encode($error);
         }
+        $db = null;
  
     } catch(PDOException $e) {
         $app->response()->setStatus(404);

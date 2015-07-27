@@ -1,7 +1,7 @@
 <div id="media-detail">
   
   <!-- media detail -->
-  <div class="row">
+  <div class="row" ng-if="media_detail.media_id">
 
     <div ng-if="media_detail.img">
       <div class="col-sm-3">
@@ -50,6 +50,9 @@
   <div class="media-info">
     <p>{{ media_detail.description }}</p>
   </div>
+
+  <!-- not found message -->
+  <p ng-if="media_detail.error"><em>Item not found.</em></p>
 
   <p><a href="media">Back to Audio/Video</a></p>
   
