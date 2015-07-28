@@ -26,11 +26,11 @@
   #media .media-row:nth-child(2n+1) {
     clear: both;
   }
+  #media .img-responsive {
+    width: 100%;
+  }
   #media-detail .img-responsive {
     max-width: 250px;
-  }
-  #sheet-music .col-xs-6 {
-    width: 33.33333%;
   }
 }
 
@@ -59,6 +59,10 @@
   }
   #media .media-row:nth-child(2n+1) {
     clear: both;
+  }
+  #media .img-responsive, 
+  #sheet-music .img-responsive {
+    width: 100%;
   }
 }
 

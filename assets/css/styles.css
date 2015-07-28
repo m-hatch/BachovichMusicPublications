@@ -305,6 +305,9 @@ p#copy {
   font-weight: 500;
   line-height: 1.1;;
 }
+#media .img-responsive {
+  width: 60%;
+}
 #media .media-list {
   padding: 14px;
 }
@@ -397,6 +400,9 @@ p#copy {
 }
 
 /* ===================== sheet music ======================== */
+#sheet-music .img-responsive {
+  width: 40%;
+}
 #sheet-music h1 {
   margin-bottom: 20px;
 }
