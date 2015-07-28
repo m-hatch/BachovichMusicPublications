@@ -7,7 +7,7 @@ CREATE TABLE Artists(
   lname VARCHAR(50) NOT NULL,
   bio TEXT,
   img VARCHAR(100),
-  PRIMARY KEY ( artist_id )
+  PRIMARY KEY (artist_id)
 );
 
 CREATE TABLE Rentals(
@@ -18,7 +18,7 @@ CREATE TABLE Rentals(
   duration VARCHAR(15),
   contents VARCHAR(100),
   img VARCHAR(100),
-  PRIMARY KEY ( rental_id ),
+  PRIMARY KEY (rental_id),
   FOREIGN KEY (artist_id) 
     REFERENCES Artists(artist_id)
 );
@@ -32,7 +32,7 @@ CREATE TABLE Medias(
   price DECIMAL(8,2) NOT NULL,
   img VARCHAR(100),
   shipping DECIMAL(6,2),
-  PRIMARY KEY ( media_id ),
+  PRIMARY KEY (media_id),
   FOREIGN KEY (artist_id) 
     REFERENCES Artists(artist_id)
 );
@@ -51,7 +51,19 @@ CREATE TABLE SheetMusic(
   price DECIMAL(8,2) NOT NULL,
   img VARCHAR(100),
   shipping DECIMAL(6,2),
-  PRIMARY KEY ( music_id ),
+  PRIMARY KEY (music_id),
+  FOREIGN KEY (artist_id) 
+    REFERENCES Artists(artist_id)
+);
+
+CREATE TABLE Features(
+  feat_id INT NOT NULL AUTO_INCREMENT,
+  composition VARCHAR(4) NOT NULL,
+  book VARCHAR(4) NOT NULL,
+  media VARCHAR(4) NOT NULL,
+  artist INT NOT NULL,
+  
+  PRIMARY KEY (feat_id),
   FOREIGN KEY (artist_id) 
     REFERENCES Artists(artist_id)
 );

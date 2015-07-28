@@ -2,7 +2,7 @@
 
 /* ======================== header ====================== */
 .jumbotron {
-  background-color: #502256;
+  background-color: #55245A;
   padding: 0 15px;
   margin: 0;
 }
@@ -53,7 +53,7 @@ img.logo {
   position: absolute;
 }
 #top-nav {
-  background-color: #502256;
+  background-color: #55245A;
   z-index: 1000;
   top: 0;
   width: 100%;
@@ -295,6 +295,32 @@ p#copy {
 }
 .info-tab.display {
     max-height: 0;
+}
+
+/* ===================== home ======================== */
+#home .search-home {
+  border-bottom: 1px solid #eee;
+}
+#home .search-music {
+  padding: 15px 6px;
+  float: right;
+}
+#home .featured {
+  width: 100%;
+  color: #fff;
+  background-color: #662B6D;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+#home h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+#home .feat-info {
+  margin-top: 10px;
 }
 
 /* ===================== media ======================== */
