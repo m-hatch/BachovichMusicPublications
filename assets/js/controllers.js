@@ -320,3 +320,45 @@ app.controller('mixedCtrl', function($scope, $http){
     $scope.musics = response;
   });
 });
+
+/* --------------------------------------------------------------- *
+*                                                                  *
+*                              books                               *
+*                                                                  *
+* -----------------------------------------------------------------*/
+// method books controllers
+app.controller('bookMalletsCtrl', function($scope, $http){
+  $http.get('api/books/mallets')
+  .success(function(response) {
+    $scope.heading = 'Method Books - Mallets'
+    $scope.musics = response;
+  });
+});
+app.controller('bookSnareCtrl', function($scope, $http){
+  $http.get('api/books/snare')
+  .success(function(response) {
+    $scope.heading = 'Method Books - Snare Drum'
+    $scope.musics = response;
+  });
+});
+app.controller('bookTimpCtrl', function($scope, $http){
+  $http.get('api/books/timpani')
+  .success(function(response) {
+    $scope.heading = 'Method Books - Timpani'
+    $scope.musics = response;
+  });
+});
+app.controller('bookWorldCtrl', function($scope, $http){
+  $http.get('api/books/world')
+  .success(function(response) {
+    $scope.heading = 'Method Books - World'
+    $scope.musics = response;
+  });
+});
+app.controller('bookGeneralCtrl', function($scope, $http){
+  $http.get('api/books/general')
+  .success(function(response) {
+    $scope.heading = 'Method Books - General'
+    $scope.musics = response;
+  });
+});

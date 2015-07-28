@@ -13,6 +13,7 @@ include 'functions/rentals.php';
 include 'functions/solos.php';
 include 'functions/duos.php';
 include 'functions/sheetmusic.php';
+include 'functions/books.php';
 
 // initialize app
 $app = new \Slim\Slim();
@@ -76,6 +77,11 @@ $app->get('/band', 'getBand');
 $app->get('/mixed', 'getMixed');
 
 // sheet music method books
+$app->get('/books/mallets', 'getMalletBooks');
+$app->get('/books/snare', 'getSnareBooks');
+$app->get('/books/timpani', 'getTimpBooks');
+$app->get('/books/world', 'getWorldBooks');
+$app->get('/books/general', 'getGeneralBooks');
 
 /* --------------------------------------------------------------- *
 *                      admin service endpoints                     *

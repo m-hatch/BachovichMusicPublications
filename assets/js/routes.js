@@ -189,6 +189,28 @@ app.config(function($routeProvider, $locationProvider){
       controller: 'mixedCtrl'
     })
 
+    // books
+    .when('/books/mallets', {
+      templateUrl: 'pages/music.html',
+      controller: 'bookMalletsCtrl'
+    })
+    .when('/books/snare', {
+      templateUrl: 'pages/music.html',
+      controller: 'bookSnareCtrl'
+    })
+    .when('/books/timpani', {
+      templateUrl: 'pages/music.html',
+      controller: 'bookTimpCtrl'
+    })
+    .when('/books/world', {
+      templateUrl: 'pages/music.html',
+      controller: 'bookWorldCtrl'
+    })
+    .when('/books/general', {
+      templateUrl: 'pages/music.html',
+      controller: 'bookGeneralCtrl'
+    })
+
     // catch all
     .otherwise({ redirectTo: '/' });
 

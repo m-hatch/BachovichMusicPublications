@@ -34,7 +34,7 @@ app.filter('search_artists', function($log) {
 });
 
 /* --------------------------------------------------------------- *
-*                           search medias                          *
+*                           search products                        *
 * ---------------------------------------------------------------- */
 app.filter('search_products', function($log) {
   return function(input, query) {
