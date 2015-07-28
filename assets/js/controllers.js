@@ -5,7 +5,7 @@
 * -----------------------------------------------------------------*/
 // main nav controllers
 app.controller('mainCtrl', function($scope, $route){
-  $scope.$route = $route;
+  $scope.$route = $route; // for top nav highlighting
 });
 app.controller('mediasCtrl', function($scope, $http, $route){
   $http.get('api/medias')

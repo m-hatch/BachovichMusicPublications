@@ -7,6 +7,7 @@ require 'Slim/Slim.php';
 include 'functions/db.php';
 include 'functions/sql_stmts.php';
 include 'functions/data_functions.php';
+include 'functions/featured.php';
 include 'functions/medias.php';
 include 'functions/artists.php';
 include 'functions/rentals.php';
@@ -27,6 +28,7 @@ $app->get('/', function() use($app) {
 });
 
 // main nav pages
+$app->get('/featured', 'getFeatures');
 $app->get('/medias', 'getMedias');
 $app->get('/media/:id', 'getMediaDetail');
 $app->get('/artists', 'getArtists');

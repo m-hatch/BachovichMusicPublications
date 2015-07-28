@@ -1,6 +1,6 @@
 -- Bachovich Music Publications
--- DB create table statements
 
+-- DB create table statements
 CREATE TABLE Artists(
   artist_id INT NOT NULL AUTO_INCREMENT,
   fname VARCHAR(30),
@@ -37,14 +37,14 @@ CREATE TABLE Medias(
     REFERENCES Artists(artist_id)
 );
 
-CREATE TABLE SheetMusic(
+CREATE TABLE SheetMusics(
   music_id VARCHAR(4) NOT NULL,
   artist_id INT NOT NULL,
   composer VARCHAR(100),
   type VARCHAR(40),
   sub_type1 VARCHAR(40),
   sub_type2 VARCHAR(40),
-  title VARCHAR(100) NOT NULL,
+  title VARCHAR(150) NOT NULL,
   duration VARCHAR(15),
   contents VARCHAR(150),
   description TEXT,
@@ -62,8 +62,13 @@ CREATE TABLE Features(
   book VARCHAR(4) NOT NULL,
   media VARCHAR(4) NOT NULL,
   artist INT NOT NULL,
-  
   PRIMARY KEY (feat_id),
-  FOREIGN KEY (artist_id) 
+  FOREIGN KEY (composition) 
+    REFERENCES SheetMusics(music_id),
+  FOREIGN KEY (book) 
+    REFERENCES SheetMusics(music_id),
+  FOREIGN KEY (media) 
+    REFERENCES Medias(media_id),
+  FOREIGN KEY (artist) 
     REFERENCES Artists(artist_id)
 );

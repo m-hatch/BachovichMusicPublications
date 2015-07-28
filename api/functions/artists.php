@@ -13,9 +13,7 @@ function getArtists() {
 // return selected artist
 function getArtist($id) {
 
-    $sql = "SELECT * 
-            FROM artists
-            WHERE artist_id = " . $id;
+    $sql = artistById($id);
     getRow($sql);
 }
 
