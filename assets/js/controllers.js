@@ -4,14 +4,15 @@
 *                                                                  *
 * -----------------------------------------------------------------*/
 // main nav controllers
-app.controller('mainCtrl', function($scope){
-  $scope.message = 'Home';
+app.controller('mainCtrl', function($scope, $route){
+  $scope.$route = $route;
 });
-app.controller('mediasCtrl', function($scope, $http){
+app.controller('mediasCtrl', function($scope, $http, $route){
   $http.get('api/medias')
   .success(function(response) {
     $scope.medias = response;
   });
+  $scope.$route = $route;
 });
 app.controller('mediaCtrl', function($scope, $http, $routeParams){
   $http.get('api/media/' + $routeParams.id)
@@ -19,11 +20,12 @@ app.controller('mediaCtrl', function($scope, $http, $routeParams){
     $scope.media_detail = response;
   });
 });
-app.controller('artistsCtrl', function($scope, $http){
+app.controller('artistsCtrl', function($scope, $http, $route){
   $http.get('api/artists')
   .success(function(response) {
     $scope.artists = response;
   });
+  $scope.$route = $route;
 });
 app.controller('artistCtrl', function($scope, $http, $routeParams){
   $http.get('api/artist/' + $routeParams.id)
@@ -31,14 +33,15 @@ app.controller('artistCtrl', function($scope, $http, $routeParams){
       $scope.artist = response;
     });
 });
-app.controller('rentalCtrl', function($scope, $http){
+app.controller('rentalCtrl', function($scope, $http, $route){
   $http.get('api/rentals')
   .success(function(response) {
     $scope.rentals = response;
   });
+  $scope.$route = $route;
 });
-app.controller('contactCtrl', function($scope){
-  $scope.message = 'Contact';
+app.controller('contactCtrl', function($scope, $route){
+  $scope.$route = $route;
 });
 
 /* --------------------------------------------------------------- *

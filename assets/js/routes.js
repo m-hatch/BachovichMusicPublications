@@ -8,11 +8,13 @@ app.config(function($routeProvider, $locationProvider){
     // main nav pages
     .when('/', {
       templateUrl: 'pages/home.html',
-      controller: 'mainCtrl'
+      controller: 'mainCtrl',
+      activetab: 'home'
     })
     .when('/media', {
       templateUrl: 'pages/media.html',
-      controller: 'mediasCtrl'
+      controller: 'mediasCtrl',
+      activetab: 'media'
     })
     .when('/media/:id', {
       templateUrl: 'pages/media-detail.html',
@@ -20,7 +22,8 @@ app.config(function($routeProvider, $locationProvider){
     })
     .when('/artists', {
       templateUrl: 'pages/artists.html',
-      controller: 'artistsCtrl'
+      controller: 'artistsCtrl',
+      activetab: 'artists'
     })
     .when('/artist/:id', {
       templateUrl: 'pages/artist.html',
@@ -28,11 +31,13 @@ app.config(function($routeProvider, $locationProvider){
     })
     .when('/rentals', {
       templateUrl: 'pages/rentals.html',
-      controller: 'rentalCtrl'
+      controller: 'rentalCtrl',
+      activetab: 'rentals'
     })
     .when('/contact', {
       templateUrl: 'pages/contact.html',
-      controller: 'contactCtrl'
+      controller: 'contactCtrl',
+      activetab: 'contact'
     })
 
     // solos

@@ -9,15 +9,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span> 
           </button>
-          <a class="navbar-brand" href="#">Bachovich Music Publications</a>
+          <span class="navbar-brand" href="#">Bachovich Music Publications</span>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="media">Audio/Video</a></li> 
-            <li><a href="artists">Artist Roster</a></li> 
-            <li><a href="rentals">Rentals</a></li> 
-            <li><a href="contact">Contact</a></li>  
+            <li ng-class="{active: $route.current.activetab == 'home'}"><a href="/">Home</a></li>
+            <li ng-class="{active: $route.current.activetab == 'media'}"><a href="media">Audio/Video</a></li> 
+            <li ng-class="{active: $route.current.activetab == 'artists'}"><a href="artists">Artist Roster</a></li> 
+            <li ng-class="{active: $route.current.activetab == 'rentals'}"><a href="rentals">Rentals</a></li> 
+            <li ng-class="{active: $route.current.activetab == 'contact'}"><a href="contact">Contact</a></li>  
           </ul>
         </div>
       </div>
