@@ -16,6 +16,11 @@
     // Sidebar Menu Toggle
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
+        if($(this).text() == "Open Menu"){
+          $(this).text("Close Menu");
+        } else {
+          $(this).text("Open Menu");
+        }
         $("#menus").toggleClass("toggled");
         $(".wrapper").toggleClass("toggled");
     });
