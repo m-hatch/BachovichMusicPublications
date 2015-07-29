@@ -30,7 +30,7 @@ function getTimpBooks() {
 function getWorldBooks() {
 
     $sql = sheetMusicsSubType1('book', 'world');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 

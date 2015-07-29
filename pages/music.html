@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <!-- description -->
+      <!-- details -->
       <div class="music-desc col-sm-9">
         <h4>
           <span ng-if="music.composer">{{ music.composer }}&#47;</span>
@@ -32,30 +32,6 @@
           <span class="sub-title" ng-if="music.contents">{{ '(' + music.contents + ')' }}</span>
         </h4>
         <p>{{ '$' + music.price + ' - #' + music.music_id }}</p>
-
-        <!-- info toggles -->
-        <div ng-if="music.description">
-          <p><a href="" ng-click="toggleItem = ! toggleItem">Click Here for more information</a></p>
-          <div class="info-tab" ng-class="{ 'display': ! toggleItem }">
-            {{ music.description }}
-          </div>
-        </div>
-        <!--  Audio/Video Link --
-        <div ng-if="">
-          <p><a href="" ng-click="toggleItem = ! toggleItem">Click Here for audio/video</a></p>
-          <div class="info-tab" ng-class="{ 'display': ! toggleItem }">
-          
-            <!-- audio links -->
-
-            <!-- video links --
-            <div class="col-xs-8">
-              <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/WwgB5K1ZqpY" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-
-          </div>
-        </div>-->
               
         <!-- PayPal button -->
         <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -83,6 +59,33 @@
       </div>
 
     </div><!-- end .row -->
+    <!-- info toggles -->
+    <div class="description-links row">
+    <!-- Info Link -->
+    <div ng-if="music.description">
+      <p><a href="" ng-click="toggleInfo = ! toggleInfo">Click Here for more information</a></p>
+      <div class="info-tab" ng-class="{ 'display': ! toggleInfo }">
+        {{ music.description }}
+      </div>
+    </div>
+
+    <!--  Audio/Video Link -->
+    <div ng-if="music.audio_video">
+      <p><a href="" ng-click="toggleVideo = ! toggleVideo">Click Here for audio/video</a></p>
+      <div class="info-tab" ng-class="{ 'display': ! toggleVideo }">
+
+        <!-- audio links -->
+
+        <!-- video links -->
+        <div class="video-row col-md-8 col-lg-6" ng-repeat="video in music.audio_video | filter: {type: 'video'} | orderBy: 'track'">
+          <div class="video-container">
+            <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
     <hr>
 
   </div><!-- end .music-row -->

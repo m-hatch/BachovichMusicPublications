@@ -300,6 +300,10 @@ p#copy {
 .info-tab.display {
     max-height: 0;
 }
+.video-row {
+  padding: 0;
+  margin-bottom: 10px;
+}
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -481,4 +485,7 @@ p#copy {
 }
 #sheet-music .clear {
   clear: both;
+}
+#sheet-music .description-links {
+  margin: 15px 0 0;
 }

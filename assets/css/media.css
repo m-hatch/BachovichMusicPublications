@@ -35,6 +35,9 @@
   #home .feat-img {
     width: 60%;
   }
+  #sheet-music .col-md-8 {
+    width: 80%;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -66,6 +69,9 @@
   #media .img-responsive, 
   #sheet-music .img-responsive {
     width: 100%;
+  }
+  .video-row {
+    padding-right: 10px;
   }
 }
 
