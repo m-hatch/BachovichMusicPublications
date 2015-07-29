@@ -4,7 +4,15 @@
 *                                                                  *
 * -----------------------------------------------------------------*/
 // main nav controllers
-app.controller('mainCtrl', function($scope, $route){
+app.controller('mainCtrl', function($scope, $http, $route){
+  $http.get('api/featured')
+  .success(function(response) {
+    $scope.feat_comp = response[0];
+    $scope.feat_book = response[1];
+    $scope.feat_media = response[2];
+    $scope.feat_artist = response[3];
+    $scope.artist_works = response[4];
+  });
   $scope.$route = $route; // for top nav highlighting
 });
 app.controller('mediasCtrl', function($scope, $http, $route){

@@ -32,6 +32,9 @@
   #media-detail .img-responsive {
     max-width: 250px;
   }
+  #home .feat-img {
+    width: 60%;
+  }
 }
 
 /* Small Devices, Tablets */

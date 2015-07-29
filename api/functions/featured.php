@@ -7,6 +7,7 @@ function getFeatures() {
  
     try {
         $db = getDB();
+        $data = array();
         $result = array();
         $error = array('error' => 'No match found');
 
@@ -15,38 +16,49 @@ function getFeatures() {
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $featureIds = $stmt->fetch(PDO::FETCH_OBJ);
-        $compId = $featureIds->composition;
-        $bookId = $featureIds->book;
-        $mediaId = $featureIds->media;
-        $artistId = $featureIds->artist;
         
         // get composition data
         $sql = sheetMusicById($featureIds->composition);
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result[0] = array('composition' => $stmt->fetch());
+        $result[0] = $stmt->fetch();
 
         // get book data
         $sql = sheetMusicById($featureIds->book);
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result[1] = array('book' => $stmt->fetch());
+        $result[1] = $stmt->fetch();
 
         // get media data
         $sql = mediaById($featureIds->media);
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result[2] = array('media' => $stmt->fetch());
+        $result[2] = $stmt->fetch();
 
         // get artist data
         $sql = artistById($featureIds->artist);
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result[3] = array('artist' => $stmt->fetch());
+        $result[3] = $stmt->fetch();
+
+        // get artist works
+        $sql = "SELECT title 
+                FROM sheetmusics 
+                WHERE artist_id = " . $featureIds->artist;
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        // fetch data into array
+        $i = 0;
+        while($row = $stmt->fetch()) {
+            $data[$i] = $row;
+            $i++;
+        }
+        $result[4] = $data;
  
         // return data
         if($result) {
