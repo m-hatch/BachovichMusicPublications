@@ -72,3 +72,22 @@ CREATE TABLE Features(
   FOREIGN KEY (artist) 
     REFERENCES Artists(artist_id)
 );
+
+CREATE TABLE AudiosVideos(
+  av_id INT NOT NULL AUTO_INCREMENT,
+  music_id VARCHAR(4),
+  media_id VARCHAR(4),
+  type VARCHAR(5),
+  track INT,
+  audio_description VARCHAR(250),
+  audio_title VARCHAR(150),
+  audio_file VARCHAR(150),
+  video_description VARCHAR(250),
+  video_title VARCHAR(150),
+  video_embed VARCHAR(150),
+  PRIMARY KEY (av_id),
+  FOREIGN KEY (music_id) 
+    REFERENCES SheetMusics(music_id),
+  FOREIGN KEY (media_id) 
+    REFERENCES Medias(media_id)
+);
