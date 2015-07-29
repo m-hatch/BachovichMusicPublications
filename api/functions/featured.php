@@ -22,28 +22,28 @@ function getFeatures() {
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result[0] = $stmt->fetch();
+        $result['composition'] = $stmt->fetch();
 
         // get book data
         $sql = sheetMusicById($featureIds->book);
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result[1] = $stmt->fetch();
+        $result['book'] = $stmt->fetch();
 
         // get media data
         $sql = mediaById($featureIds->media);
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result[2] = $stmt->fetch();
+        $result['media'] = $stmt->fetch();
 
         // get artist data
         $sql = artistById($featureIds->artist);
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result[3] = $stmt->fetch();
+        $result['artist'] = $stmt->fetch();
 
         // get artist works
         $sql = "SELECT title 
@@ -58,13 +58,13 @@ function getFeatures() {
             $data[$i] = $row;
             $i++;
         }
-        $result[4] = $data;
+        $result['works'] = $data;
  
         // return data
         if($result) {
             $app->response->setStatus(200);
             $app->response()->headers->set('Content-Type', 'application/json');
-            echo json_encode($result);
+            echo json_encode($result, JSON_PRETTY_PRINT);
         } else {
             $app->response->setStatus(200);
             $app->response()->headers->set('Content-Type', 'application/json');

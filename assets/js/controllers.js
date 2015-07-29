@@ -7,11 +7,11 @@
 app.controller('mainCtrl', function($scope, $http, $route){
   $http.get('api/featured')
   .success(function(response) {
-    $scope.feat_comp = response[0];
-    $scope.feat_book = response[1];
-    $scope.feat_media = response[2];
-    $scope.feat_artist = response[3];
-    $scope.artist_works = response[4];
+    $scope.feat_comp = response['composition'];
+    $scope.feat_book = response['book'];
+    $scope.feat_media = response['media'];
+    $scope.feat_artist = response['artist'];
+    $scope.artist_works = response['works'];
   });
   $scope.$route = $route; // for top nav highlighting
 });

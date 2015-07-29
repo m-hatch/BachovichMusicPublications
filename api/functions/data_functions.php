@@ -24,7 +24,7 @@ function getDataRows($sql) {
         if($data) {
             $app->response->setStatus(200);
             $app->response()->headers->set('Content-Type', 'application/json');
-            echo json_encode($data);
+            echo json_encode($data, JSON_PRETTY_PRINT);
         } else {
             $app->response->setStatus(200);
             $app->response()->headers->set('Content-Type', 'application/json');
@@ -54,7 +54,7 @@ function getRow($sql) {
         if($row) {
             $app->response->setStatus(200);
             $app->response()->headers->set('Content-Type', 'application/json');
-            echo json_encode($row);
+            echo json_encode($row, JSON_PRETTY_PRINT);
         } else {
             $app->response->setStatus(200);
             $app->response()->headers->set('Content-Type', 'application/json');
