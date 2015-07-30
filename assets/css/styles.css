@@ -300,6 +300,9 @@ p#copy {
 .info-tab.display {
     max-height: 0;
 }
+.description-links {
+  margin: 15px 0 0;
+}
 .video-row {
   padding: 0;
   margin-bottom: 10px;
@@ -309,7 +312,6 @@ p#copy {
     padding-bottom: 56.25%;
     padding-top: 30px; height: 0; overflow: hidden;
 }
- 
 .video-container iframe,
 .video-container object,
 .video-container embed {
@@ -348,11 +350,13 @@ p#copy {
   margin-top: 20px;
 }
 #home .feat-info {
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
 #home .feat-works {
   margin-top: -15px;
+}
+#home .featured-content {
+  margin-bottom: 15px;
 }
 
 /* ===================== media ======================== */
@@ -485,7 +489,4 @@ p#copy {
 }
 #sheet-music .clear {
   clear: both;
-}
-#sheet-music .description-links {
-  margin: 15px 0 0;
 }

@@ -69,7 +69,9 @@ app.filter('search_products', function($log) {
   }
 });
 
-
+/* --------------------------------------------------------------- *
+*                          YouTube embed $sce                      *
+* ---------------------------------------------------------------- */
 app.filter('trustAsResourceUrl', ['$sce', function($sce) {
     return function(val) {
         return $sce.trustAsResourceUrl(val);

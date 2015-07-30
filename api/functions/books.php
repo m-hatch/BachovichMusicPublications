@@ -6,7 +6,7 @@
 function getMalletBooks() {
 
     $sql = sheetMusicsSubType1('book', 'mallets');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -14,7 +14,7 @@ function getMalletBooks() {
 function getSnareBooks() {
 
     $sql = sheetMusicsSubType1('book', 'snare');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -22,7 +22,7 @@ function getSnareBooks() {
 function getTimpBooks() {
 
     $sql = sheetMusicsSubType1('book', 'timpani');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -38,6 +38,6 @@ function getWorldBooks() {
 function getGeneralBooks() {
 
     $sql = sheetMusicsSubType1('book', 'general');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }

@@ -11,7 +11,6 @@ app.controller('mainCtrl', function($scope, $http, $route){
     $scope.feat_book = response['book'];
     $scope.feat_media = response['media'];
     $scope.feat_artist = response['artist'];
-    $scope.artist_works = response['works'];
   });
   $scope.$route = $route; // for top nav highlighting
 });

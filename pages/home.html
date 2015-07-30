@@ -10,48 +10,64 @@
     </div>
   </div>
 
-  <!-- featured composition --> <!-- use media-detail model -->
+  <!-- featured composition -->
   <div class="featured">
     <h2>Featured Composition</h2>
   </div>
 
-  <div class="row">
-    <div class="feat-img col-sm-5 col-lg-4">
-      <img class="img-responsive" ng-src="/assets/images/sheetmusic/{{ feat_comp.img }}" />
+  <div class="featured-content">
+    <div class="row">
+      <div class="feat-img col-sm-5 col-lg-4">
+        <img class="img-responsive" ng-src="/assets/images/sheetmusic/{{ feat_comp.img }}" />
+      </div>
+      <div class="col-sm-7 col-lg-8">
+        <h3><em>{{ feat_comp.title }}</em></h3>
+        <h4>By&nbsp;{{ feat_comp.fname + ' ' + feat_comp.lname }}</h4>
+        <h4>{{ '$' + feat_comp.price + ' - #' + feat_comp.music_id }}</h4>
+        <!-- PayPal button -->
+        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    
+          <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          
+          <input type="hidden" name="add" value="1">
+          <input type="hidden" name="cmd" value="_cart">
+          <input type="hidden" name="business" value="orders@bachovich.com">
+          <input type="hidden" name="no_shipping" value="2">
+          <input type="hidden" name="no_note" value="1">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="lc" value="US">
+          <input type="hidden" name="bn" value="PP-ShopCartBF">
+          
+          <!-- dynamically genereated values -->
+          <input type="hidden" name="item_name" ng-value="'#' + feat_comp.music_id + ' - ' + feat_comp.fname + ' ' + feat_comp.lname + ': ' + feat_comp.title + ' [' + feat_comp.duration + ']'">
+          <input type="hidden" name="item_number" ng-value="feat_comp.music_id"> 
+          <input type="hidden" name="amount" ng-value="feat_comp.price">
+          <input type="hidden" name="shipping" ng-value="feat_comp.shipping">
+          
+        </form>
+      </div>
     </div>
-    <div class="col-sm-7 col-lg-8">
-      <h3><em>{{ feat_comp.title }}</em></h3>
-      <h4>By&nbsp;{{ feat_comp.fname + ' ' + feat_comp.lname }}</h4>
-      <h4>{{ '$' + feat_comp.price + ' - #' + feat_comp.music_id }}</h4>
-      <!-- PayPal button -->
-      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-  
-        <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        
-        <input type="hidden" name="add" value="1">
-        <input type="hidden" name="cmd" value="_cart">
-        <input type="hidden" name="business" value="orders@bachovich.com">
-        <input type="hidden" name="no_shipping" value="2">
-        <input type="hidden" name="no_note" value="1">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="lc" value="US">
-        <input type="hidden" name="bn" value="PP-ShopCartBF">
-        
-        <!-- dynamically genereated values -->
-        <input type="hidden" name="item_name" ng-value="'#' + feat_comp.music_id + ' - ' + feat_comp.fname + ' ' + feat_comp.lname + ': ' + feat_comp.title + ' [' + feat_comp.duration + ']'">
-        <input type="hidden" name="item_number" ng-value="feat_comp.music_id"> 
-        <input type="hidden" name="amount" ng-value="feat_comp.price">
-        <input type="hidden" name="shipping" ng-value="feat_comp.shipping">
-        
-      </form>
-    </div>
-  </div>
 
-  <div class="row feat-info">
-    <div class="col-sm-12">
-      <p>{{ feat_comp.description }}</p>
+    <div class="row feat-info">
+      <div class="col-sm-12">
+        <p>{{ feat_comp.description }}</p>
+      </div>
     </div>
+
+    <!--  Audio/Video -->
+    <div class="row description-links" ng-if="feat_comp.audio_video">
+
+      <!-- audio links -->
+
+      <!-- video links -->
+      <div class="video-row col-md-8 col-lg-6" ng-repeat="video in feat_comp.audio_video | filter: {type: 'video'} | orderBy: 'track' | limitTo: 1">
+        <div class="video-container">
+          <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div><!-- end .row -->
   </div>
 
   <!-- featured book -->
@@ -59,43 +75,59 @@
     <h2>Featured Book</h2>
   </div>
 
-  <div class="row">
-    <div class="feat-img col-sm-5 col-lg-4">
-      <img class="img-responsive" ng-src="/assets/images/sheetmusic/{{ feat_book.img }}" />
+  <div class="featured-content">
+    <div class="row">
+      <div class="feat-img col-sm-5 col-lg-4">
+        <img class="img-responsive" ng-src="/assets/images/sheetmusic/{{ feat_book.img }}" />
+      </div>
+      <div class="col-sm-7 col-lg-8">
+        <h3><em>{{ feat_book.title }}</em></h3>
+        <h4>By&nbsp;{{ feat_book.fname + ' ' + feat_book.lname }}</h4>
+        <h4>{{ '$' + feat_book.price + ' - #' + feat_book.music_id }}</h4>
+        <!-- PayPal button -->
+        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    
+          <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          
+          <input type="hidden" name="add" value="1">
+          <input type="hidden" name="cmd" value="_cart">
+          <input type="hidden" name="business" value="orders@bachovich.com">
+          <input type="hidden" name="no_shipping" value="2">
+          <input type="hidden" name="no_note" value="1">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="lc" value="US">
+          <input type="hidden" name="bn" value="PP-ShopCartBF">
+          
+          <!-- dynamically genereated values -->
+          <input type="hidden" name="item_name" ng-value="'#' + feat_book.music_id + ' - ' + feat_book.fname + ' ' + feat_book.lname + ': ' + feat_book.title">
+          <input type="hidden" name="item_number" ng-value="feat_book.music_id"> 
+          <input type="hidden" name="amount" ng-value="feat_book.price">
+          <input type="hidden" name="shipping" ng-value="feat_book.shipping">
+          
+        </form>
+      </div>
     </div>
-    <div class="col-sm-7 col-lg-8">
-      <h3><em>{{ feat_book.title }}</em></h3>
-      <h4>By&nbsp;{{ feat_book.fname + ' ' + feat_book.lname }}</h4>
-      <h4>{{ '$' + feat_book.price + ' - #' + feat_book.music_id }}</h4>
-      <!-- PayPal button -->
-      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-  
-        <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        
-        <input type="hidden" name="add" value="1">
-        <input type="hidden" name="cmd" value="_cart">
-        <input type="hidden" name="business" value="orders@bachovich.com">
-        <input type="hidden" name="no_shipping" value="2">
-        <input type="hidden" name="no_note" value="1">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="lc" value="US">
-        <input type="hidden" name="bn" value="PP-ShopCartBF">
-        
-        <!-- dynamically genereated values -->
-        <input type="hidden" name="item_name" ng-value="'#' + feat_book.music_id + ' - ' + feat_book.fname + ' ' + feat_book.lname + ': ' + feat_book.title">
-        <input type="hidden" name="item_number" ng-value="feat_book.music_id"> 
-        <input type="hidden" name="amount" ng-value="feat_book.price">
-        <input type="hidden" name="shipping" ng-value="feat_book.shipping">
-        
-      </form>
-    </div>
-  </div>
 
-  <div class="row feat-info">
-    <div class="col-sm-12">
-      <p>{{ feat_book.description }}</p>
+    <div class="row feat-info" ng-if="feat_book.description">
+      <div class="col-sm-12">
+        <p>{{ feat_book.description }}</p>
+      </div>
     </div>
+
+    <!--  Audio/Video -->
+    <div class="row description-links" ng-if="feat_book.audio_video">
+
+      <!-- audio links -->
+
+      <!-- video links -->
+      <div class="video-row col-md-8 col-lg-6" ng-repeat="video in feat_book.audio_video | filter: {type: 'video'} | orderBy: 'track' | limitTo: 1">
+        <div class="video-container">
+          <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div><!-- end .row -->
   </div>
 
   <!-- featured media -->
@@ -103,43 +135,59 @@
     <h2>Featured Media</h2>
   </div>
 
-  <div class="row">
-    <div class="feat-img col-sm-5 col-lg-4">
-      <img class="img-responsive" ng-src="/assets/images/audio_video/{{ feat_media.img }}" />
+  <div class="featured-content">
+    <div class="row">
+      <div class="feat-img col-sm-5 col-lg-4">
+        <img class="img-responsive" ng-src="/assets/images/audio_video/{{ feat_media.img }}" />
+      </div>
+      <div class="col-sm-7 col-lg-8">
+        <h3><em>{{ feat_media.title }}</em></h3>
+        <h4>By&nbsp;{{ feat_media.fname + ' ' + feat_media.lname }}</h4>
+        <h4>{{ '$' + feat_media.price + ' - #' + feat_media.media_id + ' - ' + feat_media.type }}</h4>
+        <!-- PayPal button -->
+        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    
+          <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          
+          <input type="hidden" name="add" value="1">
+          <input type="hidden" name="cmd" value="_cart">
+          <input type="hidden" name="business" value="orders@bachovich.com">
+          <input type="hidden" name="no_shipping" value="2">
+          <input type="hidden" name="no_note" value="1">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="lc" value="US">
+          <input type="hidden" name="bn" value="PP-ShopCartBF">
+          
+          <!-- dynamically genereated values -->
+          <input type="hidden" name="item_name" ng-value="'#' + feat_media.media_id + ' - ' + feat_media.type + ' - ' + feat_media.fname + ' ' + feat_media.lname + ': ' + feat_media.title">
+          <input type="hidden" name="item_number" ng-value="feat_media.media_id"> 
+          <input type="hidden" name="amount" ng-value="feat_media.price">
+          <input type="hidden" name="shipping" ng-value="feat_media.shipping">
+          
+        </form>
+      </div>
     </div>
-    <div class="col-sm-7 col-lg-8">
-      <h3><em>{{ feat_media.title }}</em></h3>
-      <h4>By&nbsp;{{ feat_media.fname + ' ' + feat_media.lname }}</h4>
-      <h4>{{ '$' + feat_media.price + ' - #' + feat_media.media_id + ' - ' + feat_media.type }}</h4>
-      <!-- PayPal button -->
-      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-  
-        <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        
-        <input type="hidden" name="add" value="1">
-        <input type="hidden" name="cmd" value="_cart">
-        <input type="hidden" name="business" value="orders@bachovich.com">
-        <input type="hidden" name="no_shipping" value="2">
-        <input type="hidden" name="no_note" value="1">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="lc" value="US">
-        <input type="hidden" name="bn" value="PP-ShopCartBF">
-        
-        <!-- dynamically genereated values -->
-        <input type="hidden" name="item_name" ng-value="'#' + feat_media.media_id + ' - ' + feat_media.type + ' - ' + feat_media.fname + ' ' + feat_media.lname + ': ' + feat_media.title">
-        <input type="hidden" name="item_number" ng-value="feat_media.media_id"> 
-        <input type="hidden" name="amount" ng-value="feat_media.price">
-        <input type="hidden" name="shipping" ng-value="feat_media.shipping">
-        
-      </form>
-    </div>
-  </div>
 
-  <div class="row feat-info">
-    <div class="col-sm-12">
-      <p>{{ feat_media.description }}</p>
+    <div class="row feat-info">
+      <div class="col-sm-12">
+        <p>{{ feat_media.description }}</p>
+      </div>
     </div>
+
+    <!--  Audio/Video -->
+    <div class="row description-links" ng-if="feat_media.audio_video">
+
+      <!-- audio links -->
+
+      <!-- video links -->
+      <div class="video-row col-md-8 col-lg-6" ng-repeat="video in feat_media.audio_video | filter: {type: 'video'} | orderBy: 'track' | limitTo: 1">
+        <div class="video-container">
+          <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div><!-- end .row -->
   </div>
 
   <!-- featured composer -->
@@ -147,29 +195,31 @@
     <h2>Featured Composer</h2>
   </div>
 
-  <div class="row">
-    <div class="feat-img col-sm-5 col-lg-4">
-      <img class="img-responsive" ng-src="/assets/images/artists/{{ feat_artist.img }}" />
+  <div class="featured-content">
+    <div class="row">
+      <div class="feat-img col-sm-5 col-lg-4">
+        <img class="img-responsive" ng-src="/assets/images/artists/{{ feat_artist.img }}" />
+      </div>
+      <div class="col-sm-7 col-lg-8">
+        <h3>{{ feat_artist.fname + ' ' + feat_artist.lname }}</h3>
+      </div>
     </div>
-    <div class="col-sm-7 col-lg-8">
-      <h3>{{ feat_artist.fname + ' ' + feat_artist.lname }}</h3>
-    </div>
-  </div>
 
-  <div class="row feat-info">
-    <div class="col-sm-12">
-      <p>{{ feat_artist.bio }}</p>
+    <div class="row feat-info">
+      <div class="col-sm-12">
+        <p>{{ feat_artist.bio }}</p>
+      </div>
     </div>
-  </div>
 
-  <div class="row feat-works" ng-if="(artist_works).length">
-    <div class="col-sm-12">
-      <h4>Works at Bachovich</h4>
-      <ul class="list-unstyled">
-        <li ng-repeat="work in artist_works | orderBy: 'title'">
-          <em>{{ work.title }}</em>
-        </li>
-      </ul>
+    <div class="row feat-works" ng-if="(feat_artist.works).length">
+      <div class="col-sm-12">
+        <h4>Works at Bachovich</h4>
+        <ul class="list-unstyled">
+          <li ng-repeat="work in feat_artist.works | orderBy: 'title'">
+            <em>{{ work.title }}</em>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 

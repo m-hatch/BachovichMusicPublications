@@ -55,9 +55,9 @@
 
   <!-- video links -->
   <div class="row">
-    <div class="col-xs-8">
+    <div class="video-row col-md-8 col-lg-6" ng-repeat="video in media.audio_video | filter: {type: 'video'} | orderBy: 'track'">
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/WwgB5K1ZqpY" frameborder="0" allowfullscreen></iframe>
+        <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </div>

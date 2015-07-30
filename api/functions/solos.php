@@ -6,7 +6,7 @@
 function getMarimbaSolos() {
 
     $sql = sheetMusicsSubType1('solo', 'marimba');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -14,7 +14,7 @@ function getMarimbaSolos() {
 function getMarimbaVibesSolos() {
 
     $sql = sheetMusicsSubType1('solo', 'marimba/vibes');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -22,7 +22,7 @@ function getMarimbaVibesSolos() {
 function getXyloSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'xylophone');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -30,7 +30,7 @@ function getXyloSolos() {
 function getGyilSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'gyil');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -38,7 +38,7 @@ function getGyilSolos() {
 function getHandDrSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'hand drum');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -46,7 +46,7 @@ function getHandDrSolos() {
 function getVibeSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'vibes');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -54,7 +54,7 @@ function getVibeSolos() {
 function getTimpSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'timpani');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -62,7 +62,7 @@ function getTimpSolos() {
 function getDrumsetSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'drumset');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -70,7 +70,7 @@ function getDrumsetSolos() {
 function getMultiSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'multi');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -78,7 +78,7 @@ function getMultiSolos() {
 function getSnareSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'snare');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -86,6 +86,6 @@ function getSnareSolos() {
 function getPanSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'pan');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
