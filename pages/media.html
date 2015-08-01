@@ -27,7 +27,7 @@
         </div>
 
         <!-- more info link -->
-        <div ng-if="media.description">
+        <div ng-if="media.description || media.audio_video">
           <p><a ng-href="media/{{ media.media_id }}">Click Here for more</a></p>
         </div>
 
