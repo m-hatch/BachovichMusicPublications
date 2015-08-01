@@ -6,7 +6,7 @@
 function getSnareDuos() {
 
     $sql = sheetMusicsSubType1('duet', 'snare');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -14,7 +14,7 @@ function getSnareDuos() {
 function getMarimbaHarp() {
 
     $sql = sheetMusicsSubType2('duet', 'marimba', 'harp');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -22,7 +22,7 @@ function getMarimbaHarp() {
 function getMarimbaDuos() {
  
     $sql = sheetMusicsSubType2('duet', 'marimba', 'marimba');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -30,7 +30,7 @@ function getMarimbaDuos() {
 function getMarimbaVibes() {
  
     $sql = sheetMusicsSubType2('duet', 'marimba', 'vibes');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -38,7 +38,7 @@ function getMarimbaVibes() {
 function getMarimbaStr() {
  
     $sql = sheetMusicsSubType2('duet', 'marimba', 'strings');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -46,7 +46,7 @@ function getMarimbaStr() {
 function getMarimbaGuitar() {
  
     $sql = sheetMusicsSubType2('duet', 'marimba', 'guitar');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -54,7 +54,7 @@ function getMarimbaGuitar() {
 function getMarimbaVoice() {
  
     $sql = sheetMusicsSubType2('duet', 'marimba', 'voice');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -62,7 +62,7 @@ function getMarimbaVoice() {
 function getMarimbaTimp() {
  
     $sql = sheetMusicsSubType2('duet', 'marimba', 'timpani');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -70,7 +70,7 @@ function getMarimbaTimp() {
 function getMarimbaPerc() {
  
     $sql = sheetMusicsSubType2('duet', 'marimba', 'perc');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -78,7 +78,7 @@ function getMarimbaPerc() {
 function getMarimbaWw() {
  
     $sql = sheetMusicsSubType2('duet', 'marimba', 'woodwinds');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -86,7 +86,7 @@ function getMarimbaWw() {
 function getTimpDuos() {
  
     $sql = sheetMusicsSubType2('duet', 'timpani', 'timpani');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -94,7 +94,7 @@ function getTimpDuos() {
 function getTimpPno() {
  
     $sql = sheetMusicsSubType2('duet', 'timpani', 'piano');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -102,7 +102,7 @@ function getTimpPno() {
 function getTimpWw() {
  
     $sql = sheetMusicsSubType2('duet', 'timpani', 'woodwinds');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -110,7 +110,7 @@ function getTimpWw() {
 function getTimpPerc() {
  
     $sql = sheetMusicsSubType2('duet', 'timpani', 'perc');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -118,7 +118,7 @@ function getTimpPerc() {
 function getVibePno() {
  
     $sql = sheetMusicsSubType2('duet', 'vibes', 'piano');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -126,7 +126,7 @@ function getVibePno() {
 function getVibeStr() {
  
     $sql = sheetMusicsSubType2('duet', 'vibes', 'strings');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -134,7 +134,7 @@ function getVibeStr() {
 function getMultiDuos() {
  
     $sql = sheetMusicsSubType2('duet', 'multi', 'perc');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -142,7 +142,7 @@ function getMultiDuos() {
 function getMultiVox() {
  
     $sql = sheetMusicsSubType2('duet', 'multi', 'voice');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -150,6 +150,6 @@ function getMultiVox() {
 function getMultiWw() {
  
     $sql = sheetMusicsSubType2('duet', 'multi', 'woodwinds');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }

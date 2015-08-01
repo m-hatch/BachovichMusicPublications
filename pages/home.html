@@ -17,7 +17,7 @@
 
   <div class="featured-content">
     <div class="row">
-      <div class="feat-img col-sm-5 col-lg-4">
+      <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_comp.img">
         <img class="img-responsive" ng-src="/assets/images/sheetmusic/{{ feat_comp.img }}" />
       </div>
       <div class="col-sm-7 col-lg-8">
@@ -77,7 +77,7 @@
 
   <div class="featured-content">
     <div class="row">
-      <div class="feat-img col-sm-5 col-lg-4">
+      <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_book.img">
         <img class="img-responsive" ng-src="/assets/images/sheetmusic/{{ feat_book.img }}" />
       </div>
       <div class="col-sm-7 col-lg-8">
@@ -137,7 +137,7 @@
 
   <div class="featured-content">
     <div class="row">
-      <div class="feat-img col-sm-5 col-lg-4">
+      <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_media.img">
         <img class="img-responsive" ng-src="/assets/images/audio_video/{{ feat_media.img }}" />
       </div>
       <div class="col-sm-7 col-lg-8">
@@ -197,7 +197,7 @@
 
   <div class="featured-content">
     <div class="row">
-      <div class="feat-img col-sm-5 col-lg-4">
+      <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_artist.img">
         <img class="img-responsive" ng-src="/assets/images/artists/{{ feat_artist.img }}" />
       </div>
       <div class="col-sm-7 col-lg-8">

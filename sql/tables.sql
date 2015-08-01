@@ -83,7 +83,6 @@ CREATE TABLE AudiosVideos(
   audio_title VARCHAR(150),
   audio_file VARCHAR(150),
   video_description VARCHAR(250),
-  video_title VARCHAR(150),
   video_embed VARCHAR(150),
   PRIMARY KEY (av_id),
   FOREIGN KEY (music_id) 

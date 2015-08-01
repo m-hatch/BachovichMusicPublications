@@ -6,7 +6,7 @@
 function getTrios() {
 
     $sql = sheetMusicsType('trio');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -14,7 +14,7 @@ function getTrios() {
 function getQuartets() {
 
     $sql = sheetMusicsType('quartet');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -22,7 +22,7 @@ function getQuartets() {
 function getEns() {
 
     $sql = sheetMusicsType('ensemble');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -30,7 +30,7 @@ function getEns() {
 function getSteel() {
 
     $sql = sheetMusicsType('steelband');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -38,7 +38,7 @@ function getSteel() {
 function getOrch() {
 
     $sql = sheetMusicsType('orchestra');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -46,7 +46,7 @@ function getOrch() {
 function getBand() {
 
     $sql = sheetMusicsType('band');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
 
@@ -54,6 +54,6 @@ function getBand() {
 function getMixed() {
 
     $sql = sheetMusicsType('mixed');
-    getDataRows($sql);
+    getSheetMusicRows($sql);
 
 }
