@@ -21,7 +21,7 @@
       <div class="form-group">
         <label for="exampleInputEmail">Email address:</label>
         <div class="has-success input-wrapper">
-          <input type="text" class="form-control" name="fields_email" placeholder="Enter email" required>
+          <input type="text" class="form-control" name="fields_email" placeholder="Enter email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 
           <!-- iContact fields -->
           <input type="hidden" name="listid" value="38980">
@@ -31,9 +31,10 @@
           <input type="hidden" name="reallistid" value="1">
           <input type="hidden" name="doubleopt" value="0">
 
-          <!-- Redirect on Submit --
-          <input type="hidden" name="redirect" value="http://www.bachovich.com/">
-          <input type="hidden" name="errorredirect" value="http://www.bachovich.com/">-->
+          <!-- Redirect on Submit -->
+          <!-- ( for local testing http://localhost:3000/thankyou ) -->
+          <input type="hidden" name="redirect" value="http://www.bachovich.com/thankyou">
+          <!--<input type="hidden" name="errorredirect" value="http://www.bachovich.com/">-->
 
           <button type="submit" class="btn btn-success">Sign Up!</button>
         </div>

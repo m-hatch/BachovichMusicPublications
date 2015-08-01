@@ -39,6 +39,9 @@ app.config(function($routeProvider, $locationProvider){
       controller: 'contactCtrl',
       activetab: 'contact'
     })
+    .when('/thankyou', {
+      templateUrl: 'pages/thankyou.html'
+    })
 
     // solos
     .when('/solos/marimba', {
