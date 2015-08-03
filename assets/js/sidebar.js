@@ -4,12 +4,12 @@
 
     // Set height and update on window resize
     var windowHeight = $(window).height();
-    $('.page-content-wrapper').css("min-height", windowHeight);
+    $('#page-body').css("min-height", windowHeight);
     $('#sidebar-wrapper').css("height", windowHeight - 52);
 
     $( window ).resize(function() {
       windowHeight = $(window).height();
-      $('.page-content-wrapper').css("min-height", windowHeight - 52);
+      $('#page-body').css("min-height", windowHeight);
       $('#sidebar-wrapper').css("height", windowHeight - 52);
     });
 

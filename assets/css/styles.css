@@ -125,7 +125,6 @@ img.logo {
 .sidebar-nav {
   width: 250px;
   padding: 0;
-  padding-bottom: 20px;
   list-style: none;
 }
 .sidebar-nav li {
@@ -464,6 +463,7 @@ p#copy {
 /* ===================== thank you ========================== */
 #thankyou {
   text-align: center;
+  margin-bottom: 150px;
 }
 #thankyou h2 {
   font-size: 2.9em;
