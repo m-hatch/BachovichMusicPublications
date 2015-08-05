@@ -2,6 +2,14 @@
 
 // ********* sheet music service functions (no sub-menu) **********
 
+// sheet music search (return all)
+function getAllMusic() {
+
+    $sql = sheetMusicAll();
+    getSheetMusicRows($sql);
+
+}
+
 // return trios list
 function getTrios() {
 

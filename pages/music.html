@@ -1,16 +1,9 @@
 <div id="sheet-music">
 
-  <h1>{{ heading }}</h1>
+  <div ng-include="'shared/search_music.html'"></div>
 
-  <!-- search music -->
-  <div class="clearfix">
-    <div class="search-music">
-      <span>Search Music:&nbsp;</span>
-      <input type="text" />
-      <input type="submit" value="Go!" />
-      <!--<button type="submit" class="btn btn-default">Go!</button>-->
-    </div>
-    <hr class="clear">
+  <div class="">
+    <h1>{{ heading }}</h1>
   </div>
 
   <!-- sheet music listing -->

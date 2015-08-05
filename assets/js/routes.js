@@ -1,5 +1,3 @@
-// base module
-var app = angular.module('bmpApp', ['ngRoute']);
 
 // configure routes
 app.config(function($routeProvider, $locationProvider){
@@ -38,6 +36,10 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: 'pages/contact.html',
       controller: 'contactCtrl',
       activetab: 'contact'
+    })
+    .when('/search', {
+      templateUrl: 'pages/search.html',
+      controller: 'searchResultCtrl',
     })
     .when('/thankyou', {
       templateUrl: 'pages/thankyou.html'

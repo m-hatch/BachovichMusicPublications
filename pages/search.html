@@ -1,0 +1,96 @@
+<div id="search">
+
+  <div ng-include="'shared/search_music.html'"></div>
+
+  <!-- search music results -->
+  <div class="featured">
+    <h2>Search Results</h2>
+  </div>
+
+  <div ng-if="search_music">
+    <div class="music-row" ng-repeat="music in results = (musics | search_products: search_music | orderBy: 'lname')">
+      <div class="row">
+
+        <div ng-if="music.img">
+          <div class="col-sm-3">
+            <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ music.img }}" />
+          </div>
+        </div>
+
+        <!-- details -->
+        <div class="music-desc col-sm-9">
+          <h4>
+            <span ng-if="music.composer">{{ music.composer }}&#47;</span>
+            {{ music.fname + ' ' + music.lname + ': ' }}<em>{{ music.title }}&nbsp;</em>
+            <span class="sub-title" ng-if="music.duration">&nbsp;{{ '[' + music.duration + ']' }}</span>
+            <span class="sub-title" ng-if="music.contents">{{ '(' + music.contents + ')' }}</span>
+          </h4>
+          <p>{{ '$' + music.price + ' - #' + music.music_id }}</p>
+                
+          <!-- PayPal button -->
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      
+            <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            
+            <input type="hidden" name="add" value="1">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="business" value="orders@bachovich.com">
+            <input type="hidden" name="no_shipping" value="2">
+            <input type="hidden" name="no_note" value="1">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="bn" value="PP-ShopCartBF">
+            
+            <!-- dynamically genereated values -->
+            <input type="hidden" name="item_name" ng-value="'#' + music.music_id + ' - ' + music.fname + ' ' + music.lname + ': ' + music.title + ' [' + music.duration + ']'">
+            <input type="hidden" name="item_number" ng-value="music.music_id"> 
+            <input type="hidden" name="amount" ng-value="music.price">
+            <input type="hidden" name="shipping" ng-value="music.shipping">
+            
+          </form>
+
+        </div>
+
+      </div><!-- end .row -->
+
+      <!-- info toggles -->
+      <div class="description-links row">
+        <!-- Info Link -->
+        <div ng-if="music.description">
+          <p><a href="" ng-model="toggleInfo" ng-click="toggleInfo = ! toggleInfo">Click Here for more information</a></p>
+          <div class="info-tab" ng-class="{ 'display': ! toggleInfo }">
+            {{ music.description }}
+          </div>
+        </div>
+
+        <!--  Audio/Video Link -->
+        <div ng-if="music.audio_video">
+          <p><a href="" ng-click="toggleVideo = ! toggleVideo">Click Here for audio/video</a></p>
+          <div class="info-tab" ng-class="{ 'display': ! toggleVideo }">
+
+            <!-- audio links -->
+
+            <!-- video links -->
+            <div class="video-row col-md-8 col-lg-6" ng-repeat="video in music.audio_video | filter: {type: 'video'} | orderBy: 'track'">
+              <div class="video-container">
+                <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      
+      </div><!-- end .row -->
+      <hr>
+
+    </div><!-- end .music-row -->
+
+    <!-- return message if no search results found -->
+    <p class="empty-search" ng-if="!results.length"><em>No Items found. Please check the spelling or boraden your search.</em></p>
+
+    <p><a href="/">Back to Home</a></p>
+
+  </div>
+
+</div>

@@ -50,6 +50,22 @@ app.controller('rentalCtrl', function($scope, $http, $route){
 app.controller('contactCtrl', function($scope, $route){
   $scope.$route = $route;
 });
+// search music input
+app.controller('searchCtrl', function($scope, $route, $location, SearchService){
+  $scope.saveSearch = function(query){
+    SearchService.set(query);
+    $location.path('/search');
+    $route.reload();
+  };
+});
+// search results
+app.controller('searchResultCtrl', function($scope, $http, SearchService){
+  $scope.search_music = SearchService.get();
+  $http.get('api/search')
+  .success(function(response) {
+    $scope.musics = response;
+  });
+});
 
 /* --------------------------------------------------------------- *
 *                                                                  *

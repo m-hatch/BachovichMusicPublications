@@ -1,5 +1,15 @@
 <?php
 
+// get all sheet music
+function sheetMusicAll(){
+    $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
+            s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
+            FROM sheetmusics s INNER JOIN artists a 
+            ON s.artist_id = a.artist_id";
+            
+    return $sql;
+}
+
 // get sheet music by type
 function sheetMusicsType($type){
     $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 

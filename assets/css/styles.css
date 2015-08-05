@@ -288,6 +288,9 @@ p#copy {
   color: #999999;
   font-size: 1.1em;
 }
+#search .empty-search {
+  margin-top: 10px;
+}
 .info-tab {
   max-height: 2000px;
   -webkit-transition: all 0.8s ease-in-out;
@@ -301,6 +304,23 @@ p#copy {
 }
 .description-links {
   margin: 15px 0 0;
+}
+.search-music {
+  padding: 15px 6px;
+  float: right;
+}
+.featured {
+  width: 100%;
+  color: #fff;
+  background-color: #662B6D;
+  padding: 8px 12px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.featured h2 {
+  font-size: 1.5em;
+  margin: 0;
 }
 .video-row {
   padding: 0;
@@ -322,26 +342,6 @@ p#copy {
 }
 
 /* ===================== home ======================== */
-#home .search-home {
-  border-bottom: 1px solid #eee;
-}
-#home .search-music {
-  padding: 15px 6px;
-  float: right;
-}
-#home .featured {
-  width: 100%;
-  color: #fff;
-  background-color: #662B6D;
-  padding: 8px 12px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}
-#home h2 {
-  font-size: 1.5em;
-  margin: 0;
-}
 #home h3 {
   font-weight: bold;
 }
@@ -473,11 +473,16 @@ p#copy {
 }
 
 /* ===================== sheet music ======================== */
-#sheet-music .img-responsive {
-  width: 40%;
-}
 #sheet-music h1 {
   margin-bottom: 20px;
+  /*color: #787878; /* purple #783280 */
+  /*text-decoration: underline;*/
+}
+#sheet-music .search-home {
+  border-bottom: 1px solid #cdcdcd;
+}
+#sheet-music .img-responsive {
+  width: 40%;
 }
 #sheet-music .music-row:last-of-type hr {
   display: none;
@@ -490,14 +495,4 @@ p#copy {
 }
 #sheet-music .music-desc form {
   margin-top: 5px;
-}
-#sheet-music .search-music {
-  /*float: right;*/
-  margin-bottom: 18px;
-}
-#sheet-music .search-music button {
-  padding: 2px 12px;
-}
-#sheet-music .clear {
-  clear: both;
 }

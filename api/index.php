@@ -35,6 +35,9 @@ $app->get('/artists', 'getArtists');
 $app->get('/artist/:id', 'getArtist');
 $app->get('/rentals', 'getRentals');
 
+// sheet music search
+$app->get('/search', 'getAllMusic');
+
 // sheet music solos
 $app->get('/solos/marimba', 'getMarimbaSolos');
 $app->get('/solos/marimba-vibes', 'getMarimbaVibesSolos');
