@@ -1,5 +1,9 @@
 <?php
-
+/* --------------------------------------------------------------- *
+*                                                                  *
+*                          basic CRUD operations                   * 
+*                                                                  *                                                                *
+* -----------------------------------------------------------------*/
 // return data rows
 function getDataRows($sql) {
  
@@ -68,6 +72,52 @@ function getRow($sql) {
     }
 }
 
+// add or update row
+function addUpdateRow($appObj, $sql) {
+
+    $app = $appObj;
+
+    try {
+        $db = getDB();
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+ 
+        # message to confirm successful data entry?
+        $app->response->setStatus(200);
+        echo "<p>Update submitted successfully</p>";
+        $db = null;
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+// delete row
+function deleteRow($sql) {
+
+    $app = \Slim\Slim::getInstance();
+    
+    try {
+        $db = getDB();
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        # message to confirm successful delete?
+        $app->response->setStatus(200);
+        echo "<p>Item deleted</p>";
+        $db = null;
+
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+/* --------------------------------------------------------------- *
+*                                                                  *
+*                          for audio/video data                    * 
+*                                                                  *                                                                 *
+* -----------------------------------------------------------------*/
 // return sheet music rows
 function getSheetMusicRows($sql) {
  
@@ -234,26 +284,5 @@ function getMediaRow($sql) {
     } catch(PDOException $e) {
         $app->response()->setStatus(404);
         echo $e;
-    }
-}
-
-// add data row #### broken. pass in $app? $db->prepare($sql) must take str, gets object?
-function addRow($appObj, $sql) {
-
-    $app = $appObj;
-
-    try {
-        $db = getDB();
-        $stmt = $db->prepare($sql);
-        $stmt->execute();
- 
-        # message to confirm successful data entry?
-        $app->response->setStatus(200);
-        echo "<p>Data submitted successfully</p>";
-        $db = null;
-
-    } catch(PDOException $e) {
-        $app->response()->setStatus(404);
-        echo '{"error":{"text":'. $e->getMessage() .'}}';
     }
 }
