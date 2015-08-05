@@ -17,7 +17,6 @@ CREATE TABLE Rentals(
   title VARCHAR(100) NOT NULL,
   duration VARCHAR(15),
   contents VARCHAR(100),
-  img VARCHAR(100),
   PRIMARY KEY (rental_id),
   FOREIGN KEY (artist_id) 
     REFERENCES Artists(artist_id)

@@ -91,9 +91,13 @@ $app->get('/books/general', 'getGeneralBooks');
 /* --------------------------------------------------------------- *
 *                      admin service endpoints                     *
 * ---------------------------------------------------------------- */
-
+// artists
 $app->post('/add/artist', 'addArtist');
 $app->put('/update/artist/:id', 'updateArtist');
 $app->delete('/delete/artist/:id', 'deleteArtist');
+// rentals
+$app->post('/add/rental', 'addRental');
+$app->put('/update/rental/:id', 'updateRental');
+$app->delete('/delete/rental/:id', 'deleteRental');
 
 $app->run();
