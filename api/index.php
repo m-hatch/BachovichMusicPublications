@@ -15,6 +15,7 @@ include 'functions/solos.php';
 include 'functions/duos.php';
 include 'functions/sheetmusic.php';
 include 'functions/books.php';
+include 'functions/dashboard.php';
 
 // initialize app
 $app = new \Slim\Slim();
@@ -95,9 +96,15 @@ $app->get('/books/general', 'getGeneralBooks');
 $app->post('/add/artist', 'addArtist');
 $app->put('/update/artist/:id', 'updateArtist');
 $app->delete('/delete/artist/:id', 'deleteArtist');
+
 // rentals
 $app->post('/add/rental', 'addRental');
 $app->put('/update/rental/:id', 'updateRental');
 $app->delete('/delete/rental/:id', 'deleteRental');
+
+// medias
+$app->post('/add/media', 'addMedia');
+$app->put('/update/media/:id', 'updateMedia');
+$app->delete('/delete/media/:id', 'deleteMedia');
 
 $app->run();

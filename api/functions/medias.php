@@ -1,6 +1,6 @@
 <?php
 
-// *********** audio/video service functions ****************
+// ************** media service functions ****************
 
 // return audio/video list
 function getMedias() {
