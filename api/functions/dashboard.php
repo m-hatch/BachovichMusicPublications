@@ -101,7 +101,7 @@ function deleteRental($id) {
 }
 
 /* --------------------------------------------------------------- *
-*                             medias                              *
+*                             medias                               *
 * ---------------------------------------------------------------- */
 
 // add media
@@ -150,4 +150,115 @@ function deleteMedia($id) {
 
     // for trial test in command line
     //curl -i -X DELETE http://localhost:3000/api/delete/media/1111
+}
+
+/* --------------------------------------------------------------- *
+*                             sheet music                          *
+* ---------------------------------------------------------------- */
+
+// add sheet music
+function addMusic() {
+
+    $appObj = \Slim\Slim::getInstance()->request();
+    $music = json_decode($appObj->getBody());
+
+    $sql = "INSERT INTO sheetmusics (music_id, artist_id, composer, type, sub_type1, sub_type2, 
+              title, duration, contents, description, price, img, shipping) 
+            VALUES ('" . $music->music_id . "', " . $music->artist_id . ", '" . $music->composer . 
+              "', '" . $music->type . "', '" . $music->sub_type1 . "', '" . $music->sub_type2 . 
+              "', '" . $music->title . "', '" . $music->duration . "', '" . $music->contents . 
+              "', '" . $music->description ."', " . $music->price . ", '" . $music->img . "', " . 
+              $music->shipping . ")";
+
+    addUpdateRow($appObj, $sql);
+
+    // for trial test in command line
+    //curl -i -X POST -H 'Content-Type: application/json' -d '{"music_id": "1111", "artist_id": 11, "composer": null, "type": "trio", "sub_type1": null, "sub_type2": null, "title": "A Pretty Trio", "duration": "4 min.", "contents": null, "description": "foobar", "price": 8.99, "img": "no-img.jpg", "shipping": "null"}' http://localhost:3000/api/add/music
+}
+
+// update sheet music
+function updateMusic($id) {
+
+    $appObj = \Slim\Slim::getInstance()->request();
+    $update = json_decode($appObj->getBody());
+
+    $sql = "UPDATE sheetmusics 
+        SET artist_id= " . $update->artist_id . ", composer= '" . $update->composer . "', type= '" . 
+        $update->type . "', sub_type1= '" . $update->sub_type1 . "', sub_type2= '" . 
+        $update->sub_type2 . "', title= '" . $update->title . "', duration= '" . $update->duration 
+        . "', contents= '" . $update->contents . "', description= '" . $update->description . 
+        "', price= " . $update->price . ", img= '" . $update->img . 
+        "', shipping= " . $update->shipping . 
+        " WHERE music_id = '" . $id . "'"; 
+
+    addUpdateRow($appObj, $sql);
+    
+    // for trial test in command line
+    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"music_id": "1111", "artist_id": 2, "composer": null, "type": "quartet", "sub_type1": null, "sub_type2": null, "title": "A New Title", "duration": "7 min.", "contents": null, "description": "something new", "price": 15.99, "img": "no-img.jpg", "shipping": "null"}' http://localhost:3000/api/update/music/1111
+}
+
+// delete sheet music
+function deleteMusic($id) {
+
+    $sql = "DELETE FROM sheetmusics 
+        WHERE music_id = '" . $id . "'";
+
+    deleteRow($sql);
+
+    // for trial test in command line
+    //curl -i -X DELETE http://localhost:3000/api/delete/music/1111
+}
+
+/* --------------------------------------------------------------- *
+*                            audio/video                           *
+* ---------------------------------------------------------------- */
+
+// add audio/video
+function addAV() {
+
+    $appObj = \Slim\Slim::getInstance()->request();
+    $av = json_decode($appObj->getBody());
+
+    $sql = "INSERT INTO audiosvideos (product_id, type, track, audio_description, 
+              audio_title, audio_file, video_description, video_embed) 
+            VALUES ('" . $av->product_id . "', '" . $av->type . "', " . 
+              $av->track . ", '" . $av->audio_description . "', '" . $av->audio_title . 
+              "', '" . $av->audio_file . "', '" . $av->video_description . "', '" . 
+              $av->video_embed . "')";
+
+    addUpdateRow($appObj, $sql);
+//echo json_encode($av);
+    // for trial test in command line
+    //curl -i -X POST -H 'Content-Type: application/json' -d '{"product_id": "0622", "type": "video", "track": 1, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": null, "video_embed": "some_embed_url"}' http://localhost:3000/api/add/av
+}
+
+// update audio/video
+function updateAV($id) {
+
+    $appObj = \Slim\Slim::getInstance()->request();
+    $update = json_decode($appObj->getBody());
+
+    $sql = "UPDATE audiosvideos 
+        SET product_id= '" . $update->product_id . "', type= '" . $update->type . "', track= " . 
+        $update->track . ", audio_description= '" . $update->audio_description . "', audio_title= '" . 
+        $update->audio_title . "', audio_file= '" . $update->audio_file . "', video_description= '" . 
+        $update->video_description . "', video_embed= '" . $update->video_embed . "' 
+        WHERE av_id = '" . $id . "'"; 
+
+    addUpdateRow($appObj, $sql);
+    
+    // for trial test in command line
+    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"product_id": "0622", "type": "video", "track": 2, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": "This is new", "video_embed": "new_url"}' http://localhost:3000/api/update/av/105
+}
+
+// delete audio/video
+function deleteAV($id) {
+
+    $sql = "DELETE FROM audiosvideos 
+        WHERE av_id = '" . $id . "'";
+
+    deleteRow($sql);
+
+    // for trial test in command line
+    //curl -i -X DELETE http://localhost:3000/api/delete/av/105
 }

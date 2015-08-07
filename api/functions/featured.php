@@ -26,7 +26,7 @@ function getFeatures() {
             $av = array();
             $sql2 = "SELECT * 
                     FROM audiosvideos 
-                    WHERE music_id = '" . $featureIds->composition . "'";
+                    WHERE product_id = '" . $featureIds->composition . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
             $stmt2->setFetchMode(PDO::FETCH_OBJ);
@@ -53,7 +53,7 @@ function getFeatures() {
             $av = array();
             $sql2 = "SELECT * 
                     FROM audiosvideos 
-                    WHERE music_id = '" . $featureIds->book . "'";
+                    WHERE product_id = '" . $featureIds->book . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
             $stmt2->setFetchMode(PDO::FETCH_OBJ);
@@ -80,7 +80,7 @@ function getFeatures() {
             $av = array();
             $sql2 = "SELECT * 
                     FROM audiosvideos 
-                    WHERE music_id = '" . $featureIds->media . "'";
+                    WHERE product_id = '" . $featureIds->media . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
             $stmt2->setFetchMode(PDO::FETCH_OBJ);

@@ -140,7 +140,7 @@ function getSheetMusicRows($sql) {
             // get audio/video if exists
             $sql2 = "SELECT * 
                     FROM audiosvideos 
-                    WHERE music_id = '" . $row->music_id . "'";
+                    WHERE product_id = '" . $row->music_id . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
             $stmt2->setFetchMode(PDO::FETCH_OBJ);
@@ -199,7 +199,7 @@ function getMediaRows($sql) {
             // get audio/video if exists
             $sql2 = "SELECT * 
                     FROM audiosvideos 
-                    WHERE media_id = '" . $row->media_id . "'";
+                    WHERE product_id = '" . $row->media_id . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
             $stmt2->setFetchMode(PDO::FETCH_OBJ);
@@ -252,7 +252,7 @@ function getMediaRow($sql) {
             $av = array();
             $sql2 = "SELECT * 
                     FROM audiosvideos 
-                    WHERE media_id = '" . $row->media_id . "'";
+                    WHERE product_id = '" . $row->media_id . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
             $stmt2->setFetchMode(PDO::FETCH_OBJ);

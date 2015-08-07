@@ -107,4 +107,14 @@ $app->post('/add/media', 'addMedia');
 $app->put('/update/media/:id', 'updateMedia');
 $app->delete('/delete/media/:id', 'deleteMedia');
 
+// sheet music
+$app->post('/add/music', 'addMusic');
+$app->put('/update/music/:id', 'updateMusic');
+$app->delete('/delete/music/:id', 'deleteMusic');
+
+// audio/video
+$app->post('/add/av', 'addAV');
+$app->put('/update/av/:id', 'updateAV');
+$app->delete('/delete/av/:id', 'deleteAV');
+
 $app->run();
