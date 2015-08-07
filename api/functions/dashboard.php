@@ -262,3 +262,25 @@ function deleteAV($id) {
     // for trial test in command line
     //curl -i -X DELETE http://localhost:3000/api/delete/av/105
 }
+
+/* --------------------------------------------------------------- *
+*                              features                            *
+* ---------------------------------------------------------------- */
+
+// update features
+function updateFeatures() {
+
+    $appObj = \Slim\Slim::getInstance()->request();
+    $update = json_decode($appObj->getBody());
+
+    $sql = "UPDATE features 
+        SET composition= '" . $update->composition . "', book= '" . $update->book . 
+        "', media= '" . $update->media . "', artist= " . $update->artist . 
+        " WHERE feat_id = 1";
+
+    addUpdateRow($appObj, $sql);
+
+    // for trial test in command line
+    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"composition": "0990", "book": "0976", "media": "0748", "artist": 4}' http://localhost:3000/api/update/features
+    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"composition": "0942", "book": "0891", "media": "0829", "artist": 57}' http://localhost:3000/api/update/features
+}

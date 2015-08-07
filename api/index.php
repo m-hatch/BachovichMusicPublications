@@ -117,4 +117,7 @@ $app->post('/add/av', 'addAV');
 $app->put('/update/av/:id', 'updateAV');
 $app->delete('/delete/av/:id', 'deleteAV');
 
+// featured
+$app->put('/update/features', 'updateFeatures');
+
 $app->run();
