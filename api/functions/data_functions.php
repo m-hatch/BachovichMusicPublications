@@ -177,6 +177,57 @@ function getSheetMusicRows($sql) {
     }
 }
 
+// return selected sheet music row
+function getMusicRow($sql) {
+ 
+    $app = \Slim\Slim::getInstance();
+ 
+    try {
+        $db = getDB();
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_OBJ);
+        $error = array('error' => 'No match found');
+        
+            // get audio/video if exists
+            $av = array();
+            $sql2 = "SELECT * 
+                    FROM audiosvideos 
+                    WHERE product_id = '" . $row->music_id . "'";
+            $stmt2 = $db->prepare($sql2);
+            $stmt2->execute();
+            $stmt2->setFetchMode(PDO::FETCH_OBJ);
+            // fetch sub data into array
+            $i = 0;
+            while($sub = $stmt2->fetch()) {
+                $av[$i] = $sub;
+                $i++;
+            }
+            // add to data
+            if ($av) {
+                $row->audio_video = $av;
+            } else {
+                $row->audio_video = null;
+            }
+ 
+        // return data
+        if($row) {
+            $app->response->setStatus(200);
+            $app->response()->headers->set('Content-Type', 'application/json');
+            echo json_encode($row, JSON_PRETTY_PRINT);
+        } else {
+            $app->response->setStatus(200);
+            $app->response()->headers->set('Content-Type', 'application/json');
+            echo json_encode($error);
+        }
+        $db = null;
+ 
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo $e;
+    }
+}
+
 // return media rows
 function getMediaRows($sql) {
  

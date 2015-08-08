@@ -1,0 +1,70 @@
+<div id="music-detail">
+  
+  <!-- music detail -->
+  <div class="row" ng-if="music_detail.music_id">
+
+    <div ng-if="music_detail.img">
+      <div class="col-sm-3">
+        <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ music_detail.img }}" />
+      </div>
+    </div>
+
+    <!-- title etc. -->
+    <div class="music-desc col-sm-9">
+      <h4>
+        <span ng-if="music_detail.composer">{{ music_detail.composer }}&#47;</span>
+        {{ music_detail.fname + ' ' + music_detail.lname + ': ' }}<em>{{ music_detail.title }}&nbsp;</em>
+        <span class="sub-title" ng-if="music.duration">&nbsp;{{ '[' + music_detail.duration + ']' }}</span>
+        <span class="sub-title" ng-if="music.contents">{{ '(' + music_detail.contents + ')' }}</span>
+      </h4>
+      <p>{{ '$' + music_detail.price + ' - #' + music_detail.music_id }}</p>
+
+      <!-- PayPal button -->
+      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  
+        <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        
+        <input type="hidden" name="add" value="1">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="business" value="orders@bachovich.com">
+        <input type="hidden" name="no_shipping" value="2">
+        <input type="hidden" name="no_note" value="1">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="lc" value="US">
+        <input type="hidden" name="bn" value="PP-ShopCartBF">
+        
+        <!-- dynamically genereated values -->
+        <input type="hidden" name="item_name" ng-value="'#' + music_detail.music_id + ' - ' + music_detail.fname + ' ' + music_detail.lname + ': ' + music_detail.title + ' [' + music_detail.duration + ']'">
+        <input type="hidden" name="item_number" ng-value="music_detail.music_id"> 
+        <input type="hidden" name="amount" ng-value="music_detail.price">
+        <input type="hidden" name="shipping" ng-value="music_detail.shipping">
+        
+      </form>
+
+    </div>
+
+  </div><!-- end .row -->
+
+  <!-- item details -->
+  <div class="music-info">
+    <p>{{ music_detail.description }}</p>
+  </div>
+
+  <!-- audio links -->
+
+  <!-- video links -->
+  <div class="row">
+    <div class="video-row col-md-8 col-lg-6" ng-repeat="video in music_detail.audio_video | filter: {type: 'video'} | orderBy: 'track'">
+      <div class="video-container">
+        <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- not found message -->
+  <p ng-if="music_detail.error"><em>Item not found.</em></p>
+
+  <p><a href="javascript:history.back()">Go Back</a></p>
+  
+</div>

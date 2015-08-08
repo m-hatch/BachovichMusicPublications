@@ -291,6 +291,7 @@ p#copy {
 #search .empty-search {
   margin-top: 10px;
 }
+/*
 .info-tab {
   max-height: 2000px;
   -webkit-transition: all 0.8s ease-in-out;
@@ -305,6 +306,7 @@ p#copy {
 .description-links {
   margin: 15px 0 0;
 }
+*/
 .search-music {
   padding: 15px 6px;
   float: right;
@@ -324,7 +326,11 @@ p#copy {
 }
 .video-row {
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+#music-detail .video-row,
+#media-detail .video-row {
+  padding-left: 15px;
 }
 .video-container {
     position: relative;
@@ -495,4 +501,10 @@ p#copy {
 }
 #sheet-music .music-desc form {
   margin-top: 5px;
+}
+#music-detail {
+  padding-top: 16px;
+}
+#music-detail .music-info {
+  margin-top: 20px;
 }

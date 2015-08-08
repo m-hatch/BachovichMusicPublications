@@ -36,8 +36,9 @@ $app->get('/artists', 'getArtists');
 $app->get('/artist/:id', 'getArtist');
 $app->get('/rentals', 'getRentals');
 
-// sheet music search
+// sheet music general
 $app->get('/search', 'getAllMusic');
+$app->get('/music/:id', 'getMusicDetail');
 
 // sheet music solos
 $app->get('/solos/marimba', 'getMarimbaSolos');
@@ -120,4 +121,5 @@ $app->delete('/delete/av/:id', 'deleteAV');
 // featured
 $app->put('/update/features', 'updateFeatures');
 
+// run app
 $app->run();

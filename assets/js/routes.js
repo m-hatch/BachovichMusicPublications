@@ -45,6 +45,12 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: 'pages/thankyou.html'
     })
 
+    // sheet music detail
+    .when('/music/:id', {
+      templateUrl: 'pages/music-detail.html',
+      controller: 'musicCtrl'
+    })
+
     // solos
     .when('/solos/marimba', {
       templateUrl: 'pages/music.html',

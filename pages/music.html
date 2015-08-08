@@ -25,6 +25,11 @@
           <span class="sub-title" ng-if="music.contents">{{ '(' + music.contents + ')' }}</span>
         </h4>
         <p>{{ '$' + music.price + ' - #' + music.music_id }}</p>
+
+        <!-- more info link -->
+        <div ng-if="music.description || music.audio_video">
+          <p><a ng-href="music/{{ music.music_id }}">Click Here for more</a></p>
+        </div>
               
         <!-- PayPal button -->
         <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -53,9 +58,9 @@
 
     </div><!-- end .row -->
 
-    <!-- info toggles -->
+    <!-- info toggles --
     <div class="description-links row">
-      <!-- Info Link -->
+      <!-- Info Link --
       <div ng-if="music.description">
         <p><a href="" ng-model="toggleInfo" ng-click="toggleInfo = ! toggleInfo">Click Here for more information</a></p>
         <div class="info-tab" ng-class="{ 'display': ! toggleInfo }">
@@ -63,14 +68,14 @@
         </div>
       </div>
 
-      <!--  Audio/Video Link -->
+      <!--  Audio/Video Link --
       <div ng-if="music.audio_video">
         <p><a href="" ng-click="toggleVideo = ! toggleVideo">Click Here for audio/video</a></p>
         <div class="info-tab" ng-class="{ 'display': ! toggleVideo }">
 
           <!-- audio links -->
 
-          <!-- video links -->
+          <!-- video links --
           <div class="video-row col-md-8 col-lg-6" ng-repeat="video in music.audio_video | filter: {type: 'video'} | orderBy: 'track'">
             <div class="video-container">
               <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>

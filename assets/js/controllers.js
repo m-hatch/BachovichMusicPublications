@@ -296,6 +296,15 @@ app.controller('duetMultiWwCtrl', function($scope, $http){
 *                           no sub-menu                            *
 *                                                                  *
 * -----------------------------------------------------------------*/
+
+// music detail controller
+app.controller('musicCtrl', function($scope, $http, $routeParams){
+  $http.get('api/music/' + $routeParams.id)
+  .success(function(response) {
+    $scope.music_detail = response;
+  });
+});
+
 // no sub-menu controllers
 app.controller('triosCtrl', function($scope, $http){
   $http.get('api/trios')
