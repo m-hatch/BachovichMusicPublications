@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en" ng-app="bmpDash">
+<head>
+  <meta charset="utf-8">
+  <base href="/admin/">
+  <title>BMP Dashboard</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="M-Hatch">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/admin-media.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body >
+  <!-- header -->
+  <div ng-include="'views/dash-header.html'"></div>
+    
+  <!-- page body -->
+  <div id="dash-body" class="container">
+    
+    <div ng-view></div>
+
+  </div><!-- end #dash-body -->
+  
+  <!-- footer -->
+  <div ng-include="'../shared/footer.html'"></div>  
+
+
+  <!-- JavaScript -->
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <!-- angularJS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <!-- AngularJS Scripts -->
+  <script src="../assets/js/angular-route.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/routes.js"></script>
+  <!--<script src="assets/js/controllers.js"></script>
+  <script src="assets/js/filters.js"></script>-->
+
+</body>
+</html>

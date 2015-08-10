@@ -1,0 +1,40 @@
+<!-- header -->
+<div class="jumbotron">
+  <div class="container" id="header">
+    <a href="index.html"><img src="assets/images/bmp_logo.png" class="logo" width="100" height="100" /></a>
+    <h1>Bachovich Music Publications</h1> 
+    <p>Welcome to the Admin Dashboard!</p>
+  </div>
+  <hr>
+</div>
+
+<!-- main navigation -->
+<div id="dash-nav" class="unstick">
+  <div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+          <span class="navbar-brand" href="#">Bachovich Music Publications</span>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li ng-class="{active: $route.current.activetab == 'home'}"><a href="/admin">Home</a></li>
+            <li ng-class="{active: $route.current.activetab == 'artists'}"><a href="artists">Artists</a></li> 
+            <li ng-class="{active: $route.current.activetab == 'sheetmusic'}"><a href="sheetmusic">Sheet Music</a></li> 
+            <li ng-class="{active: $route.current.activetab == 'media'}"><a href="media">Media</a></li> 
+            <li ng-class="{active: $route.current.activetab == 'rentals'}"><a href="rentals">Rentals</a></li> 
+            <li ng-class="{active: $route.current.activetab == 'audio-video'}"><a href="audio-video">Audio/Video</a></li> 
+            <li ng-class="{active: $route.current.activetab == 'featured'}"><a href="featured">Featured</a></li>  
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script src="assets/js/sticky-nav.js"></script>
