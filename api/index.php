@@ -99,6 +99,7 @@ $app->put('/update/artist/:id', 'updateArtist');
 $app->delete('/delete/artist/:id', 'deleteArtist');
 
 // rentals
+$app->get('/rental/:id', 'getRental');
 $app->post('/add/rental', 'addRental');
 $app->put('/update/rental/:id', 'updateRental');
 $app->delete('/delete/rental/:id', 'deleteRental');

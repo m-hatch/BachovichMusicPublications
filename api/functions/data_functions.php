@@ -82,9 +82,8 @@ function addUpdateRow($appObj, $sql) {
         $stmt = $db->prepare($sql);
         $stmt->execute();
  
-        # message to confirm successful data entry?
+        // confirm successful data entry
         $app->response->setStatus(200);
-        echo "<p>Update submitted successfully</p>";
         $db = null;
 
     } catch(PDOException $e) {

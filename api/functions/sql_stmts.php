@@ -74,3 +74,12 @@ function artistById($id){
 
     return $sql;
 }
+
+// get rental by id
+function rentalById($id){
+    $sql = "SELECT * 
+            FROM rentals
+            WHERE rental_id = " . $id;
+
+    return $sql;
+}

@@ -12,5 +12,4 @@ app.service('SearchService', function(){
   this.get = function(){
     return search_query;
   }
-  
 });

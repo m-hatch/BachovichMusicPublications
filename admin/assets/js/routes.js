@@ -29,6 +29,16 @@ admin.config(function($routeProvider, $locationProvider){
       controller: 'rentalCtrl',
       activetab: 'rentals'
     })
+    .when('/rentals/add', {
+      templateUrl: 'views/rental-add.html',
+      controller: 'addRentalCtrl',
+      activetab: 'rentals'
+    })
+    .when('/rentals/:id', {
+      templateUrl: 'views/rental-edit.html',
+      controller: 'editRentalCtrl',
+      activetab: 'rentals'
+    })
     .when('/audio-video', {
       templateUrl: 'views/audio-video.html',
       controller: 'avCtrl',

@@ -1,3 +1,41 @@
 <div id="rentals">
-  rentals
+
+  <h1>Rentals</h1>
+
+  <div class="dash-btn">
+    <a href="rentals/add" class="btn btn-primary" role="button">Add Rental</a>
+  </div>
+
+  <div>{{ msg }}</div>
+  
+  <!-- rentals table -->
+  <div class="table-responsive">
+    <table class="table table-striped table-condensed">
+      <tr>
+        <th>ID</th>
+        <th>Composer</th>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Contents</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <!-- data -->
+      <tr ng-repeat="rental in rentals | orderBy: 'rental_id'">
+        <td>&#35;{{rental.rental_id}}</td>
+        <td>
+          <span ng-if="rental.composer">{{rental.composer}}&#47;</span>
+          {{rental.lname}},&nbsp;{{rental.fname}}
+        </td>
+        <td><em>{{rental.title}}</em></td>
+        <td>
+          <span ng-if="rental.duration">[{{rental.duration}}]</span>
+        </td>
+        <td>{{rental.contents}}</td>
+        <td><a ng-href="rentals/{{ rental.rental_id }}">Edit</a></td>
+        <td><a href ng-click="delete(rental.rental_id)">Delete</a></td>
+      </tr>
+    </table>
+  </div>
+
 </div>

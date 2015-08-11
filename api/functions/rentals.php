@@ -10,3 +10,10 @@ function getRentals() {
             ON r.artist_id = a.artist_id";
     getDataRows($sql);
 }
+
+// return selected rental
+function getRental($id) {
+
+    $sql = rentalById($id);
+    getRow($sql);
+}

@@ -16,9 +16,6 @@
   .jumbotron p {
     font-size: 18px;
   }
-  #dash-body {
-    padding-top: 52px; /* for top nav */
-  }
   .navbar-nav {
     float: right;
   }
