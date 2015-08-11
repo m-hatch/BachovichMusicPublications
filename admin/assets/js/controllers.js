@@ -132,6 +132,21 @@ admin.controller('avCtrl', function($scope, $http, $route){
 *                              featured                            *
 *                                                                  *
 * -----------------------------------------------------------------*/
-admin.controller('featCtrl', function($scope, $route){
+admin.controller('featCtrl', function($scope, $http, $route){
+  $scope.formData = {};
+  $http.get('/api/featured')
+  .success(function(response) {
+    $scope.feat = response;
+    $scope.formData.composition = response.composition.music_id;
+    $scope.formData.book = response.book.music_id;
+    $scope.formData.media = response.media.media_id;
+    $scope.formData.artist = response.artist.artist_id;
+  });
+  $scope.edit = function() {
+    $http.put('/api/update/features', $scope.formData)
+    .success(function() {
+      $route.reload();
+    });
+  };
   $scope.$route = $route;
 });
