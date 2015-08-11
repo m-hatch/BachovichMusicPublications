@@ -15,11 +15,62 @@ admin.controller('mainCtrl', function($scope, $http, $route){
 *                              artists                             *
 *                                                                  *
 * -----------------------------------------------------------------*/
-admin.controller('artistCtrl', function($scope, $http, $routeParams){
-  $http.get('api/artist/' + $routeParams.id)
+admin.controller('artistCtrl', function($scope, $http, $route){
+  $http.get('/api/artists')
   .success(function(response) {
-      $scope.artist = response;
+    $scope.artists = response;
+  });
+  $scope.delete = function(id) {
+    $http.delete('/api/delete/artist/' + id);
+    /*
+    .success(function() {
+      $scope.msg = 'Deleted!';
+    });*/
+    $route.reload();
+  };
+});
+
+admin.controller('addArtistCtrl', function($scope, $http, $route, $location, MsgService){
+  $scope.formData = {
+    "fname": null,
+    "lname": null,
+    "bio": null,
+    "img": null
+  };
+  MsgService.set('');
+  // process the form
+  $scope.submit = function() {
+    $http.post('/api/add/artist', $scope.formData)
+    .success(function() {
+      MsgService.set('Success!');
     });
+    $location.path('artists');
+  };
+  $scope.message = MsgService.get();
+  $scope.$route = $route;
+});
+
+admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams, $location){
+  $scope.formData = {};
+  $scope.msg = '';
+  // get rental data
+  $http.get('/api/artist/' + $routeParams.id)
+  .success(function(response) {
+    $scope.artist = response;
+    $scope.formData.fname = response.fname;
+    $scope.formData.lname = response.lname;
+    $scope.formData.bio = response.bio;
+    $scope.formData.img = response.img;
+  });
+  // process the form
+  $scope.submit = function() {
+    $http.put('/api/update/artist/' + $routeParams.id, $scope.formData)
+    .success(function() {
+      $scope.msg = 'Success!';
+    });
+    $location.path('artists');
+  };
+  $scope.$route = $route;
 });
 
 /* --------------------------------------------------------------- *

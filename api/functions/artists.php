@@ -2,10 +2,10 @@
 
 // ************** artists service functions ****************
 
-// return artist names
+// return artists
 function getArtists() {
  
-    $sql = "SELECT artist_id, fname, lname 
+    $sql = "SELECT * 
             FROM artists";
     getDataRows($sql);
 }

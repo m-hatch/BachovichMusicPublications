@@ -1,3 +1,34 @@
 <div id="artists">
-  artists
+  
+  <h1>Artists</h1>
+
+  <div class="dash-btn">
+    <a href="artists/add" class="btn btn-primary" role="button">Add Artist</a>
+  </div>
+
+  <!-- artists table -->
+  <div class="table-responsive">
+    <table class="table table-striped table-condensed table-hover">
+      <tr>
+        <th>ID</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Bio</th>
+        <th>Image</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <!-- data -->
+      <tr ng-repeat="artist in artists | orderBy: 'lname'">
+        <td>{{artist.artist_id}}</td>
+        <td>{{artist.lname}}</td>
+        <td>{{artist.fname}}</td>
+        <td>{{artist.bio}}</td>
+        <td>{{artist.img}}</td>
+        <td><a ng-href="artists/{{ artist.artist_id }}">Edit</a></td>
+        <td><a href ng-click="delete(artist.artist_id)">Delete</a></td>
+      </tr>
+    </table>
+  </div>
+
 </div>

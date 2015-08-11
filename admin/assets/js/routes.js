@@ -14,6 +14,16 @@ admin.config(function($routeProvider, $locationProvider){
       controller: 'artistCtrl',
       activetab: 'artists'
     })
+    .when('/artists/add', {
+      templateUrl: 'views/artist-add.html',
+      controller: 'addArtistCtrl',
+      activetab: 'artists'
+    })
+    .when('/artists/:id', {
+      templateUrl: 'views/artist-edit.html',
+      controller: 'editArtistCtrl',
+      activetab: 'artists'
+    })
     .when('/sheetmusic', {
       templateUrl: 'views/sheetmusic.html',
       controller: 'musicCtrl',
