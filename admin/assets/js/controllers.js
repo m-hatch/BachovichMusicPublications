@@ -1,12 +1,5 @@
-// main nav controllers
-admin.controller('mainCtrl', function($scope, $http, $route){
-  $http.get('api/featured')
-  .success(function(response) {
-    $scope.feat_comp = response['composition'];
-    $scope.feat_book = response['book'];
-    $scope.feat_media = response['media'];
-    $scope.feat_artist = response['artist'];
-  });
+// home controller
+admin.controller('mainCtrl', function($scope, $route){
   $scope.$route = $route; // for top nav highlighting
 });
 
@@ -53,7 +46,7 @@ admin.controller('addArtistCtrl', function($scope, $http, $route, $location, Msg
 admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams, $location){
   $scope.formData = {};
   $scope.msg = '';
-  // get rental data
+  // get artist data
   $http.get('/api/artist/' + $routeParams.id)
   .success(function(response) {
     $scope.artist = response;
@@ -91,11 +84,69 @@ admin.controller('musicCtrl', function($scope, $http, $route){
 *                              media                               *
 *                                                                  *
 * -----------------------------------------------------------------*/
-admin.controller('mediaCtrl', function($scope, $http, $routeParams){
-  $http.get('api/media/' + $routeParams.id)
+admin.controller('mediaCtrl', function($scope, $http, $route){
+  $http.get('/api/medias')
   .success(function(response) {
-    $scope.media_detail = response;
+    $scope.medias = response;
   });
+  $scope.delete = function(id) {
+    $http.delete('/api/delete/media/' + id);
+    /*
+    .success(function() {
+      $scope.msg = 'Deleted!';
+    });*/
+    $route.reload();
+  };
+});
+
+admin.controller('addMediaCtrl', function($scope, $http, $route, $location, MsgService){
+  $scope.formData = {
+    "media_id": null,
+    "artist_id": null,
+    "type": null,
+    "title": null,
+    "description": null,
+    "price": null,
+    "img": null,
+    "shipping": null
+  };
+  MsgService.set('');
+  // process the form
+  $scope.submit = function() {
+    $http.post('/api/add/media', $scope.formData)
+    .success(function() {
+      MsgService.set('Success!');
+    });
+    $location.path('media');
+  };
+  $scope.message = MsgService.get();
+  $scope.$route = $route;
+});
+
+admin.controller('editMediaCtrl', function($scope, $http, $route, $routeParams, $location){
+  $scope.formData = {};
+  $scope.msg = '';
+  // get rental data
+  $http.get('/api/media/' + $routeParams.id)
+  .success(function(response) {
+    $scope.media = response;
+    $scope.formData.artist_id = response.artist_id;
+    $scope.formData.type = response.type;
+    $scope.formData.title = response.title;
+    $scope.formData.description = response.description;
+    $scope.formData.price = response.price;
+    $scope.formData.img = response.img;
+    $scope.formData.shipping = response.shipping;
+  });
+  // process the form
+  $scope.submit = function() {
+    $http.put('/api/update/media/' + $routeParams.id, $scope.formData)
+    .success(function() {
+      $scope.msg = 'Success!';
+    });
+    $location.path('media');
+  };
+  $scope.$route = $route;
 });
 
 /* --------------------------------------------------------------- *

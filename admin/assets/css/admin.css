@@ -146,3 +146,7 @@ p#copy {
   margin-left: 15px;
   font-weight: 700;
 }
+.bootstrap-select.btn-group:not(.input-group-btn), 
+.bootstrap-select.btn-group[class*=col-] {
+    display: block;
+}

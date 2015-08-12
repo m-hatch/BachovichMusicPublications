@@ -2,8 +2,6 @@
 // configure routes
 admin.config(function($routeProvider, $locationProvider){
   $routeProvider
-
-    // main nav pages
     .when('/', {
       templateUrl: 'views/home.html',
       controller: 'mainCtrl',
@@ -32,6 +30,16 @@ admin.config(function($routeProvider, $locationProvider){
     .when('/media', {
       templateUrl: 'views/media.html',
       controller: 'mediaCtrl',
+      activetab: 'media'
+    })
+    .when('/media/add', {
+      templateUrl: 'views/media-add.html',
+      controller: 'addMediaCtrl',
+      activetab: 'media'
+    })
+    .when('/media/:id', {
+      templateUrl: 'views/media-edit.html',
+      controller: 'editMediaCtrl',
       activetab: 'media'
     })
     .when('/rentals', {

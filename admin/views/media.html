@@ -1,3 +1,40 @@
 <div id="media">
-  media
+
+  <h1>Media</h1>
+
+  <div class="dash-btn">
+    <a href="media/add" class="btn btn-primary" role="button">Add Media</a>
+  </div>
+
+  <!-- medias table -->
+  <div class="table-responsive">
+    <table class="table table-striped table-condensed table-hover">
+      <tr>
+        <th>ID</th>
+        <th>Artist</th>
+        <th>Type</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Shipping</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <!-- data -->
+      <tr ng-repeat="media in medias | orderBy: 'media_id'">
+        <td>&#35;{{media.media_id}}</td>
+        <td>{{media.lname}},&nbsp;{{media.fname}}</td>
+        <td>{{media.type}}</td>
+        <td><em>{{media.title}}</em></td>
+        <td>{{media.description}}</td>
+        <td>{{'$' + media.price}}</td>
+        <td>{{media.img}}</td>
+        <td>{{'$' + media.shipping}}</td>
+        <td><a ng-href="media/{{ media.media_id }}">Edit</a></td>
+        <td><a href ng-click="delete(media.media_id)">Delete</a></td>
+      </tr>
+    </table>
+  </div>
+
 </div>
