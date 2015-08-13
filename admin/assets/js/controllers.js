@@ -8,19 +8,22 @@ admin.controller('mainCtrl', function($scope, $route){
 *                              artists                             *
 *                                                                  *
 * -----------------------------------------------------------------*/
-admin.controller('artistCtrl', function($scope, $http, $route){
+admin.controller('artistCtrl', function($scope, $http, $route, popupService){
   $http.get('/api/artists')
   .success(function(response) {
     $scope.artists = response;
   });
   $scope.delete = function(id) {
-    $http.delete('/api/delete/artist/' + id);
-    /*
-    .success(function() {
-      $scope.msg = 'Deleted!';
-    });*/
-    $route.reload();
+    if (popupService.showPopup('Are you sure you want to delete this?')) {
+      $http.delete('/api/delete/artist/' + id);
+      /*
+      .success(function() {
+        $scope.msg = 'Deleted!';
+      });*/
+      $route.reload();
+    }
   };
+  $scope.$route = $route;
 });
 
 admin.controller('addArtistCtrl', function($scope, $http, $route, $location, MsgService){
@@ -71,18 +74,20 @@ admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams,
 *                            sheet music                           *
 *                                                                  *
 * -----------------------------------------------------------------*/
-admin.controller('musicCtrl', function($scope, $http, $route){
+admin.controller('musicCtrl', function($scope, $http, $route, popupService){
   $http.get('/api/search')
   .success(function(response) {
     $scope.musics = response;
   });
   $scope.delete = function(id) {
-    $http.delete('/api/delete/music/' + id);
-    /*
-    .success(function() {
-      $scope.msg = 'Deleted!';
-    });*/
-    $route.reload();
+    if (popupService.showPopup('Are you sure you want to delete this?')) {
+      $http.delete('/api/delete/music/' + id);
+      /*
+      .success(function() {
+        $scope.msg = 'Deleted!';
+      });*/
+      $route.reload();
+    }
   };
   $scope.$route = $route;
 });
@@ -152,19 +157,22 @@ admin.controller('editMusicCtrl', function($scope, $http, $route, $routeParams, 
 *                              media                               *
 *                                                                  *
 * -----------------------------------------------------------------*/
-admin.controller('mediaCtrl', function($scope, $http, $route){
+admin.controller('mediaCtrl', function($scope, $http, $route, popupService){
   $http.get('/api/medias')
   .success(function(response) {
     $scope.medias = response;
   });
   $scope.delete = function(id) {
-    $http.delete('/api/delete/media/' + id);
-    /*
-    .success(function() {
-      $scope.msg = 'Deleted!';
-    });*/
-    $route.reload();
+    if (popupService.showPopup('Are you sure you want to delete this?')) {
+      $http.delete('/api/delete/media/' + id);
+      /*
+      .success(function() {
+        $scope.msg = 'Deleted!';
+      });*/
+      $route.reload();
+    }
   };
+  $scope.$route = $route;
 });
 
 admin.controller('addMediaCtrl', function($scope, $http, $route, $location, MsgService){
@@ -222,18 +230,20 @@ admin.controller('editMediaCtrl', function($scope, $http, $route, $routeParams, 
 *                              rentals                             *
 *                                                                  *
 * -----------------------------------------------------------------*/
-admin.controller('rentalCtrl', function($scope, $http, $route){
+admin.controller('rentalCtrl', function($scope, $http, $route, popupService){
   $http.get('/api/rentals')
   .success(function(response) {
     $scope.rentals = response;
   });
   $scope.delete = function(id) {
-    $http.delete('/api/delete/rental/' + id);
-    /*
-    .success(function() {
-      $scope.msg = 'Deleted!';
-    });*/
-    $route.reload();
+    if (popupService.showPopup('Are you sure you want to delete this?')) {
+      $http.delete('/api/delete/rental/' + id);
+      /*
+      .success(function() {
+        $scope.msg = 'Deleted!';
+      });*/
+      $route.reload();
+    }
   };
   $scope.$route = $route;
 });
@@ -289,18 +299,20 @@ admin.controller('editRentalCtrl', function($scope, $http, $route, $routeParams,
 *                            audio/video                           *
 *                                                                  *
 * -----------------------------------------------------------------*/
-admin.controller('avCtrl', function($scope, $http, $route){
+admin.controller('avCtrl', function($scope, $http, $route, popupService){
   $http.get('/api/av')
   .success(function(response) {
     $scope.avs = response;
   });
   $scope.delete = function(id) {
-    $http.delete('/api/delete/av/' + id);
-    /*
-    .success(function() {
-      $scope.msg = 'Deleted!';
-    });*/
-    $route.reload();
+    if (popupService.showPopup('Are you sure you want to delete this?')) {
+      $http.delete('/api/delete/av/' + id);
+      /*
+      .success(function() {
+        $scope.msg = 'Deleted!';
+      });*/
+      $route.reload();
+    }
   };
   $scope.$route = $route;
 });
