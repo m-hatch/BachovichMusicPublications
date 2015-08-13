@@ -146,3 +146,13 @@ p#copy {
   margin-left: 15px;
   font-weight: 700;
 }
+p.required, 
+span.required {
+    line-height: 1;
+    padding-right: 0 2px;
+    color: red;
+    font-size: 14px;
+}
+p.required {
+  margin-bottom: 14px;
+}

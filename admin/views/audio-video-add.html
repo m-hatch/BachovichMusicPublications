@@ -2,11 +2,14 @@
   
   <h2 class="form-title">Add Audio/Video</h2>
 
+  <p class="required">* Required</p>
+
   <form ng-submit="submit()">
 
     <div class="form-group">
       <label for="product_id">Product ID</label>
-      <input type="text" class="form-control input-short" id="product_id" placeholder="Enter product id" ng-model="formData.product_id">
+      <span class="required">&nbsp;*</span>
+      <input type="text" class="form-control input-short" id="product_id" placeholder="Enter product id" ng-model="formData.product_id" pattern="^\d{4}$" title="must be 4 digits only (no other characters)" required>
     </div>
 
     <div class="form-group">
