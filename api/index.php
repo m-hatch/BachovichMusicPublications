@@ -115,6 +115,8 @@ $app->put('/update/music/:id', 'updateMusic');
 $app->delete('/delete/music/:id', 'deleteMusic');
 
 // audio/video
+$app->get('/av', 'getAVs');
+$app->get('/av/:id', 'getAV');
 $app->post('/add/av', 'addAV');
 $app->put('/update/av/:id', 'updateAV');
 $app->delete('/delete/av/:id', 'deleteAV');

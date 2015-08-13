@@ -1,0 +1,76 @@
+<div id="audio-video-add">
+  
+  <h2 class="form-title">Add Audio/Video</h2>
+
+  <form ng-submit="submit()">
+
+    <div class="form-group">
+      <label for="product_id">Product ID</label>
+      <input type="text" class="form-control input-short" id="product_id" placeholder="Enter product id" ng-model="formData.product_id">
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select class="form-control input-short" id="type" ng-model="formData.type">
+        <option ng-selected="formData.type == null">Select</option>
+        <option value="audio">Audio</option>
+        <option value="video">Video</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="track">Track</label>
+      <input type="text" class="form-control input-med" id="track" placeholder="Enter track number (order to be displayed)" ng-model="formData.track">
+    </div>
+
+    <!-- audio fields -->
+    <div ng-if="formData.type == 'audio'">
+    
+      <div class="form-group">
+        <label for="audio_description">Audio Description</label>
+        <input type="text" class="form-control" id="audio_description" placeholder="Enter description" ng-model="formData.audio_description">
+      </div>
+
+      <div class="form-group">
+        <label for="audio_title">Audio Title</label>
+        <input type="text" class="form-control" id="audio_title" placeholder="Enter track title" ng-model="formData.audio_title">
+      </div>
+
+      <div class="form-group">
+        <label for="audio-file">Audio File</label>
+        <input type="file" id="audio-file">
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="audio-name">Audio File Name</label>
+        <input type="text" class="form-control input-med" id="audio-name" placeholder="Enter audio file name (example: sample.mp3)" ng-model="formData.audio_file">
+      </div>
+
+    </div>
+
+    <!-- video fields -->
+    <div ng-if="formData.type == 'video'">
+
+      <div class="form-group">
+        <label for="video_description">Video Description</label>
+        <input type="text" class="form-control" id="video_description" placeholder="Enter description" ng-model="formData.video_description">
+      </div>
+
+      <div class="form-group">
+        <label for="video_embed">Video Embed URL</label>
+        <input type="text" class="form-control" id="video_embed" placeholder="Enter YouTube embed URL" ng-model="formData.video_embed">
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+
+  <div>{{ message }}</div>
+  <pre>
+    {{ formData }}
+  </pre>
+
+</div>

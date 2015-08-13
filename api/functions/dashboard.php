@@ -213,6 +213,22 @@ function deleteMusic($id) {
 *                            audio/video                           *
 * ---------------------------------------------------------------- */
 
+// return audio/video
+function getAVs() {
+ 
+    $sql = "SELECT * FROM audiosvideos";
+    getDataRows($sql);
+}
+
+// return selected audio/video
+function getAV($id) {
+
+    $sql = "SELECT * 
+            FROM audiosvideos 
+            WHERE av_id = " . $id;
+    getRow($sql);
+}
+
 // add audio/video
 function addAV() {
 

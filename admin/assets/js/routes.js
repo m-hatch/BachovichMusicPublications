@@ -72,6 +72,16 @@ admin.config(function($routeProvider, $locationProvider){
       controller: 'avCtrl',
       activetab: 'audiovideo'
     })
+    .when('/audio-video/add', {
+      templateUrl: 'views/audio-video-add.html',
+      controller: 'addAvCtrl',
+      activetab: 'audiovideo'
+    })
+    .when('/audio-video/:id', {
+      templateUrl: 'views/audio-video-edit.html',
+      controller: 'editAvCtrl',
+      activetab: 'audiovideo'
+    })
     .when('/featured', {
       templateUrl: 'views/featured.html',
       controller: 'featCtrl',

@@ -290,10 +290,69 @@ admin.controller('editRentalCtrl', function($scope, $http, $route, $routeParams,
 *                                                                  *
 * -----------------------------------------------------------------*/
 admin.controller('avCtrl', function($scope, $http, $route){
-  $http.get('/api/rentals')
+  $http.get('/api/av')
   .success(function(response) {
-    $scope.rentals = response;
+    $scope.avs = response;
   });
+  $scope.delete = function(id) {
+    $http.delete('/api/delete/av/' + id);
+    /*
+    .success(function() {
+      $scope.msg = 'Deleted!';
+    });*/
+    $route.reload();
+  };
+  $scope.$route = $route;
+});
+
+admin.controller('addAvCtrl', function($scope, $http, $route, $location, MsgService){
+  $scope.formData = {
+    "product_id": null,
+    "type": null,
+    "track": null,
+    "audio_description": null,
+    "audio_title": null,
+    "audio_file": null,
+    "video_description": null,
+    "video_embed": null
+  };
+  MsgService.set('');
+  // process the form
+  $scope.submit = function() {
+    $http.post('/api/add/av', $scope.formData)
+    .success(function() {
+      MsgService.set('Success!');
+    });
+    $location.path('audio-video');
+  };
+  $scope.message = MsgService.get();
+  $scope.$route = $route;
+});
+
+admin.controller('editAvCtrl', function($scope, $http, $route, $routeParams, $location){
+  $scope.formData = {};
+  $scope.msg = '';
+  // get rental data
+  $http.get('/api/av/' + $routeParams.id)
+  .success(function(response) {
+    $scope.avs = response;
+    $scope.formData.product_id = response.product_id;
+    $scope.formData.type = response.type;
+    $scope.formData.track = response.track;
+    $scope.formData.audio_description = response.audio_description;
+    $scope.formData.audio_title = response.audio_title;
+    $scope.formData.audio_file = response.audio_file;
+    $scope.formData.video_description = response.video_description;
+    $scope.formData.video_embed = response.video_embed;
+  });
+  // process the form
+  $scope.submit = function() {
+    $http.put('/api/update/av/' + $routeParams.id, $scope.formData)
+    .success(function() {
+      $scope.msg = 'Success!';
+    });
+    $location.path('audio-video');
+  };
   $scope.$route = $route;
 });
 
