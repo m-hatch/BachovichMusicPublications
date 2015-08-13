@@ -72,10 +72,78 @@ admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams,
 *                                                                  *
 * -----------------------------------------------------------------*/
 admin.controller('musicCtrl', function($scope, $http, $route){
-  $http.get('api/medias')
+  $http.get('/api/search')
   .success(function(response) {
-    $scope.medias = response;
+    $scope.musics = response;
   });
+  $scope.delete = function(id) {
+    $http.delete('/api/delete/music/' + id);
+    /*
+    .success(function() {
+      $scope.msg = 'Deleted!';
+    });*/
+    $route.reload();
+  };
+  $scope.$route = $route;
+});
+
+admin.controller('addMusicCtrl', function($scope, $http, $route, $location, MsgService){
+  $scope.formData = {
+    "music_id": null,
+    "artist_id": null,
+    "composer": null,
+    "type": null,
+    "sub_type1": null,
+    "sub_type2": null,
+    "title": null,
+    "duration": null,
+    "contents": null,
+    "description": null,
+    "price": null,
+    "img": null,
+    "shipping": "null"
+  };
+  MsgService.set('');
+  // process the form
+  $scope.submit = function() {
+    $http.post('/api/add/music', $scope.formData)
+    .success(function() {
+      MsgService.set('Success!');
+    });
+    $location.path('sheetmusic');
+  };
+  $scope.message = MsgService.get();
+  $scope.$route = $route;
+});
+
+admin.controller('editMusicCtrl', function($scope, $http, $route, $routeParams, $location){
+  $scope.formData = {};
+  $scope.msg = '';
+  // get rental data
+  $http.get('/api/music/' + $routeParams.id)
+  .success(function(response) {
+    $scope.music = response;
+    $scope.formData.artist_id = response.artist_id;
+    $scope.formData.composer = response.composer;
+    $scope.formData.type = response.type;
+    $scope.formData.sub_type1 = response.sub_type1;
+    $scope.formData.sub_type2 = response.sub_type2;
+    $scope.formData.title = response.title;
+    $scope.formData.duration = response.duration;
+    $scope.formData.contents = response.contents;
+    $scope.formData.description = response.description;
+    $scope.formData.price = response.price;
+    $scope.formData.img = response.img;
+    $scope.formData.shipping = "null";
+  });
+  // process the form
+  $scope.submit = function() {
+    $http.put('/api/update/music/' + $routeParams.id, $scope.formData)
+    .success(function() {
+      $scope.msg = 'Success!';
+    });
+    $location.path('sheetmusic');
+  };
   $scope.$route = $route;
 });
 
@@ -222,7 +290,7 @@ admin.controller('editRentalCtrl', function($scope, $http, $route, $routeParams,
 *                                                                  *
 * -----------------------------------------------------------------*/
 admin.controller('avCtrl', function($scope, $http, $route){
-  $http.get('api/rentals')
+  $http.get('/api/rentals')
   .success(function(response) {
     $scope.rentals = response;
   });

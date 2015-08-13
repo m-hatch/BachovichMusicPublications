@@ -2,8 +2,8 @@
 
 // get all sheet music
 function sheetMusicAll(){
-    $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
-            s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
+    $sql = "SELECT s.music_id, s.artist_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
+            s.sub_type2, s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
             FROM sheetmusics s INNER JOIN artists a 
             ON s.artist_id = a.artist_id";
             
@@ -46,8 +46,8 @@ function sheetMusicsSubType2($type, $sub1, $sub2){
 
 // get sheet music by id
 function sheetMusicById($id){
-    $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
-            s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
+    $sql = "SELECT s.music_id, s.artist_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
+            s.sub_type2, s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
             FROM sheetmusics s INNER JOIN artists a 
             ON s.artist_id = a.artist_id
             WHERE s.music_id = '" . $id . "'";

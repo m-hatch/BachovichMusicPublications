@@ -27,6 +27,16 @@ admin.config(function($routeProvider, $locationProvider){
       controller: 'musicCtrl',
       activetab: 'sheetmusic'
     })
+    .when('/sheetmusic/add', {
+      templateUrl: 'views/music-add.html',
+      controller: 'addMusicCtrl',
+      activetab: 'sheetmusic'
+    })
+    .when('/sheetmusic/:id', {
+      templateUrl: 'views/music-edit.html',
+      controller: 'editMusicCtrl',
+      activetab: 'sheetmusic'
+    })
     .when('/media', {
       templateUrl: 'views/media.html',
       controller: 'mediaCtrl',
