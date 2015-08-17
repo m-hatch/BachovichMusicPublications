@@ -70,7 +70,7 @@ app.filter('search_products', function($log) {
 });
 
 /* --------------------------------------------------------------- *
-*                          YouTube embed $sce                      *
+*                          Trust as Resource $sce                      *
 * ---------------------------------------------------------------- */
 app.filter('trustAsResourceUrl', ['$sce', function($sce) {
     return function(val) {

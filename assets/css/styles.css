@@ -346,6 +346,9 @@ p#copy {
     width: 100%;
     height: 100%;
 }
+.audiojs .play-pause {
+    padding: 4px 0px;
+}
 
 /* ===================== home ======================== */
 #home h3 {

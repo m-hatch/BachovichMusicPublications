@@ -21,12 +21,28 @@ app.controller('mediasCtrl', function($scope, $http, $route){
   });
   $scope.$route = $route;
 });
-app.controller('mediaCtrl', function($scope, $http, $routeParams){
+app.controller('mediaCtrl', function($scope, $http, $routeParams, $rootScope){
+  $rootScope.ready = false;
   $http.get('api/media/' + $routeParams.id)
   .success(function(response) {
     $scope.media_detail = response;
   });
 });
+app.directive('dynamicUrl', function () {
+    return {
+        restrict: 'A',
+        link: function postLink(scope, element, attr) {
+            element.attr('src', 'assets/audio/' + attr.dynamicUrlSrc);
+        }
+    };
+});
+app.directive('myRepeatDirective', function($rootScope) {
+  return function(scope) {
+    if (scope.$last){
+      $rootScope.ready = true;
+    }
+  };
+})
 app.controller('artistsCtrl', function($scope, $http, $route){
   $http.get('api/artists')
   .success(function(response) {
