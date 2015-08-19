@@ -72,5 +72,13 @@
   <p ng-if="music_detail.error"><em>Item not found.</em></p>
 
   <p><a href="javascript:history.back()">Go Back</a></p>
+
+  <script>
+    audiojs.events.ready(function() {
+      setTimeout(function(){
+        var as = audiojs.createAll();
+      }, 1000);
+    });
+  </script>
   
 </div>
