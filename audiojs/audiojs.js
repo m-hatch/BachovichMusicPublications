@@ -684,7 +684,7 @@
 
     if (node.getElementsByClassName) {
       matches = node.getElementsByClassName(searchClass);
-    } else {
+    } else { 
       var i, l, 
           els = node.getElementsByTagName("*"),
           pattern = new RegExp("(^|\\s)"+searchClass+"(\\s|$)");

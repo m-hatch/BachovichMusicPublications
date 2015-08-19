@@ -346,6 +346,18 @@ p#copy {
     width: 100%;
     height: 100%;
 }
+.audio-player {
+  margin-bottom: 10px;
+}
+.audio-player span {
+  line-height: 1.8;
+}
+.audiojs {
+    width: 360px; /* 460px */
+}
+.audiojs .scrubber {
+    width: 200px; /* 280px */
+}
 .audiojs .play-pause {
     padding: 4px 0px;
 }

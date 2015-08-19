@@ -37,6 +37,12 @@
   .video-row.col-md-8 {
     width: 80%;
   }
+  .audiojs {
+    width: 460px;
+  }
+  .audiojs .scrubber {
+      width: 280px;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -103,6 +109,12 @@
   #sheet-music .search-music {
     float: right;
   }
+  .audiojs {
+    width: 460px;
+  }
+  .audiojs .scrubber {
+      width: 280px;
+  }
 }
 
 /* Large Devices, Wide Screens */
@@ -121,5 +133,11 @@
   }
   #media .media-row:nth-child(4n+1) {
     clear: both;
+  }
+  .audiojs {
+    width: 420px;
+  }
+  .audiojs .scrubber {
+      width: 250px;
   }
 }

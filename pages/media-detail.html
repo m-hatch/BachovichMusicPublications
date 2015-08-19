@@ -52,9 +52,11 @@
   </div>
 
   <!-- audio links -->
-  <div ng-repeat="audio in media_detail.audio_video | filter: {type: 'audio'} | orderBy: 'track'" my-repeat-directive>
-    <span>{{audio.audio_title}}</span>
-    <audio src="" dynamic-url dynamic-url-src="{{audio.audio_file}}" preload="auto" />
+  <div class="row">
+    <div class="audio-player col-lg-6" ng-repeat="audio in media_detail.audio_video | filter: {type: 'audio'} | orderBy: 'track'">
+      <span><em>{{audio.audio_title}}</em></span>
+      <audio src="" dynamic-url dynamic-url-src="{{audio.audio_file}}" preload="auto" />
+    </div>
   </div>
 
   <!-- video links -->
@@ -71,7 +73,7 @@
 
   <p><a href="media">Back to Audio/Video</a></p>
 
-  <div ng-if="ready">
+  <div>
     <script>
       audiojs.events.ready(function() {
         setTimeout(function(){

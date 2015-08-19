@@ -52,6 +52,12 @@
   </div>
 
   <!-- audio links -->
+  <div class="row">
+    <div class="audio-player col-lg-6" ng-repeat="audio in music_detail.audio_video | filter: {type: 'audio'} | orderBy: 'track'">
+      <span><em>{{audio.audio_title}}</em></span>
+      <audio src="" dynamic-url dynamic-url-src="{{audio.audio_file}}" preload="auto" />
+    </div>
+  </div>
 
   <!-- video links -->
   <div class="row">
