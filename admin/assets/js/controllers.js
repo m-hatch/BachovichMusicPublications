@@ -9,13 +9,13 @@ admin.controller('mainCtrl', function($scope, $route){
 *                                                                  *
 * -----------------------------------------------------------------*/
 admin.controller('artistCtrl', function($scope, $http, $route, popupService){
-  $http.get('/api/artists')
+  $http.get('../api/artists')
   .success(function(response) {
     $scope.artists = response;
   });
   $scope.delete = function(id) {
     if (popupService.showPopup('Are you sure you want to delete this?')) {
-      $http.delete('/api/delete/artist/' + id);
+      $http.delete('../api/delete/artist/' + id);
       /*
       .success(function() {
         $scope.msg = 'Deleted!';
@@ -36,7 +36,7 @@ admin.controller('addArtistCtrl', function($scope, $http, $route, $location, Msg
   MsgService.set('');
   // process the form
   $scope.submit = function() {
-    $http.post('/api/add/artist', $scope.formData)
+    $http.post('../api/add/artist', $scope.formData)
     .success(function() {
       MsgService.set('Success!');
     });
@@ -50,7 +50,7 @@ admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams,
   $scope.formData = {};
   $scope.msg = '';
   // get artist data
-  $http.get('/api/artist/' + $routeParams.id)
+  $http.get('../api/artist/' + $routeParams.id)
   .success(function(response) {
     $scope.artist = response;
     $scope.formData.fname = response.fname;
@@ -60,7 +60,7 @@ admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams,
   });
   // process the form
   $scope.submit = function() {
-    $http.put('/api/update/artist/' + $routeParams.id, $scope.formData)
+    $http.put('../api/update/artist/' + $routeParams.id, $scope.formData)
     .success(function() {
       $scope.msg = 'Success!';
     });
@@ -75,13 +75,13 @@ admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams,
 *                                                                  *
 * -----------------------------------------------------------------*/
 admin.controller('musicCtrl', function($scope, $http, $route, popupService){
-  $http.get('/api/search')
+  $http.get('../api/search')
   .success(function(response) {
     $scope.musics = response;
   });
   $scope.delete = function(id) {
     if (popupService.showPopup('Are you sure you want to delete this?')) {
-      $http.delete('/api/delete/music/' + id);
+      $http.delete('../api/delete/music/' + id);
       /*
       .success(function() {
         $scope.msg = 'Deleted!';
@@ -111,7 +111,7 @@ admin.controller('addMusicCtrl', function($scope, $http, $route, $location, MsgS
   MsgService.set('');
   // process the form
   $scope.submit = function() {
-    $http.post('/api/add/music', $scope.formData)
+    $http.post('../api/add/music', $scope.formData)
     .success(function() {
       MsgService.set('Success!');
     });
@@ -125,7 +125,7 @@ admin.controller('editMusicCtrl', function($scope, $http, $route, $routeParams, 
   $scope.formData = {};
   $scope.msg = '';
   // get rental data
-  $http.get('/api/music/' + $routeParams.id)
+  $http.get('../api/music/' + $routeParams.id)
   .success(function(response) {
     $scope.music = response;
     $scope.formData.artist_id = response.artist_id;
@@ -143,7 +143,7 @@ admin.controller('editMusicCtrl', function($scope, $http, $route, $routeParams, 
   });
   // process the form
   $scope.submit = function() {
-    $http.put('/api/update/music/' + $routeParams.id, $scope.formData)
+    $http.put('../api/update/music/' + $routeParams.id, $scope.formData)
     .success(function() {
       $scope.msg = 'Success!';
     });
@@ -158,13 +158,13 @@ admin.controller('editMusicCtrl', function($scope, $http, $route, $routeParams, 
 *                                                                  *
 * -----------------------------------------------------------------*/
 admin.controller('mediaCtrl', function($scope, $http, $route, popupService){
-  $http.get('/api/medias')
+  $http.get('../api/medias')
   .success(function(response) {
     $scope.medias = response;
   });
   $scope.delete = function(id) {
     if (popupService.showPopup('Are you sure you want to delete this?')) {
-      $http.delete('/api/delete/media/' + id);
+      $http.delete('../api/delete/media/' + id);
       /*
       .success(function() {
         $scope.msg = 'Deleted!';
@@ -189,7 +189,7 @@ admin.controller('addMediaCtrl', function($scope, $http, $route, $location, MsgS
   MsgService.set('');
   // process the form
   $scope.submit = function() {
-    $http.post('/api/add/media', $scope.formData)
+    $http.post('../api/add/media', $scope.formData)
     .success(function() {
       MsgService.set('Success!');
     });
@@ -203,7 +203,7 @@ admin.controller('editMediaCtrl', function($scope, $http, $route, $routeParams, 
   $scope.formData = {};
   $scope.msg = '';
   // get rental data
-  $http.get('/api/media/' + $routeParams.id)
+  $http.get('../api/media/' + $routeParams.id)
   .success(function(response) {
     $scope.media = response;
     $scope.formData.artist_id = response.artist_id;
@@ -216,7 +216,7 @@ admin.controller('editMediaCtrl', function($scope, $http, $route, $routeParams, 
   });
   // process the form
   $scope.submit = function() {
-    $http.put('/api/update/media/' + $routeParams.id, $scope.formData)
+    $http.put('../api/update/media/' + $routeParams.id, $scope.formData)
     .success(function() {
       $scope.msg = 'Success!';
     });
@@ -231,13 +231,13 @@ admin.controller('editMediaCtrl', function($scope, $http, $route, $routeParams, 
 *                                                                  *
 * -----------------------------------------------------------------*/
 admin.controller('rentalCtrl', function($scope, $http, $route, popupService){
-  $http.get('/api/rentals')
+  $http.get('../api/rentals')
   .success(function(response) {
     $scope.rentals = response;
   });
   $scope.delete = function(id) {
     if (popupService.showPopup('Are you sure you want to delete this?')) {
-      $http.delete('/api/delete/rental/' + id);
+      $http.delete('../api/delete/rental/' + id);
       /*
       .success(function() {
         $scope.msg = 'Deleted!';
@@ -260,7 +260,7 @@ admin.controller('addRentalCtrl', function($scope, $http, $route, $location, Msg
   MsgService.set('');
   // process the form
   $scope.submit = function() {
-    $http.post('/api/add/rental', $scope.formData)
+    $http.post('../api/add/rental', $scope.formData)
     .success(function() {
       MsgService.set('Success!');
     });
@@ -274,7 +274,7 @@ admin.controller('editRentalCtrl', function($scope, $http, $route, $routeParams,
   $scope.formData = {};
   $scope.msg = '';
   // get rental data
-  $http.get('/api/rental/' + $routeParams.id)
+  $http.get('../api/rental/' + $routeParams.id)
   .success(function(response) {
     $scope.rental = response;
     $scope.formData.artist_id = response.artist_id;
@@ -285,7 +285,7 @@ admin.controller('editRentalCtrl', function($scope, $http, $route, $routeParams,
   });
   // process the form
   $scope.submit = function() {
-    $http.put('/api/update/rental/' + $routeParams.id, $scope.formData)
+    $http.put('../api/update/rental/' + $routeParams.id, $scope.formData)
     .success(function() {
       $scope.msg = 'Success!';
     });
@@ -300,13 +300,13 @@ admin.controller('editRentalCtrl', function($scope, $http, $route, $routeParams,
 *                                                                  *
 * -----------------------------------------------------------------*/
 admin.controller('avCtrl', function($scope, $http, $route, popupService){
-  $http.get('/api/av')
+  $http.get('../api/av')
   .success(function(response) {
     $scope.avs = response;
   });
   $scope.delete = function(id) {
     if (popupService.showPopup('Are you sure you want to delete this?')) {
-      $http.delete('/api/delete/av/' + id);
+      $http.delete('../api/delete/av/' + id);
       /*
       .success(function() {
         $scope.msg = 'Deleted!';
@@ -331,7 +331,7 @@ admin.controller('addAvCtrl', function($scope, $http, $route, $location, MsgServ
   MsgService.set('');
   // process the form
   $scope.submit = function() {
-    $http.post('/api/add/av', $scope.formData)
+    $http.post('../api/add/av', $scope.formData)
     .success(function() {
       MsgService.set('Success!');
     });
@@ -345,7 +345,7 @@ admin.controller('editAvCtrl', function($scope, $http, $route, $routeParams, $lo
   $scope.formData = {};
   $scope.msg = '';
   // get rental data
-  $http.get('/api/av/' + $routeParams.id)
+  $http.get('../api/av/' + $routeParams.id)
   .success(function(response) {
     $scope.avs = response;
     $scope.formData.product_id = response.product_id;
@@ -359,7 +359,7 @@ admin.controller('editAvCtrl', function($scope, $http, $route, $routeParams, $lo
   });
   // process the form
   $scope.submit = function() {
-    $http.put('/api/update/av/' + $routeParams.id, $scope.formData)
+    $http.put('../api/update/av/' + $routeParams.id, $scope.formData)
     .success(function() {
       $scope.msg = 'Success!';
     });
@@ -375,7 +375,7 @@ admin.controller('editAvCtrl', function($scope, $http, $route, $routeParams, $lo
 * -----------------------------------------------------------------*/
 admin.controller('featCtrl', function($scope, $http, $route){
   $scope.formData = {};
-  $http.get('/api/featured')
+  $http.get('../api/featured')
   .success(function(response) {
     $scope.feat = response;
     $scope.formData.composition = response.composition.music_id;
@@ -384,7 +384,7 @@ admin.controller('featCtrl', function($scope, $http, $route){
     $scope.formData.artist = response.artist.artist_id;
   });
   $scope.edit = function() {
-    $http.put('/api/update/features', $scope.formData)
+    $http.put('../api/update/features', $scope.formData)
     .success(function() {
       $route.reload();
     });
