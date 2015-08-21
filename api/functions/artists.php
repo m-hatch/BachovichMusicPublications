@@ -6,7 +6,7 @@
 function getArtists() {
  
     $sql = "SELECT * 
-            FROM artists";
+            FROM Artists";
     getDataRows($sql);
 }
 

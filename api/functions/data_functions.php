@@ -138,7 +138,7 @@ function getSheetMusicRows($sql) {
 
             // get audio/video if exists
             $sql2 = "SELECT * 
-                    FROM audiosvideos 
+                    FROM AudiosVideos 
                     WHERE product_id = '" . $row->music_id . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
@@ -191,7 +191,7 @@ function getMusicRow($sql) {
             // get audio/video if exists
             $av = array();
             $sql2 = "SELECT * 
-                    FROM audiosvideos 
+                    FROM AudiosVideos 
                     WHERE product_id = '" . $row->music_id . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
@@ -248,7 +248,7 @@ function getMediaRows($sql) {
 
             // get audio/video if exists
             $sql2 = "SELECT * 
-                    FROM audiosvideos 
+                    FROM AudiosVideos 
                     WHERE product_id = '" . $row->media_id . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
@@ -301,7 +301,7 @@ function getMediaRow($sql) {
             // get audio/video if exists
             $av = array();
             $sql2 = "SELECT * 
-                    FROM audiosvideos 
+                    FROM AudiosVideos 
                     WHERE product_id = '" . $row->media_id . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();

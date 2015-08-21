@@ -4,7 +4,7 @@
 function sheetMusicAll(){
     $sql = "SELECT s.music_id, s.artist_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
             s.sub_type2, s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
-            FROM sheetmusics s INNER JOIN artists a 
+            FROM SheetMusics s INNER JOIN Artists a 
             ON s.artist_id = a.artist_id";
             
     return $sql;
@@ -14,7 +14,7 @@ function sheetMusicAll(){
 function sheetMusicsType($type){
     $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
             s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
-            FROM sheetmusics s INNER JOIN artists a 
+            FROM SheetMusics s INNER JOIN Artists a 
             ON s.artist_id = a.artist_id
             WHERE s.type = '" . $type . "'";
 
@@ -25,7 +25,7 @@ function sheetMusicsType($type){
 function sheetMusicsSubType1($type, $sub){
     $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
             s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
-            FROM sheetmusics s INNER JOIN artists a 
+            FROM SheetMusics s INNER JOIN Artists a 
             ON s.artist_id = a.artist_id
             WHERE s.type = '" . $type . "' AND s.sub_type1 = '" . $sub . "'";
 
@@ -36,7 +36,7 @@ function sheetMusicsSubType1($type, $sub){
 function sheetMusicsSubType2($type, $sub1, $sub2){
     $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
             s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
-            FROM sheetmusics s INNER JOIN artists a 
+            FROM SheetMusics s INNER JOIN Artists a 
             ON s.artist_id = a.artist_id
             WHERE s.type = '" . $type . "' AND s.sub_type1 = '" . $sub1 . 
             "' AND s.sub_type2 = '" . $sub2 . "'";
@@ -48,7 +48,7 @@ function sheetMusicsSubType2($type, $sub1, $sub2){
 function sheetMusicById($id){
     $sql = "SELECT s.music_id, s.artist_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
             s.sub_type2, s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
-            FROM sheetmusics s INNER JOIN artists a 
+            FROM SheetMusics s INNER JOIN Artists a 
             ON s.artist_id = a.artist_id
             WHERE s.music_id = '" . $id . "'";
 
@@ -59,7 +59,7 @@ function sheetMusicById($id){
 function mediaById($id){
     $sql = "SELECT m.media_id, m.artist_id, m.type, a.lname, a.fname, m.title, m.description, 
             m.price, m.img, m.shipping 
-            FROM medias m INNER JOIN artists a 
+            FROM Medias m INNER JOIN Artists a 
             ON m.artist_id = a.artist_id 
             WHERE media_id = '" . $id . "'";
 
@@ -69,7 +69,7 @@ function mediaById($id){
 // get artist by id
 function artistById($id){
     $sql = "SELECT * 
-            FROM artists
+            FROM Artists
             WHERE artist_id = " . $id;
 
     return $sql;
@@ -78,7 +78,7 @@ function artistById($id){
 // get rental by id
 function rentalById($id){
     $sql = "SELECT * 
-            FROM rentals
+            FROM Rentals
             WHERE rental_id = " . $id;
 
     return $sql;

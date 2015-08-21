@@ -10,7 +10,7 @@ function addArtist() {
     $appObj = \Slim\Slim::getInstance()->request();
     $artist = json_decode($appObj->getBody());
 
-    $sql = "INSERT INTO artists (fname, lname, bio, img) 
+    $sql = "INSERT INTO Artists (fname, lname, bio, img) 
             VALUES ('" . $artist->fname . "', '" . $artist->lname . 
                 "', '" . $artist->bio . "', '" . $artist->img . "')";
 
@@ -26,7 +26,7 @@ function updateArtist($id) {
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
 
-    $sql = "UPDATE artists 
+    $sql = "UPDATE Artists 
         SET fname= '" . $update->fname . "', lname= '" . $update->lname . 
         "', bio= '" . $update->bio . "', img= '" . $update->img . "' 
         WHERE artist_id = " . $id; 
@@ -40,7 +40,7 @@ function updateArtist($id) {
 // delete artist
 function deleteArtist($id) {
 
-    $sql = "DELETE FROM artists 
+    $sql = "DELETE FROM Artists 
         WHERE artist_id=" . $id;
 
     deleteRow($sql);
@@ -59,7 +59,7 @@ function addRental() {
     $appObj = \Slim\Slim::getInstance()->request();
     $rental = json_decode($appObj->getBody());
 
-    $sql = "INSERT INTO rentals (rental_id, artist_id, composer, title, duration, contents) 
+    $sql = "INSERT INTO Rentals (rental_id, artist_id, composer, title, duration, contents) 
             VALUES ('" . $rental->rental_id . "', " . $rental->artist_id . ", '" . 
               $rental->composer . "', '" . $rental->title . "', '" . $rental->duration . 
               "', '" . $rental->contents . "')";
@@ -76,7 +76,7 @@ function updateRental($id) {
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
 
-    $sql = "UPDATE rentals 
+    $sql = "UPDATE Rentals 
         SET artist_id= " . $update->artist_id . ", composer= '" . $update->composer . 
         "', title= '" . $update->title . "', duration= '" . $update->duration . 
         "', contents= '" . $update->contents . "'  
@@ -91,7 +91,7 @@ function updateRental($id) {
 // delete rental
 function deleteRental($id) {
 
-    $sql = "DELETE FROM rentals 
+    $sql = "DELETE FROM Rentals 
         WHERE rental_id = '" . $id . "'";
 
     deleteRow($sql);
@@ -110,7 +110,7 @@ function addMedia() {
     $appObj = \Slim\Slim::getInstance()->request();
     $media = json_decode($appObj->getBody());
 
-    $sql = "INSERT INTO medias (media_id, artist_id, type, title, description, price, img, shipping) 
+    $sql = "INSERT INTO Medias (media_id, artist_id, type, title, description, price, img, shipping) 
             VALUES ('" . $media->media_id . "', " . $media->artist_id . ", '" . 
               $media->type . "', '" . $media->title . "', '" . $media->description ."', " . 
               $media->price . ", '" . $media->img . "', " . $media->shipping . ")";
@@ -127,7 +127,7 @@ function updateMedia($id) {
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
 
-    $sql = "UPDATE medias 
+    $sql = "UPDATE Medias 
         SET artist_id= " . $update->artist_id . ", type= '" . $update->type . 
         "', title= '" . $update->title . "', description= '" . $update->description . 
         "', price= " . $update->price . ", img= '" . $update->img . 
@@ -143,7 +143,7 @@ function updateMedia($id) {
 // delete media
 function deleteMedia($id) {
 
-    $sql = "DELETE FROM medias 
+    $sql = "DELETE FROM Medias 
         WHERE media_id = '" . $id . "'";
 
     deleteRow($sql);
@@ -162,7 +162,7 @@ function addMusic() {
     $appObj = \Slim\Slim::getInstance()->request();
     $music = json_decode($appObj->getBody());
 
-    $sql = "INSERT INTO sheetmusics (music_id, artist_id, composer, type, sub_type1, sub_type2, 
+    $sql = "INSERT INTO SheetMusics (music_id, artist_id, composer, type, sub_type1, sub_type2, 
               title, duration, contents, description, price, img, shipping) 
             VALUES ('" . $music->music_id . "', " . $music->artist_id . ", '" . $music->composer . 
               "', '" . $music->type . "', '" . $music->sub_type1 . "', '" . $music->sub_type2 . 
@@ -182,7 +182,7 @@ function updateMusic($id) {
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
 
-    $sql = "UPDATE sheetmusics 
+    $sql = "UPDATE SheetMusics 
         SET artist_id= " . $update->artist_id . ", composer= '" . $update->composer . "', type= '" . 
         $update->type . "', sub_type1= '" . $update->sub_type1 . "', sub_type2= '" . 
         $update->sub_type2 . "', title= '" . $update->title . "', duration= '" . $update->duration 
@@ -200,7 +200,7 @@ function updateMusic($id) {
 // delete sheet music
 function deleteMusic($id) {
 
-    $sql = "DELETE FROM sheetmusics 
+    $sql = "DELETE FROM SheetMusics 
         WHERE music_id = '" . $id . "'";
 
     deleteRow($sql);
@@ -216,7 +216,7 @@ function deleteMusic($id) {
 // return audio/video
 function getAVs() {
  
-    $sql = "SELECT * FROM audiosvideos";
+    $sql = "SELECT * FROM AudiosVideos";
     getDataRows($sql);
 }
 
@@ -224,7 +224,7 @@ function getAVs() {
 function getAV($id) {
 
     $sql = "SELECT * 
-            FROM audiosvideos 
+            FROM AudiosVideos 
             WHERE av_id = " . $id;
     getRow($sql);
 }
@@ -235,7 +235,7 @@ function addAV() {
     $appObj = \Slim\Slim::getInstance()->request();
     $av = json_decode($appObj->getBody());
 
-    $sql = "INSERT INTO audiosvideos (product_id, type, track, audio_description, 
+    $sql = "INSERT INTO AudiosVideos (product_id, type, track, audio_description, 
               audio_title, audio_file, video_description, video_embed) 
             VALUES ('" . $av->product_id . "', '" . $av->type . "', " . 
               $av->track . ", '" . $av->audio_description . "', '" . $av->audio_title . 
@@ -254,7 +254,7 @@ function updateAV($id) {
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
 
-    $sql = "UPDATE audiosvideos 
+    $sql = "UPDATE AudiosVideos 
         SET product_id= '" . $update->product_id . "', type= '" . $update->type . "', track= " . 
         $update->track . ", audio_description= '" . $update->audio_description . "', audio_title= '" . 
         $update->audio_title . "', audio_file= '" . $update->audio_file . "', video_description= '" . 
@@ -270,7 +270,7 @@ function updateAV($id) {
 // delete audio/video
 function deleteAV($id) {
 
-    $sql = "DELETE FROM audiosvideos 
+    $sql = "DELETE FROM AudiosVideos 
         WHERE av_id = '" . $id . "'";
 
     deleteRow($sql);
@@ -289,7 +289,7 @@ function updateFeatures() {
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
 
-    $sql = "UPDATE features 
+    $sql = "UPDATE Features 
         SET composition= '" . $update->composition . "', book= '" . $update->book . 
         "', media= '" . $update->media . "', artist= " . $update->artist . 
         " WHERE feat_id = 1";

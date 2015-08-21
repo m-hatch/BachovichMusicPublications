@@ -11,7 +11,7 @@ function getFeatures() {
         $error = array('error' => 'No match found');
 
         // get feature ids
-        $sql = "SELECT * FROM features WHERE feat_id = 1";
+        $sql = "SELECT * FROM Features WHERE feat_id = 1";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $featureIds = $stmt->fetch(PDO::FETCH_OBJ);
@@ -25,7 +25,7 @@ function getFeatures() {
             // get audio/video if exists
             $av = array();
             $sql2 = "SELECT * 
-                    FROM audiosvideos 
+                    FROM AudiosVideos 
                     WHERE product_id = '" . $featureIds->composition . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
@@ -52,7 +52,7 @@ function getFeatures() {
             // get audio/video if exists
             $av = array();
             $sql2 = "SELECT * 
-                    FROM audiosvideos 
+                    FROM AudiosVideos 
                     WHERE product_id = '" . $featureIds->book . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
@@ -79,7 +79,7 @@ function getFeatures() {
             // get audio/video if exists
             $av = array();
             $sql2 = "SELECT * 
-                    FROM audiosvideos 
+                    FROM AudiosVideos 
                     WHERE product_id = '" . $featureIds->media . "'";
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
@@ -106,7 +106,7 @@ function getFeatures() {
             // get artist works
             $works = array();
             $sql2 = "SELECT title 
-                    FROM sheetmusics 
+                    FROM SheetMusics 
                     WHERE artist_id = " . $featureIds->artist;
             $stmt2 = $db->prepare($sql2);
             $stmt2->execute();
