@@ -199,6 +199,7 @@ function getMusicRow($sql) {
             // fetch sub data into array
             $i = 0;
             while($sub = $stmt2->fetch()) {
+                $sub->track = (int)$sub->track;
                 $av[$i] = $sub;
                 $i++;
             }
@@ -309,6 +310,7 @@ function getMediaRow($sql) {
             // fetch sub data into array
             $i = 0;
             while($sub = $stmt2->fetch()) {
+                $sub->track = (int)$sub->track;
                 $av[$i] = $sub;
                 $i++;
             }
