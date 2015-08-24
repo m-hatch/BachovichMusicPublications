@@ -73,9 +73,9 @@ function getRow($sql) {
 }
 
 // add or update row
-function addUpdateRow($appObj, $sql) {
+function addUpdateRow($sql) {
 
-    $app = $appObj;
+    $app = \Slim\Slim::getInstance();
 
     try {
         $db = getDB();

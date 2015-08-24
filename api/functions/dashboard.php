@@ -14,7 +14,7 @@ function addArtist() {
             VALUES ('" . $artist->fname . "', '" . $artist->lname . 
                 "', '" . $artist->bio . "', '" . $artist->img . "')";
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
 
     // for trial test in command line
     //curl -i -X POST -H 'Content-Type: application/json' -d '{"fname": "x", "lname": "y", "bio": "amigo", "img": "no-img.jpg"}' http://localhost:3000/api/add/artist
@@ -31,7 +31,7 @@ function updateArtist($id) {
         "', bio= '" . $update->bio . "', img= '" . $update->img . "' 
         WHERE artist_id = " . $id; 
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
 
     // for trial test in command line
     //curl -i -X PUT -H 'Content-Type: application/json' -d '{"fname": "new", "lname": "name", "bio": "chicas", "img": null}' http://localhost:3000/api/update/artist/105
@@ -64,7 +64,7 @@ function addRental() {
               $rental->composer . "', '" . $rental->title . "', '" . $rental->duration . 
               "', '" . $rental->contents . "')";
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
 
     // for trial test in command line
     //curl -i -X POST -H 'Content-Type: application/json' -d '{"rental_id": "1111", "artist_id": 7, "composer": null, "title": "A Pretty Song", "duration": "3 min.", "contents": "includes score and parts"}' http://localhost:3000/api/add/rental
@@ -82,7 +82,7 @@ function updateRental($id) {
         "', contents= '" . $update->contents . "'  
         WHERE rental_id = '" . $id . "'"; 
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
     
     // for trial test in command line
     //curl -i -X PUT -H 'Content-Type: application/json' -d '{"artist_id": 7, "composer": null, "title": "new title", "duration": "3:30 min", "contents": "everything"}' http://localhost:3000/api/update/rental/1111
@@ -115,7 +115,7 @@ function addMedia() {
               $media->type . "', '" . $media->title . "', '" . $media->description ."', " . 
               $media->price . ", '" . $media->img . "', " . $media->shipping . ")";
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
 
     // for trial test in command line
     //curl -i -X POST -H 'Content-Type: application/json' -d '{"media_id": "1111", "artist_id": 11, "type": "CD", "title": "A Pretty CD", "description": "foobar", "price": 9.99, "img": "no-img.jpg", "shipping": 3.00}' http://localhost:3000/api/add/media
@@ -134,7 +134,7 @@ function updateMedia($id) {
         "', shipping= " . $update->shipping . 
         " WHERE media_id = '" . $id . "'"; 
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
     
     // for trial test in command line
     //curl -i -X PUT -H 'Content-Type: application/json' -d '{"artist_id": 2, "type": "DVD", "title": "new title", "description": "another description", "price": 9.99, "img": "no-img.jpg", "shipping": 3.00}' http://localhost:3000/api/update/media/1111
@@ -170,7 +170,7 @@ function addMusic() {
               "', '" . $music->description ."', " . $music->price . ", '" . $music->img . "', " . 
               $music->shipping . ")";
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
 
     // for trial test in command line
     //curl -i -X POST -H 'Content-Type: application/json' -d '{"music_id": "1111", "artist_id": 11, "composer": null, "type": "trio", "sub_type1": null, "sub_type2": null, "title": "A Pretty Trio", "duration": "4 min.", "contents": null, "description": "foobar", "price": 8.99, "img": "no-img.jpg", "shipping": "null"}' http://localhost:3000/api/add/music
@@ -191,7 +191,7 @@ function updateMusic($id) {
         "', shipping= " . $update->shipping . 
         " WHERE music_id = '" . $id . "'"; 
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
     
     // for trial test in command line
     //curl -i -X PUT -H 'Content-Type: application/json' -d '{"music_id": "1111", "artist_id": 2, "composer": null, "type": "quartet", "sub_type1": null, "sub_type2": null, "title": "A New Title", "duration": "7 min.", "contents": null, "description": "something new", "price": 15.99, "img": "no-img.jpg", "shipping": "null"}' http://localhost:3000/api/update/music/1111
@@ -242,7 +242,7 @@ function addAV() {
               "', '" . $av->audio_file . "', '" . $av->video_description . "', '" . 
               $av->video_embed . "')";
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
 //echo json_encode($av);
     // for trial test in command line
     //curl -i -X POST -H 'Content-Type: application/json' -d '{"product_id": "0622", "type": "video", "track": 1, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": null, "video_embed": "some_embed_url"}' http://localhost:3000/api/add/av
@@ -261,7 +261,7 @@ function updateAV($id) {
         $update->video_description . "', video_embed= '" . $update->video_embed . "' 
         WHERE av_id = '" . $id . "'"; 
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
     
     // for trial test in command line
     //curl -i -X PUT -H 'Content-Type: application/json' -d '{"product_id": "0622", "type": "video", "track": 2, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": "This is new", "video_embed": "new_url"}' http://localhost:3000/api/update/av/105
@@ -294,7 +294,7 @@ function updateFeatures() {
         "', media= '" . $update->media . "', artist= " . $update->artist . 
         " WHERE feat_id = 1";
 
-    addUpdateRow($appObj, $sql);
+    addUpdateRow($sql);
 
     // for trial test in command line
     //curl -i -X PUT -H 'Content-Type: application/json' -d '{"composition": "0990", "book": "0976", "media": "0748", "artist": 4}' http://localhost:3000/api/update/features
