@@ -27,30 +27,6 @@ $app->get('/', function() use($app) {
     $app->response->setStatus(200);
     echo "This is the service root";
 });
-$app->get('/test', function() use($app) {
-    $app->response->setStatus(200);
-    if($db = getDB()){
-      echo "connected<br>";
-    } else{
-    echo "not connected<br>";
-    }
-    $sql = "SELECT * 
-            FROM Artists";
-    $stmt = $db->prepare($sql);
-    if($stmt){
-      echo "statement true<br>";
-    } else{
-    echo "statement not true<br>";
-    }
-    $stmt->execute();
-    $data = array();
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
-    if($row = $stmt->fetch()){
-      echo "executed";
-    }else{
-      echo "not executed";
-    }
-});
 
 // main nav pages
 $app->get('/featured', 'getFeatures');
