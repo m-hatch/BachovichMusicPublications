@@ -35,13 +35,14 @@
     width: 60%;
   }
   .video-row.col-md-8 {
-    width: 80%;
+    /*width: 80%;*/
+    width: 475px;
   }
   .audiojs {
-    width: 460px;
+    width: 445px;
   }
   .audiojs .scrubber {
-      width: 280px;
+      width: 284px;
   }
 }
 
@@ -78,6 +79,12 @@
   .video-row {
     padding-right: 10px;
   }
+  .audiojs {
+    width: 475px;
+  }
+  .audiojs .scrubber {
+      width: 317px;
+  }
 }
 
 /* Medium Devices, Desktops */
@@ -110,10 +117,10 @@
     float: right;
   }
   .audiojs {
-    width: 460px;
+    width: 453px;
   }
   .audiojs .scrubber {
-      width: 280px;
+      width: 292px;
   }
 }
 
@@ -134,10 +141,14 @@
   #media .media-row:nth-child(4n+1) {
     clear: both;
   }
+  #music-detail .video-row, 
+  #media-detail .video-row {
+    padding-right: 5px;
+  }
   .audiojs {
-    width: 420px;
+    width: 442px;
   }
   .audiojs .scrubber {
-      width: 250px;
+      width: 280px;
   }
 }

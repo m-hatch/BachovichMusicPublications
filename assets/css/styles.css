@@ -331,6 +331,7 @@ p#copy {
 #music-detail .video-row,
 #media-detail .video-row {
   padding-left: 15px;
+  padding-right: 15px;
 }
 .video-container {
     position: relative;
@@ -353,10 +354,10 @@ p#copy {
   line-height: 1.8;
 }
 .audiojs {
-    width: 360px; /* 460px */
+    width: 355px; /* 460px */
 }
 .audiojs .scrubber {
-    width: 200px; /* 280px */
+    width: 195px; /* 280px */
 }
 .audiojs .play-pause {
     padding: 4px 0px;
