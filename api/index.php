@@ -71,6 +71,7 @@ $app->get('/duets/timpani-perc', 'getTimpPerc');
 $app->get('/duets/vibes-piano', 'getVibePno');
 $app->get('/duets/vibes-strings', 'getVibeStr');
 $app->get('/duets/multi', 'getMultiDuos');
+$app->get('/duets/multi-strings', 'getMultiStr');
 $app->get('/duets/multi-voice', 'getMultiVox');
 $app->get('/duets/multi-woodwinds', 'getMultiWw');
 

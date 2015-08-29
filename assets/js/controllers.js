@@ -276,6 +276,13 @@ app.controller('duetMultiCtrl', function($scope, $http){
     $scope.musics = response;
   });
 });
+app.controller('duetMultiStrCtrl', function($scope, $http){
+  $http.get('api/duets/multi-strings')
+  .success(function(response) {
+    $scope.heading = 'Duets - Multi-Percussion/Strings'
+    $scope.musics = response;
+  });
+});
 app.controller('duetMultiVoxCtrl', function($scope, $http){
   $http.get('api/duets/multi-voice')
   .success(function(response) {

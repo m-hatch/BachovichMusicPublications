@@ -138,6 +138,14 @@ function getMultiDuos() {
 
 }
 
+// return duets/multi-strings list
+function getMultiStr() {
+ 
+    $sql = sheetMusicsSubType2('duet', 'multi', 'strings');
+    getSheetMusicRows($sql);
+
+}
+
 // return duets/multi-voice list
 function getMultiVox() {
  

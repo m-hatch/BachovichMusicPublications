@@ -166,6 +166,10 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: 'pages/music.html',
       controller: 'duetMultiCtrl'
     })
+    .when('/duets/multi-strings', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetMultiStrCtrl'
+    })
     .when('/duets/multi-voice', {
       templateUrl: 'pages/music.html',
       controller: 'duetMultiVoxCtrl'
