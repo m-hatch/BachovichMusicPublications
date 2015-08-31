@@ -208,7 +208,7 @@
         <h4>Works at Bachovich</h4>
         <ul class="list-unstyled">
           <li ng-repeat="work in feat_artist.works | orderBy: 'title'">
-            <em>{{ work.title }}</em>
+            <a ng-href="music/{{ work.music_id }}"><em>{{ work.title }}</em></a>
           </li>
         </ul>
       </div>

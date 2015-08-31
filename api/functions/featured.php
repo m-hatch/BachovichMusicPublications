@@ -105,7 +105,7 @@ function getFeatures() {
         $result['artist'] = $stmt->fetch();
             // get artist works
             $works = array();
-            $sql2 = "SELECT title 
+            $sql2 = "SELECT music_id, title 
                     FROM SheetMusics 
                     WHERE artist_id = " . $featureIds->artist;
             $stmt2 = $db->prepare($sql2);
