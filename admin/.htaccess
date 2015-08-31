@@ -1,4 +1,5 @@
 AuthType Basic  
 AuthName "Restricted area"  
-AuthUserFile /home/www/montgomeryhatch.com/.htpasswd  
+AuthUserFile /home/www/montgomeryhatch.com/.htpasswd
+# AuthUserFile /home/content/a/n/d/andybeall/html/andrewbeall.com/bachovich/.htpasswd
 Require valid-user
