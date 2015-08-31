@@ -1,3 +1,40 @@
 <div id="home">
-  home
+
+  <h1 class="form-title">Admin Home</h1>
+
+  <p>Welcome to the Bachovich Music Publications Admin Dashboard! From here you can enter, update and delete the artists and products displayed on <a href="http://www.bachovich.com/">bachovich.com</a>.</p>
+
+  <h2>Helpful Hints:</h2>
+
+  <h3>Entering new products and artists</h3>
+
+  <p>All sheet music, media, and rentals must be associated with a BMP artist. When entering new products, be sure to make a note of the artist id. If the product is composed by a new BMP artist, enter the artist info into the Artists table before entering the product and make a note of the artist id.</p>
+
+  <h3>Uploading images and audio</h3>
+
+  <ul>
+    <li>Image and audio files should be uploaded in the Add/Update form before clicking submit. You will receive a message if the file is successfully uploaded.</li>
+    <li>Make a note of the file name and extension and enter it into the form so that it may be retrieved in the webpage. Be sure to use unique file names. If a file name already exists in the database, you will receive an error message when you attempt to upload it.</li>
+    <li>Once an image or audio file is uploaded, it may be used for multiple database entries. Just use the same file name.</li>
+    <li>Keep file sizes small for better performance. It is recommended that audio files be &lt; 5MB and image files &lt; 2MB. Images should not exceed a width of 300px. Remember, in general, the smaller the better!</li>
+  </ul>
+
+  <h3>Entering video embed links</h3>
+
+  <p>The video embed template supports YouTube video embeds only. To enter the video link:</p>
+  <ul>
+    <li>Go to the YouTube video page. Click the “Share” tab</li>
+    <li>Click the “Embed” tab.</li>
+    <li>Copy the “src” URL without the quotation marks.</li>
+    <li>Enter the URL into the Video Embed URL field of the Audio/Video table.</li>
+  </ul>
+  <div class="youtube">
+    <img src="assets/images/youtube.png" class="img-responsive" />
+  </div>
+
+  <h3>A note on apostrophes</h3>
+
+  <p>When entering text that contains apostrophes into the form text fields, enter 2 single apostrophes instead of one to avoid an error. Use the following format:</p>
+
+  <span>The text <pre>Act now! Don't delay!</pre> will produce an error. Instead enter <pre>Act now! Don''t delay!</pre></span>
 </div>
