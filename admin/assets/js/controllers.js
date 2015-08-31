@@ -106,7 +106,7 @@ admin.controller('addMusicCtrl', function($scope, $http, $route, $location, MsgS
     "description": null,
     "price": null,
     "img": null,
-    "shipping": "null"
+    "shipping": null
   };
   MsgService.set('');
   // process the form
@@ -139,7 +139,7 @@ admin.controller('editMusicCtrl', function($scope, $http, $route, $routeParams, 
     $scope.formData.description = response.description;
     $scope.formData.price = response.price;
     $scope.formData.img = response.img;
-    $scope.formData.shipping = "null";
+    $scope.formData.shipping = response.shipping;
   });
   // process the form
   $scope.submit = function() {

@@ -30,7 +30,7 @@
         <td>{{media.description}}</td>
         <td>{{'$' + media.price}}</td>
         <td>{{media.img}}</td>
-        <td>{{'$' + media.shipping}}</td>
+        <td><span ng-if="media.shipping">$</span>{{media.shipping}}</td>
         <td><a ng-href="media/{{ media.media_id }}">Edit</a></td>
         <td><a href ng-click="delete(media.media_id)">Delete</a></td>
       </tr>

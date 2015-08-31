@@ -109,6 +109,9 @@ function addMedia() {
 
     $appObj = \Slim\Slim::getInstance()->request();
     $media = json_decode($appObj->getBody());
+    if($media->shipping==NULL) {
+        $media->shipping='NULL';
+    };
 
     $sql = "INSERT INTO Medias (media_id, artist_id, type, title, description, price, img, shipping) 
             VALUES ('" . $media->media_id . "', " . $media->artist_id . ", '" . 
@@ -126,6 +129,9 @@ function updateMedia($id) {
 
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
+    if($update->shipping==NULL) {
+        $update->shipping='NULL';
+    };
 
     $sql = "UPDATE Medias 
         SET artist_id= " . $update->artist_id . ", type= '" . $update->type . 
@@ -161,6 +167,9 @@ function addMusic() {
 
     $appObj = \Slim\Slim::getInstance()->request();
     $music = json_decode($appObj->getBody());
+    if($music->shipping==NULL) {
+        $music->shipping='NULL';
+    };
 
     $sql = "INSERT INTO SheetMusics (music_id, artist_id, composer, type, sub_type1, sub_type2, 
               title, duration, contents, description, price, img, shipping) 
@@ -181,6 +190,9 @@ function updateMusic($id) {
 
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
+    if($update->shipping==NULL) {
+        $update->shipping='NULL';
+    };
 
     $sql = "UPDATE SheetMusics 
         SET artist_id= " . $update->artist_id . ", composer= '" . $update->composer . "', type= '" . 
@@ -234,6 +246,9 @@ function addAV() {
 
     $appObj = \Slim\Slim::getInstance()->request();
     $av = json_decode($appObj->getBody());
+    if($av->track==NULL) {
+        $av->track='NULL';
+    };
 
     $sql = "INSERT INTO AudiosVideos (product_id, type, track, audio_description, 
               audio_title, audio_file, video_description, video_embed) 
@@ -243,9 +258,9 @@ function addAV() {
               $av->video_embed . "')";
 
     addUpdateRow($sql);
-//echo json_encode($av);
+
     // for trial test in command line
-    //curl -i -X POST -H 'Content-Type: application/json' -d '{"product_id": "0622", "type": "video", "track": 1, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": null, "video_embed": "some_embed_url"}' http://localhost:3000/api/add/av
+    //curl -i -X POST -H 'Content-Type: application/json' -d '{"product_id": "9999", "type": "video", "track": null, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": null, "video_embed": "some_embed_url"}' http://localhost:3000/api/add/av
 }
 
 // update audio/video
@@ -253,6 +268,9 @@ function updateAV($id) {
 
     $appObj = \Slim\Slim::getInstance()->request();
     $update = json_decode($appObj->getBody());
+    if($update->track==NULL) {
+        $update->track='NULL';
+    };
 
     $sql = "UPDATE AudiosVideos 
         SET product_id= '" . $update->product_id . "', type= '" . $update->type . "', track= " . 
@@ -264,7 +282,7 @@ function updateAV($id) {
     addUpdateRow($sql);
     
     // for trial test in command line
-    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"product_id": "0622", "type": "video", "track": 2, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": "This is new", "video_embed": "new_url"}' http://localhost:3000/api/update/av/105
+    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"product_id": "9999", "type": "video", "track": 2, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": "This is new", "video_embed": "new_url"}' http://localhost:3000/api/update/av/105
 }
 
 // delete audio/video
