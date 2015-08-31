@@ -1,6 +1,4 @@
 <?php
-// for composer ---
-//require "../autoload.php"; ##from root vendors/autoload.php
 require 'Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
 
