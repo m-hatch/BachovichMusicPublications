@@ -115,6 +115,17 @@ admin.controller('musicCtrl', function($scope, $http, $route, popupService){
 });
 
 admin.controller('addMusicCtrl', function($scope, $http, $route, $location, MsgService){
+  var ctrl = this;
+  this.updateHtml = function() {
+    ctrl.tinymceHtml = $sce.trustAsHtml(ctrl.tinymce);
+  };
+  $scope.tinymceOptions = {
+    plugins: [
+      "advlist autolink link lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor"
+    ]
+  };
   $scope.formData = {
     "music_id": null,
     "artist_id": null,
@@ -144,6 +155,17 @@ admin.controller('addMusicCtrl', function($scope, $http, $route, $location, MsgS
 });
 
 admin.controller('editMusicCtrl', function($scope, $http, $route, $routeParams, $location){
+  var ctrl = this;
+  this.updateHtml = function() {
+    ctrl.tinymceHtml = $sce.trustAsHtml(ctrl.tinymce);
+  };
+  $scope.tinymceOptions = {
+    plugins: [
+      "advlist autolink link lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor"
+    ]
+  };
   $scope.formData = {};
   $scope.msg = '';
   // get rental data
@@ -198,6 +220,17 @@ admin.controller('mediaCtrl', function($scope, $http, $route, popupService){
 });
 
 admin.controller('addMediaCtrl', function($scope, $http, $route, $location, MsgService){
+  var ctrl = this;
+  this.updateHtml = function() {
+    ctrl.tinymceHtml = $sce.trustAsHtml(ctrl.tinymce);
+  };
+  $scope.tinymceOptions = {
+    plugins: [
+      "advlist autolink link lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor"
+    ]
+  };
   $scope.formData = {
     "media_id": null,
     "artist_id": null,
@@ -222,6 +255,17 @@ admin.controller('addMediaCtrl', function($scope, $http, $route, $location, MsgS
 });
 
 admin.controller('editMediaCtrl', function($scope, $http, $route, $routeParams, $location){
+  var ctrl = this;
+  this.updateHtml = function() {
+    ctrl.tinymceHtml = $sce.trustAsHtml(ctrl.tinymce);
+  };
+  $scope.tinymceOptions = {
+    plugins: [
+      "advlist autolink link lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor"
+    ]
+  };
   $scope.formData = {};
   $scope.msg = '';
   // get rental data

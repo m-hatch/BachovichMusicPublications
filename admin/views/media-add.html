@@ -35,7 +35,7 @@
     
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea class="form-control" rows="10" placeholder="Enter description" id="description" ng-model="formData.description"></textarea>
+      <textarea class="form-control" rows="10" placeholder="Enter description" id="description" ng-model="formData.description" ui-tinymce="tinymceOptions" ng-change="addMediaCtrl.updateHtml()"></textarea>
     </div>
 
     <div class="form-group">
