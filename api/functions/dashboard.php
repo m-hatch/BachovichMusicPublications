@@ -7,34 +7,69 @@
 // add artists
 function addArtist() {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $artist = json_decode($appObj->getBody());
-
+    $app = \Slim\Slim::getInstance()->request();
+    $artist = json_decode($app->getBody());
     $sql = "INSERT INTO Artists (fname, lname, bio, img) 
-            VALUES ('" . $artist->fname . "', '" . $artist->lname . 
-                "', '" . $artist->bio . "', '" . $artist->img . "')";
+            VALUES (:fname, :lname, :bio, :img)";
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be inserted
+        $stmt->bindParam(':fname', $artist->fname);
+        $stmt->bindParam(':lname', $artist->lname);
+        $stmt->bindParam(':bio', $artist->bio);
+        $stmt->bindParam(':img', $artist->img);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
 
-    addUpdateRow($sql);
+        // for trial test in command line
+        //curl -i -X POST -H 'Content-Type: application/json' -d '{"fname": "x", "lname": "y", "bio": "amigo", "img": "no-img.jpg"}' http://localhost:3000/api/add/artist
 
-    // for trial test in command line
-    //curl -i -X POST -H 'Content-Type: application/json' -d '{"fname": "x", "lname": "y", "bio": "amigo", "img": "no-img.jpg"}' http://localhost:3000/api/add/artist
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // update artist
 function updateArtist($id) {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $update = json_decode($appObj->getBody());
-
+    $app = \Slim\Slim::getInstance()->request();
+    $update = json_decode($app->getBody());
     $sql = "UPDATE Artists 
-        SET fname= '" . $update->fname . "', lname= '" . $update->lname . 
-        "', bio= '" . $update->bio . "', img= '" . $update->img . "' 
-        WHERE artist_id = " . $id; 
+        SET fname=:fname, lname=:lname, bio=:bio, img=:img 
+        WHERE artist_id=:id"; 
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be updated
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':fname', $update->fname);
+        $stmt->bindParam(':lname', $update->lname);
+        $stmt->bindParam(':bio', $update->bio);
+        $stmt->bindParam(':img', $update->img);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
 
-    addUpdateRow($sql);
+        // for trial test in command line
+        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"fname": "new", "lname": "name", "bio": "chicas", "img": null}' http://localhost:3000/api/update/artist/105
 
-    // for trial test in command line
-    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"fname": "new", "lname": "name", "bio": "chicas", "img": null}' http://localhost:3000/api/update/artist/105
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // delete artist
@@ -56,36 +91,77 @@ function deleteArtist($id) {
 // add rental
 function addRental() {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $rental = json_decode($appObj->getBody());
+    $app = \Slim\Slim::getInstance()->request();
+    $rental = json_decode($app->getBody());
 
     $sql = "INSERT INTO Rentals (rental_id, artist_id, composer, title, duration, contents) 
-            VALUES ('" . $rental->rental_id . "', " . $rental->artist_id . ", '" . 
-              $rental->composer . "', '" . $rental->title . "', '" . $rental->duration . 
-              "', '" . $rental->contents . "')";
+            VALUES (:rental_id, :artist_id, :composer, :title, :duration, :contents)";
 
-    addUpdateRow($sql);
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be inserted
+        $stmt->bindParam(':rental_id', $rental->rental_id);
+        $stmt->bindParam(':artist_id', $rental->artist_id, PDO::PARAM_INT);
+        $stmt->bindParam(':composer', $rental->composer);
+        $stmt->bindParam(':title', $rental->title);
+        $stmt->bindParam(':duration', $rental->duration);
+        $stmt->bindParam(':contents', $rental->contents);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
 
-    // for trial test in command line
-    //curl -i -X POST -H 'Content-Type: application/json' -d '{"rental_id": "1111", "artist_id": 7, "composer": null, "title": "A Pretty Song", "duration": "3 min.", "contents": "includes score and parts"}' http://localhost:3000/api/add/rental
+        // for trial test in command line
+        //curl -i -X POST -H 'Content-Type: application/json' -d '{"rental_id": "1111", "artist_id": 7, "composer": null, "title": "A Pretty Song", "duration": "3 min.", "contents": "includes score and parts"}' http://localhost:3000/api/add/rental
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // update rental
 function updateRental($id) {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $update = json_decode($appObj->getBody());
+    $app = \Slim\Slim::getInstance()->request();
+    $update = json_decode($app->getBody());
 
     $sql = "UPDATE Rentals 
-        SET artist_id= " . $update->artist_id . ", composer= '" . $update->composer . 
-        "', title= '" . $update->title . "', duration= '" . $update->duration . 
-        "', contents= '" . $update->contents . "'  
-        WHERE rental_id = '" . $id . "'"; 
+        SET artist_id= :artist_id, composer= :composer, title= :title,
+        duration= :duration, contents= :contents 
+        WHERE rental_id = :id"; 
 
-    addUpdateRow($sql);
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be updated
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':artist_id', $update->artist_id, PDO::PARAM_INT);
+        $stmt->bindParam(':composer', $update->composer);
+        $stmt->bindParam(':title', $update->title);
+        $stmt->bindParam(':duration', $update->duration);
+        $stmt->bindParam(':contents', $update->contents);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
     
-    // for trial test in command line
-    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"artist_id": 7, "composer": null, "title": "new title", "duration": "3:30 min", "contents": "everything"}' http://localhost:3000/api/update/rental/1111
+        // for trial test in command line
+        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"artist_id": 7, "composer": null, "title": "new title", "duration": "3:30 min", "contents": "everything"}' http://localhost:3000/api/update/rental/1111
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // delete rental
@@ -107,43 +183,81 @@ function deleteRental($id) {
 // add media
 function addMedia() {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $media = json_decode($appObj->getBody());
-    if($media->shipping==NULL) {
-        $media->shipping='NULL';
-    };
+    $app = \Slim\Slim::getInstance()->request();
+    $media = json_decode($app->getBody());
 
     $sql = "INSERT INTO Medias (media_id, artist_id, type, title, description, price, img, shipping) 
-            VALUES ('" . $media->media_id . "', " . $media->artist_id . ", '" . 
-              $media->type . "', '" . $media->title . "', '" . $media->description ."', " . 
-              $media->price . ", '" . $media->img . "', " . $media->shipping . ")";
+            VALUES (:media_id, :artist_id, :type, :title, :description, :price, :img, :shipping)";
 
-    addUpdateRow($sql);
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be inserted
+        $stmt->bindParam(':media_id', $media->media_id);
+        $stmt->bindParam(':artist_id', $media->artist_id, PDO::PARAM_INT);
+        $stmt->bindParam(':type', $media->type);
+        $stmt->bindParam(':title', $media->title);
+        $stmt->bindParam(':description', $media->description);
+        $stmt->bindParam(':price', $media->price);
+        $stmt->bindParam(':img', $media->img);
+        $stmt->bindParam(':shipping', $media->shipping);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
 
-    // for trial test in command line
-    //curl -i -X POST -H 'Content-Type: application/json' -d '{"media_id": "1111", "artist_id": 11, "type": "CD", "title": "A Pretty CD", "description": "foobar", "price": 9.99, "img": "no-img.jpg", "shipping": 3.00}' http://localhost:3000/api/add/media
+        // for trial test in command line
+        //curl -i -X POST -H 'Content-Type: application/json' -d '{"media_id": "1111", "artist_id": 11, "type": "CD", "title": "A Pretty CD", "description": "foobar", "price": 9.99, "img": "no-img.jpg", "shipping": 3.00}' http://localhost:3000/api/add/media
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // update media
 function updateMedia($id) {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $update = json_decode($appObj->getBody());
-    if($update->shipping==NULL) {
-        $update->shipping='NULL';
-    };
-
-    $sql = "UPDATE Medias 
-        SET artist_id= " . $update->artist_id . ", type= '" . $update->type . 
-        "', title= '" . $update->title . "', description= '" . $update->description . 
-        "', price= " . $update->price . ", img= '" . $update->img . 
-        "', shipping= " . $update->shipping . 
-        " WHERE media_id = '" . $id . "'"; 
-
-    addUpdateRow($sql);
+    $app = \Slim\Slim::getInstance()->request();
+    $update = json_decode($app->getBody());
     
-    // for trial test in command line
-    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"artist_id": 2, "type": "DVD", "title": "new title", "description": "another description", "price": 9.99, "img": "no-img.jpg", "shipping": 3.00}' http://localhost:3000/api/update/media/1111
+    $sql = "UPDATE Medias 
+        SET artist_id= :artist_id, type= :type, title= :title, description= :description,  
+        price= :price, img= :img, shipping= :shipping 
+        WHERE media_id = :id"; 
+
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be updated
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':artist_id', $update->artist_id, PDO::PARAM_INT);
+        $stmt->bindParam(':type', $update->type);
+        $stmt->bindParam(':title', $update->title);
+        $stmt->bindParam(':description', $update->description);
+        $stmt->bindParam(':price', $update->price);
+        $stmt->bindParam(':img', $update->img);
+        $stmt->bindParam(':shipping', $update->shipping);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
+    
+        // for trial test in command line
+        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"artist_id": 2, "type": "DVD", "title": "new title", "description": "another description", "price": 9.99, "img": "no-img.jpg", "shipping": 3.00}' http://localhost:3000/api/update/media/1111
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // delete media
@@ -165,48 +279,94 @@ function deleteMedia($id) {
 // add sheet music
 function addMusic() {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $music = json_decode($appObj->getBody());
-    if($music->shipping==NULL) {
-        $music->shipping='NULL';
-    };
-
+    $app = \Slim\Slim::getInstance()->request();
+    $music = json_decode($app->getBody());
+    
     $sql = "INSERT INTO SheetMusics (music_id, artist_id, composer, type, sub_type1, sub_type2, 
-              title, duration, contents, description, price, img, shipping) 
-            VALUES ('" . $music->music_id . "', " . $music->artist_id . ", '" . $music->composer . 
-              "', '" . $music->type . "', '" . $music->sub_type1 . "', '" . $music->sub_type2 . 
-              "', '" . $music->title . "', '" . $music->duration . "', '" . $music->contents . 
-              "', '" . $music->description ."', " . $music->price . ", '" . $music->img . "', " . 
-              $music->shipping . ")";
+                title, duration, contents, description, price, img, shipping) 
+            VALUES (:music_id, :artist_id, :composer, :type, :sub_type1, :sub_type2, 
+                :title, :duration, :contents, :description, :price, :img, :shipping)";
 
-    addUpdateRow($sql);
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be inserted
+        $stmt->bindParam(':music_id', $music->music_id);
+        $stmt->bindParam(':artist_id', $music->artist_id, PDO::PARAM_INT);
+        $stmt->bindParam(':composer', $music->composer);
+        $stmt->bindParam(':type', $music->type);
+        $stmt->bindParam(':sub_type1', $music->sub_type1);
+        $stmt->bindParam(':sub_type2', $music->sub_type2);
+        $stmt->bindParam(':title', $music->title);
+        $stmt->bindParam(':duration', $music->duration);
+        $stmt->bindParam(':contents', $music->contents);
+        $stmt->bindParam(':description', $music->description);
+        $stmt->bindParam(':price', $music->price);
+        $stmt->bindParam(':img', $music->img);
+        $stmt->bindParam(':shipping', $music->shipping);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
 
-    // for trial test in command line
-    //curl -i -X POST -H 'Content-Type: application/json' -d '{"music_id": "1111", "artist_id": 11, "composer": null, "type": "trio", "sub_type1": null, "sub_type2": null, "title": "A Pretty Trio", "duration": "4 min.", "contents": null, "description": "foobar", "price": 8.99, "img": "no-img.jpg", "shipping": "null"}' http://localhost:3000/api/add/music
+        // for trial test in command line
+        //curl -i -X POST -H 'Content-Type: application/json' -d '{"music_id": "1111", "artist_id": 11, "composer": null, "type": "trio", "sub_type1": null, "sub_type2": null, "title": "A Pretty Trio", "duration": "4 min.", "contents": null, "description": "foobar", "price": 8.99, "img": "no-img.jpg", "shipping": "null"}' http://localhost:3000/api/add/music
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // update sheet music
 function updateMusic($id) {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $update = json_decode($appObj->getBody());
-    if($update->shipping==NULL) {
-        $update->shipping='NULL';
-    };
-
-    $sql = "UPDATE SheetMusics 
-        SET artist_id= " . $update->artist_id . ", composer= '" . $update->composer . "', type= '" . 
-        $update->type . "', sub_type1= '" . $update->sub_type1 . "', sub_type2= '" . 
-        $update->sub_type2 . "', title= '" . $update->title . "', duration= '" . $update->duration 
-        . "', contents= '" . $update->contents . "', description= '" . $update->description . 
-        "', price= " . $update->price . ", img= '" . $update->img . 
-        "', shipping= " . $update->shipping . 
-        " WHERE music_id = '" . $id . "'"; 
-
-    addUpdateRow($sql);
+    $app = \Slim\Slim::getInstance()->request();
+    $update = json_decode($app->getBody());
     
-    // for trial test in command line
-    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"music_id": "1111", "artist_id": 2, "composer": null, "type": "quartet", "sub_type1": null, "sub_type2": null, "title": "A New Title", "duration": "7 min.", "contents": null, "description": "something new", "price": 15.99, "img": "no-img.jpg", "shipping": "null"}' http://localhost:3000/api/update/music/1111
+    $sql = "UPDATE SheetMusics 
+        SET artist_id= :artist_id, composer= :composer, type= :type, sub_type1= :sub_type1, 
+        sub_type2= :sub_type2, title= :title, duration= :duration, contents= :contents, 
+        description= :description, price= :price, img= :img, shipping= :shipping 
+        WHERE music_id = :id"; 
+
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be updated
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':artist_id', $update->artist_id, PDO::PARAM_INT);
+        $stmt->bindParam(':composer', $update->composer);
+        $stmt->bindParam(':type', $update->type);
+        $stmt->bindParam(':sub_type1', $update->sub_type1);
+        $stmt->bindParam(':sub_type2', $update->sub_type2);
+        $stmt->bindParam(':title', $update->title);
+        $stmt->bindParam(':duration', $update->duration);
+        $stmt->bindParam(':contents', $update->contents);
+        $stmt->bindParam(':description', $update->description);
+        $stmt->bindParam(':price', $update->price);
+        $stmt->bindParam(':img', $update->img);
+        $stmt->bindParam(':shipping', $update->shipping);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
+    
+        // for trial test in command line
+        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"music_id": "1111", "artist_id": 2, "composer": null, "type": "quartet", "sub_type1": null, "sub_type2": null, "title": "A New Title", "duration": "7 min.", "contents": null, "description": "something new", "price": 15.99, "img": "no-img.jpg", "shipping": "null"}' http://localhost:3000/api/update/music/1111
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // delete sheet music
@@ -244,45 +404,86 @@ function getAV($id) {
 // add audio/video
 function addAV() {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $av = json_decode($appObj->getBody());
-    if($av->track==NULL) {
-        $av->track='NULL';
-    };
-
+    $app = \Slim\Slim::getInstance()->request();
+    $av = json_decode($app->getBody());
+    
     $sql = "INSERT INTO AudiosVideos (product_id, type, track, audio_description, 
-              audio_title, audio_file, video_description, video_embed) 
-            VALUES ('" . $av->product_id . "', '" . $av->type . "', " . 
-              $av->track . ", '" . $av->audio_description . "', '" . $av->audio_title . 
-              "', '" . $av->audio_file . "', '" . $av->video_description . "', '" . 
-              $av->video_embed . "')";
+                audio_title, audio_file, video_description, video_embed) 
+            VALUES (:product_id, :type, :track, :audio_description, :audio_title, 
+                :audio_file, :video_description, :video_embed)";
 
-    addUpdateRow($sql);
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be inserted
+        $stmt->bindParam(':product_id', $av->product_id);
+        $stmt->bindParam(':type', $av->type);
+        $stmt->bindParam(':track', $av->track, PDO::PARAM_INT);
+        $stmt->bindParam(':audio_description', $av->audio_description);
+        $stmt->bindParam(':audio_title', $av->audio_title);
+        $stmt->bindParam(':audio_file', $av->audio_file);
+        $stmt->bindParam(':video_description', $av->video_description);
+        $stmt->bindParam(':video_embed', $av->video_embed);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
 
-    // for trial test in command line
-    //curl -i -X POST -H 'Content-Type: application/json' -d '{"product_id": "9999", "type": "video", "track": null, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": null, "video_embed": "some_embed_url"}' http://localhost:3000/api/add/av
+        // for trial test in command line
+        //curl -i -X POST -H 'Content-Type: application/json' -d '{"product_id": "9999", "type": "video", "track": null, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": null, "video_embed": "some_embed_url"}' http://localhost:3000/api/add/av
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // update audio/video
 function updateAV($id) {
 
-    $appObj = \Slim\Slim::getInstance()->request();
-    $update = json_decode($appObj->getBody());
-    if($update->track==NULL) {
-        $update->track='NULL';
-    };
-
-    $sql = "UPDATE AudiosVideos 
-        SET product_id= '" . $update->product_id . "', type= '" . $update->type . "', track= " . 
-        $update->track . ", audio_description= '" . $update->audio_description . "', audio_title= '" . 
-        $update->audio_title . "', audio_file= '" . $update->audio_file . "', video_description= '" . 
-        $update->video_description . "', video_embed= '" . $update->video_embed . "' 
-        WHERE av_id = '" . $id . "'"; 
-
-    addUpdateRow($sql);
+    $app = \Slim\Slim::getInstance()->request();
+    $update = json_decode($app->getBody());
     
-    // for trial test in command line
-    //curl -i -X PUT -H 'Content-Type: application/json' -d '{"product_id": "9999", "type": "video", "track": 2, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": "This is new", "video_embed": "new_url"}' http://localhost:3000/api/update/av/105
+    $sql = "UPDATE AudiosVideos 
+        SET product_id= :product_id, type= :type, track= :track, 
+        audio_description= :audio_description, audio_title= :audio_title, 
+        audio_file= :audio_file, video_description= :video_description, 
+        video_embed= :video_embed 
+        WHERE av_id = :id"; 
+
+    try {
+        $db = getDB();
+ 
+        $stmt = $db->prepare($sql);
+        
+        // bind data to be updated
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':product_id', $update->product_id);
+        $stmt->bindParam(':type', $update->type);
+        $stmt->bindParam(':track', $update->track, PDO::PARAM_INT);
+        $stmt->bindParam(':audio_description', $update->audio_description);
+        $stmt->bindParam(':audio_title', $update->audio_title);
+        $stmt->bindParam(':audio_file', $update->audio_file);
+        $stmt->bindParam(':video_description', $update->video_description);
+        $stmt->bindParam(':video_embed', $update->video_embed);
+ 
+        $stmt->execute();
+ 
+        // confirm successful data entry
+        $app->response->setStatus(200);
+        $db = null;
+    
+        // for trial test in command line
+        //curl -i -X PUT -H 'Content-Type: application/json' -d '{"product_id": "9999", "type": "video", "track": 2, "audio_description": null, "audio_title": null, "audio_file": null, "video_description": "This is new", "video_embed": "new_url"}' http://localhost:3000/api/update/av/105
+
+    } catch(PDOException $e) {
+        $app->response()->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }
 
 // delete audio/video
