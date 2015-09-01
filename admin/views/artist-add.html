@@ -19,8 +19,14 @@
 
     <div class="form-group">
       <label for="bio">Bio</label>
-      <textarea class="form-control" rows="10" placeholder="Enter bio" id="bio" ng-model="formData.bio"></textarea>
+      <textarea class="form-control" rows="10" placeholder="Enter bio" id="bio" ng-model="formData.bio" ui-tinymce="tinymceOptions" ng-change="addArtistCtrl.updateHtml()"></textarea>
     </div>
+<!--
+    <script type="text/javascript">
+      tinymce.init({
+          selector: "#bio"
+      });
+    </script>-->
     
     <div class="form-group">
       <iframe src="views/artist-img.html" class="uploads"></iframe>

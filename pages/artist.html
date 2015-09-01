@@ -5,7 +5,8 @@
     <span ng-if="artist.fname">{{ artist.fname }}&nbsp;</span>
     {{ artist.lname }}
   </h3>
-  <p>{{ artist.bio }}</p>
+  
+  <div ng-bind-html="renderHtml(artist.bio)"></div>
 
   <!-- not found message -->
   <p ng-if="artist.error"><em>Artist not found.</em></p>

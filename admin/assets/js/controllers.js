@@ -26,7 +26,18 @@ admin.controller('artistCtrl', function($scope, $http, $route, popupService){
   $scope.$route = $route;
 });
 
-admin.controller('addArtistCtrl', function($scope, $http, $route, $location, MsgService){
+admin.controller('addArtistCtrl', function($scope, $http, $route, $location, $sce, MsgService){
+  var ctrl = this;
+  this.updateHtml = function() {
+    ctrl.tinymceHtml = $sce.trustAsHtml(ctrl.tinymce);
+  };
+  $scope.tinymceOptions = {
+    plugins: [
+      "advlist autolink link lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor"
+    ]
+  };
   $scope.formData = {
     "fname": null,
     "lname": null,
@@ -46,7 +57,18 @@ admin.controller('addArtistCtrl', function($scope, $http, $route, $location, Msg
   $scope.$route = $route;
 });
 
-admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams, $location){
+admin.controller('editArtistCtrl', function($scope, $http, $route, $routeParams, $location, $sce){
+  var ctrl = this;
+  this.updateHtml = function() {
+    ctrl.tinymceHtml = $sce.trustAsHtml(ctrl.tinymce);
+  };
+  $scope.tinymceOptions = {
+    plugins: [
+      "advlist autolink link lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor"
+    ]
+  };
   $scope.formData = {};
   $scope.msg = '';
   // get artist data

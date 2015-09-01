@@ -34,11 +34,14 @@ app.controller('artistsCtrl', function($scope, $http, $route){
   });
   $scope.$route = $route;
 });
-app.controller('artistCtrl', function($scope, $http, $routeParams){
+app.controller('artistCtrl', function($scope, $http, $routeParams, $sce){
   $http.get('api/artist/' + $routeParams.id)
   .success(function(response) {
       $scope.artist = response;
     });
+  $scope.renderHtml = function(html_code){
+    return $sce.trustAsHtml(html_code);
+  };
 });
 app.controller('rentalCtrl', function($scope, $http, $route){
   $http.get('api/rentals')
