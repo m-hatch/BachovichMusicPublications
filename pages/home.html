@@ -43,7 +43,7 @@
 
     <div class="row feat-info">
       <div class="col-sm-12">
-        <p>{{ feat_comp.description }}</p>
+        <div ng-bind-html="renderHtml(feat_comp.description)"></div>
       </div>
     </div>
 
@@ -103,7 +103,7 @@
 
     <div class="row feat-info" ng-if="feat_book.description">
       <div class="col-sm-12">
-        <p>{{ feat_book.description }}</p>
+        <div ng-bind-html="renderHtml(feat_book.description)"></div>
       </div>
     </div>
 
@@ -163,7 +163,7 @@
 
     <div class="row feat-info">
       <div class="col-sm-12">
-        <p>{{ feat_media.description }}</p>
+        <div ng-bind-html="renderHtml(feat_media.description)"></div>
       </div>
     </div>
 
@@ -199,7 +199,7 @@
 
     <div class="row feat-info">
       <div class="col-sm-12">
-        <p>{{ feat_artist.bio }}</p>
+        <div ng-bind-html="renderHtml(feat_artist.bio)"></div>
       </div>
     </div>
 

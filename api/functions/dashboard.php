@@ -7,8 +7,9 @@
 // add artists
 function addArtist() {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $artist = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $artist = json_decode($form->getBody());
     $sql = "INSERT INTO Artists (fname, lname, bio, img) 
             VALUES (:fname, :lname, :bio, :img)";
     try {
@@ -40,8 +41,9 @@ function addArtist() {
 // update artist
 function updateArtist($id) {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $update = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $update = json_decode($form->getBody());
     $sql = "UPDATE Artists 
         SET fname=:fname, lname=:lname, bio=:bio, img=:img 
         WHERE artist_id=:id"; 
@@ -91,8 +93,9 @@ function deleteArtist($id) {
 // add rental
 function addRental() {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $rental = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $rental = json_decode($form->getBody());
 
     $sql = "INSERT INTO Rentals (rental_id, artist_id, composer, title, duration, contents) 
             VALUES (:rental_id, :artist_id, :composer, :title, :duration, :contents)";
@@ -128,8 +131,9 @@ function addRental() {
 // update rental
 function updateRental($id) {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $update = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $update = json_decode($form->getBody());
 
     $sql = "UPDATE Rentals 
         SET artist_id= :artist_id, composer= :composer, title= :title,
@@ -183,8 +187,9 @@ function deleteRental($id) {
 // add media
 function addMedia() {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $media = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $media = json_decode($form->getBody());
 
     $sql = "INSERT INTO Medias (media_id, artist_id, type, title, description, price, img, shipping) 
             VALUES (:media_id, :artist_id, :type, :title, :description, :price, :img, :shipping)";
@@ -222,8 +227,9 @@ function addMedia() {
 // update media
 function updateMedia($id) {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $update = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $update = json_decode($form->getBody());
     
     $sql = "UPDATE Medias 
         SET artist_id= :artist_id, type= :type, title= :title, description= :description,  
@@ -279,8 +285,9 @@ function deleteMedia($id) {
 // add sheet music
 function addMusic() {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $music = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $music = json_decode($form->getBody());
     
     $sql = "INSERT INTO SheetMusics (music_id, artist_id, composer, type, sub_type1, sub_type2, 
                 title, duration, contents, description, price, img, shipping) 
@@ -325,8 +332,9 @@ function addMusic() {
 // update sheet music
 function updateMusic($id) {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $update = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $update = json_decode($form->getBody());
     
     $sql = "UPDATE SheetMusics 
         SET artist_id= :artist_id, composer= :composer, type= :type, sub_type1= :sub_type1, 
@@ -404,8 +412,9 @@ function getAV($id) {
 // add audio/video
 function addAV() {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $av = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $av = json_decode($form->getBody());
     
     $sql = "INSERT INTO AudiosVideos (product_id, type, track, audio_description, 
                 audio_title, audio_file, video_description, video_embed) 
@@ -445,8 +454,9 @@ function addAV() {
 // update audio/video
 function updateAV($id) {
 
-    $app = \Slim\Slim::getInstance()->request();
-    $update = json_decode($app->getBody());
+    $app = \Slim\Slim::getInstance();
+    $form = $app->request();
+    $update = json_decode($form->getBody());
     
     $sql = "UPDATE AudiosVideos 
         SET product_id= :product_id, type= :type, track= :track, 

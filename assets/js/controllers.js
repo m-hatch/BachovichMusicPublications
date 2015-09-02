@@ -4,7 +4,7 @@
 *                                                                  *
 * -----------------------------------------------------------------*/
 // main nav controllers
-app.controller('mainCtrl', function($scope, $http, $route){
+app.controller('mainCtrl', function($scope, $http, $route, $sce){
   $http.get('api/featured')
   .success(function(response) {
     $scope.feat_comp = response['composition'];
@@ -12,6 +12,9 @@ app.controller('mainCtrl', function($scope, $http, $route){
     $scope.feat_media = response['media'];
     $scope.feat_artist = response['artist'];
   });
+  $scope.renderHtml = function(html_code){
+    return $sce.trustAsHtml(html_code);
+  };
   $scope.$route = $route; // for top nav highlighting
 });
 app.controller('mediasCtrl', function($scope, $http, $route){
@@ -21,11 +24,14 @@ app.controller('mediasCtrl', function($scope, $http, $route){
   });
   $scope.$route = $route;
 });
-app.controller('mediaCtrl', function($scope, $http, $routeParams){
+app.controller('mediaCtrl', function($scope, $http, $routeParams, $sce){
   $http.get('api/media/' + $routeParams.id)
   .success(function(response) {
     $scope.media_detail = response;
   });
+  $scope.renderHtml = function(html_code){
+    return $sce.trustAsHtml(html_code);
+  };
 });
 app.controller('artistsCtrl', function($scope, $http, $route){
   $http.get('api/artists')
@@ -308,11 +314,14 @@ app.controller('duetMultiWwCtrl', function($scope, $http){
 * -----------------------------------------------------------------*/
 
 // music detail controller
-app.controller('musicCtrl', function($scope, $http, $routeParams){
+app.controller('musicCtrl', function($scope, $http, $routeParams, $sce){
   $http.get('api/music/' + $routeParams.id)
   .success(function(response) {
     $scope.music_detail = response;
   });
+  $scope.renderHtml = function(html_code){
+    return $sce.trustAsHtml(html_code);
+  };
 });
 
 // no sub-menu controllers

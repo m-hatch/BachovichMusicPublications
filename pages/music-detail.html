@@ -48,7 +48,7 @@
 
   <!-- item details -->
   <div class="music-info">
-    <p>{{ music_detail.description }}</p>
+    <div ng-bind-html="renderHtml(music_detail.description)"></div>
   </div>
 
   <!-- audio links -->

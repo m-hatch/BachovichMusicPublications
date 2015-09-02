@@ -48,7 +48,7 @@
 
   <!-- item details -->
   <div class="media-info">
-    <p>{{ media_detail.description }}</p>
+    <div ng-bind-html="renderHtml(media_detail.description)"></div>
   </div>
 
   <!-- audio links -->
