@@ -322,6 +322,9 @@ p#copy {
 #search .empty-search {
   margin-top: 10px;
 }
+#search .featured {
+  margin-bottom: 10px;
+}
 /*
 .info-tab {
   max-height: 2000px;
