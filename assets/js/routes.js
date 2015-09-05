@@ -16,7 +16,8 @@ app.config(function($routeProvider, $locationProvider){
     })
     .when('/media/:id', {
       templateUrl: 'pages/media-detail.html',
-      controller: 'mediaCtrl'
+      controller: 'mediaCtrl',
+      activetab: 'media'
     })
     .when('/artists', {
       templateUrl: 'pages/artists.html',
@@ -25,7 +26,8 @@ app.config(function($routeProvider, $locationProvider){
     })
     .when('/artist/:id', {
       templateUrl: 'pages/artist.html',
-      controller: 'artistCtrl'
+      controller: 'artistCtrl',
+      activetab: 'artists'
     })
     .when('/rentals', {
       templateUrl: 'pages/rentals.html',
@@ -42,7 +44,8 @@ app.config(function($routeProvider, $locationProvider){
       controller: 'searchResultCtrl',
     })
     .when('/thankyou', {
-      templateUrl: 'pages/thankyou.html'
+      templateUrl: 'pages/thankyou.html',
+      activetab: 'contact'
     })
 
     // sheet music detail
