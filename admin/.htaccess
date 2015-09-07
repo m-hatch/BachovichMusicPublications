@@ -3,3 +3,9 @@ AuthName "Restricted area"
 AuthUserFile /home/www/montgomeryhatch.com/.htpasswd
 # AuthUserFile /home/content/a/n/d/andybeall/html/andrewbeall.com/bachovich/.htpasswd
 Require valid-user
+
+RewriteEngine On
+RewriteBase /bachovich/admin/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.html [L]
