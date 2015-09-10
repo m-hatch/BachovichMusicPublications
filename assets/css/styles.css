@@ -335,6 +335,13 @@ p#copy {
 :-moz-ui-invalid {
   box-shadow:none;
 }
+/* moz button padding */
+button::-moz-focus-inner,  
+input[type="submit"]::-moz-focus-inner {
+  padding: 4px; 
+  margin-top: -1px; 
+  margin-bottom: -3px;
+}
 /*
 .info-tab {
   max-height: 2000px;
