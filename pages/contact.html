@@ -20,7 +20,7 @@
     <form method="post" action="https://app.icontact.com/icp/signup.php" name="icpsignup" id="icpsignup5700" accept-charset="UTF-8" onsubmit="return verifyRequired5700();">
       <div class="form-group">
         <label for="exampleInputEmail">Email address:</label>
-        <div class="has-success input-wrapper">
+        <div id="SignUp" class="has-success input-wrapper">
           <input type="text" class="form-control" name="fields_email" placeholder="Enter email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 
           <!-- iContact fields -->
@@ -33,7 +33,7 @@
 
           <!-- Redirect on Submit -->
           <!-- ( for local testing http://localhost:3000/thankyou ) -->
-          <input type="hidden" name="redirect" value="pages/thankyou">
+          <input type="hidden" name="redirect" value="http://www.bachovich.com/thankyou">
           <input type="hidden" name="errorredirect" value="http://www.bachovich.com/">
 
           <button type="submit" class="btn btn-success">Sign Up!</button>
@@ -45,8 +45,21 @@
 
   <script type="text/javascript">
     var icpForm5700 = document.getElementById('icpsignup5700');
-    if (document.location.protocol === "https:")
-      icpForm5700.action = "https://app.icontact.com/icp/signup.php";
+
+if (document.location.protocol === "https:")
+
+  icpForm5700.action = "https://app.icontact.com/icp/signup.php";
+  function verifyRequired5700() {
+    if (icpForm5700["fields_email"].value == "") {
+      icpForm5700["fields_email"].focus();
+      alert("The Email field is required.");
+      return false;
+    }
+    if (icpForm5700["fields_email"].value && icpForm5700["fields_email"].value !== "") {
+      icpForm5700["fields_email"].value = icpForm5700["fields_email"].value.trim();
+    }
+  return true;
+  }
   </script>
   
 </div>
