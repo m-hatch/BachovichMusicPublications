@@ -88,12 +88,20 @@ img.logo {
   z-index: 1000;
   top: 0;
   width: 100%;
+  white-space: nowrap;
 }
 .navbar {
   margin-bottom: 0;
 }
 .navbar-brand {
   padding: 15px 5px;
+  font-size: 16px;
+}
+.navbar-toggle {
+  position: absolute;
+  float: none;
+  right: 0;
+  margin-right: 5px;
 }
 .navbar-inverse {
   background-color: inherit;
@@ -266,7 +274,7 @@ li.open {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 100px;
+  height: 120px;
   /* background-color: #502256; */
 }
 p#copy {
