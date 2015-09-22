@@ -16,18 +16,17 @@
       <div class="media-list col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
         <div ng-if="media.img">
-          <img class="img-responsive" ng-src="assets/images/audio_video/{{ media.img }}" />
+          <a class="product-link" ng-href="media/{{ media.media_id }}">
+            <img class="img-responsive" ng-src="assets/images/audio_video/{{ media.img }}" />
+          </a>
         </div>
 
         <!-- description -->
         <div class="media-desc">
-          <p>{{ media.fname + ' ' + media.lname + ': ' }}&nbsp;<em>{{ media.title }}</em></p>
+          <a class="product-link" ng-href="media/{{ media.media_id }}">
+            <p>{{ media.fname + ' ' + media.lname + ': ' }}&nbsp;<em>{{ media.title }}</em></p>
+          </a>
           <p>{{ '$' + media.price + ' - #' + media.media_id + ' - ' + media.type }}</p>
-        </div>
-
-        <!-- more info link -->
-        <div ng-if="media.description || media.audio_video">
-          <p><a ng-href="media/{{ media.media_id }}">Click Here for more</a></p>
         </div>
 
         <!-- PayPal button -->

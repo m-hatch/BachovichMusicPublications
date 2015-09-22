@@ -370,6 +370,13 @@ input[type="submit"]::-moz-focus-inner {
 .description-links {
   margin: 15px 0 0;
 }
+#page-content .product-link,
+#page-content .product-link:link,
+#page-content .product-link:visited,
+#page-content .product-link:hover,
+#page-content .product-link:active  {
+  color: inherit;
+}
 .search-music {
   padding: 15px 6px;
   float: right;

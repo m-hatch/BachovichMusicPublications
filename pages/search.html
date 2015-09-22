@@ -13,25 +13,24 @@
 
         <div ng-if="music.img">
           <div class="col-sm-3">
-            <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ music.img }}" />
+            <a class="product-link" ng-href="music/{{ music.music_id }}">
+              <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ music.img }}" />
+            </a>
           </div>
         </div>
 
         <!-- details -->
         <div class="music-desc col-sm-9">
-          <h4>
-            <span ng-if="music.composer">{{ music.composer }}&#47;</span>
-            {{ music.lname + ', ' + music.fname + ': ' }}<em>{{ music.title }}&nbsp;</em>
-            <span class="sub-title" ng-if="music.duration">&nbsp;{{ '[' + music.duration + ']' }}</span>
-            <span class="sub-title" ng-if="music.contents">{{ '(' + music.contents + ')' }}</span>
-          </h4>
+          <a class="product-link" ng-href="music/{{ music.music_id }}">
+            <h4>
+              <span ng-if="music.composer">{{ music.composer }}&#47;</span>
+              {{ music.lname + ', ' + music.fname + ': ' }}<em>{{ music.title }}&nbsp;</em>
+              <span class="sub-title" ng-if="music.duration">&nbsp;{{ '[' + music.duration + ']' }}</span>
+              <span class="sub-title" ng-if="music.contents">{{ '(' + music.contents + ')' }}</span>
+            </h4>
+          </a>
           <p>{{ '$' + music.price + ' - #' + music.music_id }}</p>
-
-          <!-- more info link -->
-          <div ng-if="music.description || music.audio_video">
-            <p><a ng-href="music/{{ music.music_id }}">Click Here for more</a></p>
-          </div>
-                
+ 
           <!-- PayPal button -->
           <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
       
