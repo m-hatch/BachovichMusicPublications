@@ -107,6 +107,8 @@ app.controller('searchResultCtrl', function($scope, $http, SearchService){
   $scope.musics = filtered_result(response, $scope.search_music);
   if (!$scope.musics.length) {
     $scope.results_msg = "No Items found. Please check the spelling or broaden your search.";
+  } else {
+    $scope.results_msg = '';
   }
   });
 });

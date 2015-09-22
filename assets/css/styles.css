@@ -40,6 +40,15 @@ h1 {
 .jumbotron #header {
   display: none;
 }
+.header-link,
+.header-link:link,
+.header-link:visited,
+.header-link:hover,
+.header-link:active {
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
+}
 img.logo {
   float: left;
   width:100px;
