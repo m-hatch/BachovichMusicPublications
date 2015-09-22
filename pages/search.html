@@ -8,7 +8,7 @@
   </div>
 
   <div ng-if="search_music">
-    <div class="music-row" ng-repeat="music in results = (musics | search_products: search_music | orderBy: 'lname')">
+    <div class="music-row" ng-repeat="music in results = (musics |  orderBy: 'lname')">
       <div class="row">
 
         <div ng-if="music.img">
@@ -64,12 +64,9 @@
     </div><!-- end .music-row -->
 
     <!-- return message if no search results found -->
-    <div ng-if="ready_msg">
-    <p class="empty-search" ng-if="!results.length"><em>No Items found. Please check the spelling or broaden your search.</em></p>
+    <p class="empty-search"><em>{{ results_msg }}</em></p>
     </div>
 
     <p><a href="/">Back to Home</a></p>
-
-  </div>
 
 </div>

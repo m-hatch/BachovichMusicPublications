@@ -68,17 +68,47 @@ app.controller('searchCtrl', function($scope, $route, $location, SearchService){
   };
 });
 // search results
-app.controller('searchResultCtrl', function($scope, $http, $timeout, SearchService){
+app.controller('searchResultCtrl', function($scope, $http, SearchService){
   $scope.search_music = SearchService.get();
-  $scope.ready_msg = false;
+  $scope.results_msg = "searching...";
   $http.get('api/search')
   .success(function(response) {
-    $scope.musics = response;
-  });
-  $timeout(callReady,1000);
-  function callReady() {
-    $scope.ready_msg = true;
+    filtered_result = function(input, query) {
+    // return all products if nothing in query box
+    if (!query) return input;
+
+    //split query terms by space character
+    var terms = query.split(' ');
+    var output = [];
+
+    // iterate through input array
+    input.forEach(function(product){
+      var found = false;
+      passTest = true;
+
+      // iterate through terms found in query box
+      terms.forEach(function(term){
+       
+        // if all terms are found set boolean to true
+        found = (product.fname.toLowerCase().indexOf(term.toLowerCase()) > -1) 
+          || (product.lname.toLowerCase().indexOf(term.toLowerCase()) > -1)
+          || (product.title.toLowerCase().indexOf(term.toLowerCase()) > -1);
+        
+        passTest = passTest && found;
+      });
+
+      // Add product to output array only if passTest is true -- all search terms were found in product
+      if (passTest) { output.push(product); }
+    });
+
+    return output;
   }
+
+  $scope.musics = filtered_result(response, $scope.search_music);
+  if (!$scope.musics.length) {
+    $scope.results_msg = "No Items found. Please check the spelling or broaden your search.";
+  }
+  });
 });
 
 /* --------------------------------------------------------------- *
