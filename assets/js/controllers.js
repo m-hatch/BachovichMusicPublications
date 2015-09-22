@@ -59,6 +59,9 @@ app.controller('rentalCtrl', function($scope, $http, $route){
 app.controller('contactCtrl', function($scope, $route){
   $scope.$route = $route;
 });
+app.controller('signupCtrl', function($scope, $route){
+  $scope.$route = $route;
+});
 // search music input
 app.controller('searchCtrl', function($scope, $route, $location, SearchService){
   $scope.saveSearch = function(query){

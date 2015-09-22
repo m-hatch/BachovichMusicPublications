@@ -63,6 +63,9 @@
   .navbar-nav {
     float: right;
   }
+  .navbar-nav>li {
+    margin-right: 12px;
+  }
   .navbar-brand {
     display: none;
   }
@@ -96,7 +99,7 @@
     font-size: 21px;
   }
   .navbar-nav>li {
-    margin-right: 30px;
+    margin-right: 24px;
   }
   #artists .artist-row:nth-child(2n+1) {
     clear: none;
@@ -127,7 +130,7 @@
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
   .navbar-nav>li {
-    margin-right: 60px;
+    margin-right: 50px;
   }
   #artists .artist-row:nth-child(3n+1) {
     clear: none;

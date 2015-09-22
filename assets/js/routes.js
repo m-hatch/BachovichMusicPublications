@@ -39,6 +39,11 @@ app.config(function($routeProvider, $locationProvider){
       controller: 'contactCtrl',
       activetab: 'contact'
     })
+    .when('/signup', {
+      templateUrl: 'pages/signup.html',
+      controller: 'signupCtrl',
+      activetab: 'signup'
+    })
     .when('/search', {
       templateUrl: 'pages/search.html',
       controller: 'searchResultCtrl',
