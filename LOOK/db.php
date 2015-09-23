@@ -2,5 +2,5 @@
 
 // connect to db
 function getDB() {
-    return new PDO("mysql:host=pdb18.awardspace.net;dbname=1637917_bmp;charset=utf8",'1637917_bmp','rebop123');
+    return new PDO("mysql:host=bmpusr.db.7499661.hostedresource.com;dbname=bmpusr;charset=utf8",'bmpusr','Unogino14!');
 }
