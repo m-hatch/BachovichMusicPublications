@@ -183,7 +183,7 @@ admin.controller('editMusicCtrl', function($scope, $http, $route, $routeParams, 
     $scope.formData.description = response.description;
     $scope.formData.price = response.price;
     $scope.formData.img = response.img;
-    $scope.formData.shipping = response.shipping;
+    $scope.formData.shipping = null;
   });
   // process the form
   $scope.submit = function() {
@@ -417,7 +417,7 @@ admin.controller('editAvCtrl', function($scope, $http, $route, $routeParams, $lo
     $scope.formData.product_id = response.product_id;
     $scope.formData.type = response.type;
     $scope.formData.track = response.track;
-    $scope.formData.audio_description = response.audio_description;
+    $scope.formData.audio_description = null;
     $scope.formData.audio_title = response.audio_title;
     $scope.formData.audio_file = response.audio_file;
     $scope.formData.video_description = response.video_description;
