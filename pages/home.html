@@ -10,10 +10,14 @@
   <div class="featured-content">
     <div class="row">
       <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_comp.img">
-        <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ feat_comp.img }}" />
+        <a class="product-link" ng-href="music/{{ feat_comp.music_id }}">
+          <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ feat_comp.img }}" />
+        </a>
       </div>
       <div class="col-sm-7 col-lg-8">
-        <h3><em>{{ feat_comp.title }}</em></h3>
+        <a class="product-link" ng-href="music/{{ feat_comp.music_id }}">
+          <h3><em>{{ feat_comp.title }}</em></h3>
+        </a>
         <h4>By&nbsp;{{ feat_comp.fname + ' ' + feat_comp.lname }}</h4>
         <h4>{{ '$' + feat_comp.price + ' - #' + feat_comp.music_id }}</h4>
         <!-- PayPal button -->
@@ -76,10 +80,14 @@
   <div class="featured-content">
     <div class="row">
       <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_book.img">
-        <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ feat_book.img }}" />
+        <a class="product-link" ng-href="music/{{ feat_book.music_id }}">
+          <img class="img-responsive" ng-src="assets/images/sheetmusic/{{ feat_book.img }}" />
+        </a>
       </div>
       <div class="col-sm-7 col-lg-8">
-        <h3><em>{{ feat_book.title }}</em></h3>
+        <a class="product-link" ng-href="music/{{ feat_book.music_id }}">
+          <h3><em>{{ feat_book.title }}</em></h3>
+        </a>
         <h4>By&nbsp;{{ feat_book.fname + ' ' + feat_book.lname }}</h4>
         <h4>{{ '$' + feat_book.price + ' - #' + feat_book.music_id }}</h4>
         <!-- PayPal button -->
@@ -142,10 +150,14 @@
   <div class="featured-content">
     <div class="row">
       <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_media.img">
-        <img class="img-responsive" ng-src="assets/images/audio_video/{{ feat_media.img }}" />
+        <a class="product-link" ng-href="media/{{ feat_media.media_id }}">
+          <img class="img-responsive" ng-src="assets/images/audio_video/{{ feat_media.img }}" />
+        </a>
       </div>
       <div class="col-sm-7 col-lg-8">
+        <a class="product-link" ng-href="media/{{ feat_media.media_id }}">
         <h3><em>{{ feat_media.title }}</em></h3>
+        </a>
         <h4>By&nbsp;{{ feat_media.fname + ' ' + feat_media.lname }}</h4>
         <h4>{{ '$' + feat_media.price + ' - #' + feat_media.media_id + ' - ' + feat_media.type }}</h4>
         <!-- PayPal button -->
@@ -208,10 +220,14 @@
   <div class="featured-content">
     <div class="row">
       <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_artist.img">
-        <img class="img-responsive" ng-src="assets/images/artists/{{ feat_artist.img }}" />
+        <a class="product-link" ng-href="artist/{{ feat_artist.artist_id }}">
+          <img class="img-responsive" ng-src="assets/images/artists/{{ feat_artist.img }}" />
+        </a>
       </div>
       <div class="col-sm-7 col-lg-8">
-        <h3>{{ feat_artist.fname + ' ' + feat_artist.lname }}</h3>
+        <a class="product-link" ng-href="artist/{{ feat_artist.artist_id }}">
+          <h3>{{ feat_artist.fname + ' ' + feat_artist.lname }}</h3>
+        </a>
       </div>
     </div>
 
