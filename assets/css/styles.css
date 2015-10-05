@@ -173,6 +173,7 @@ img.logo {
 .sidebar-nav {
   width: 250px;
   padding: 0;
+  padding-bottom: 60px;
   list-style: none;
 }
 .sidebar-nav li {
