@@ -2,12 +2,14 @@
 ( function( $ ) {
   $( document ).ready(function() {
 
-    // Set height and update on window resize
+    var windowWidth = $(window).width();
+    // Set page height and update on window resize
     var windowHeight = $(window).height();
     $('#page-body').css("min-height", windowHeight);
     $('#sidebar-wrapper').css("height", windowHeight - 52);
 
     $( window ).resize(function() {
+      windowWidth = $(window).width();
       windowHeight = $(window).height();
       $('#page-body').css("min-height", windowHeight);
       $('#sidebar-wrapper').css("height", windowHeight - 52);
@@ -16,13 +18,21 @@
     // Sidebar Menu Toggle
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
-        if($(this).text() == "Open Menu"){
+        /*if($(this).text() == "Open Menu"){
           $(this).text("Close Menu");
         } else {
           $(this).text("Open Menu");
-        }
+        }*/
         $("#menus").toggleClass("toggled");
         $(".wrapper").toggleClass("toggled");
+    });
+
+    // Close Sidebar on Menu Selection
+    $(".sidebar-toggle").click(function(e) {
+        if(windowWidth < 768){
+          $("#menus").toggleClass("toggled");
+          $(".wrapper").toggleClass("toggled");
+        } 
     });
 
     // Sidebar Submenu Script

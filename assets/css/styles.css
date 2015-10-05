@@ -449,6 +449,9 @@ input[type="submit"]::-moz-focus-inner {
 #home .featured-content {
   margin-bottom: 15px;
 }
+#home h2 {
+  font-family: UbuntuRegular, Geneva, sans-serif;
+}
 
 /* ===================== media ======================== */
 #media .nav a {
