@@ -87,6 +87,11 @@
       <p>Accompaniment audio for <em>Music For Botany</em></p>
       <a href="downloads/MusicForBotanyAccomp.mp3" class="downloadButton" download>Download (9.7MB)</a>
       </li>
+      <li class="downloads"><strong>Reich in Rainbows</strong><br />
+      by William Shaltis<br />
+      <p>Accompaniment audio for <em>Reich in Rainbows</em></p>
+      <a href="downloads/Reich_MINUS_1.m4a" class="downloadButton" download>Download (9.7MB)</a>
+      </li>
     </ul>
 
   </div>
