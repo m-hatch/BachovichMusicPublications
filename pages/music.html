@@ -4,11 +4,12 @@
 
   <div class="">
     <h1>{{ heading }}</h1>
+    <p ng-if="musics.error"><em>Coming soon...</em></p>
   </div>
 
   <!-- sheet music listing -->
   <div class="music-row" ng-repeat="music in musics | orderBy: 'lname'">
-    <div class="row">
+    <div class="row" ng-if="!musics.error" >
 
       <div ng-if="music.img">
         <div class="col-sm-3">

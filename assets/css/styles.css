@@ -207,6 +207,16 @@ img.logo {
   color: #e5e5e5;
   background: none;
 }
+.sidebar-nav > .non-perc {
+  /*background-color: #2A5A24;*/
+}
+.sidebar-nav > .non-perc a {
+  color: #f0f0f0;
+}
+.sidebar-nav > .non-perc a span {
+  position: absolute;
+  right: 20px;
+}
 
 @media(min-width:768px) {
 

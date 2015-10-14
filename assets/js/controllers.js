@@ -414,6 +414,20 @@ app.controller('mixedCtrl', function($scope, $http){
     $scope.musics = response;
   });
 });
+app.controller('stringsCtrl', function($scope, $http){
+  $http.get('api/strings')
+  .success(function(response) {
+    $scope.heading = 'Strings'
+    $scope.musics = response;
+  });
+});
+app.controller('choralCtrl', function($scope, $http){
+  $http.get('api/choral')
+  .success(function(response) {
+    $scope.heading = 'Choral'
+    $scope.musics = response;
+  });
+});
 
 /* --------------------------------------------------------------- *
 *                                                                  *

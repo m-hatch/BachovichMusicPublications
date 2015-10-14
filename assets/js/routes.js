@@ -216,6 +216,14 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: 'pages/music.html',
       controller: 'mixedCtrl'
     })
+    .when('/strings', {
+      templateUrl: 'pages/music.html',
+      controller: 'stringsCtrl'
+    })
+    .when('/choral', {
+      templateUrl: 'pages/music.html',
+      controller: 'choralCtrl'
+    })
 
     // books
     .when('/books/mallets', {
