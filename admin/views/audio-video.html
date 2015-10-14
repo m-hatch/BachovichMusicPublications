@@ -10,6 +10,8 @@
   <div class="table-responsive">
     <table class="table table-striped table-condensed table-hover">
       <tr>
+        <th></th>
+        <th></th>
         <th>ID</th>
         <th>Product id</th>
         <th>Type</th>
@@ -19,11 +21,11 @@
         <th>Audi File</th>
         <th>Video Description</th>
         <th>Video Embed URL</th>
-        <th></th>
-        <th></th>
       </tr>
       <!-- data -->
       <tr ng-repeat="av in avs | orderBy: ['product_id', 'type', 'track']">
+        <td><a ng-href="audio-video/{{ av.av_id }}">Edit</a></td>
+        <td><a href ng-click="delete(av.av_id)">Delete</a></td>
         <td>{{av.av_id}}</td>
         <td>&#35;{{av.product_id}}</td>
         <td>{{av.type}}</td>
@@ -33,8 +35,6 @@
         <td>{{av.audio_file}}</td>
         <td>{{av.video_description}}</td>
         <td>{{av.video_embed}}</td>
-        <td><a ng-href="audio-video/{{ av.av_id }}">Edit</a></td>
-        <td><a href ng-click="delete(av.av_id)">Delete</a></td>
       </tr>
     </table>
   </div>

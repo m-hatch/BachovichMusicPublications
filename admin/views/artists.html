@@ -10,23 +10,23 @@
   <div class="table-responsive">
     <table class="table table-striped table-condensed table-hover">
       <tr>
+        <th></th>
+        <th></th>
         <th>ID</th>
         <th>Last Name</th>
         <th>First Name</th>
         <th>Bio</th>
         <th>Image</th>
-        <th></th>
-        <th></th>
       </tr>
       <!-- data -->
       <tr ng-repeat="artist in artists | orderBy: 'lname'">
+        <td><a ng-href="artists/{{ artist.artist_id }}">Edit</a></td>
+        <td><a href ng-click="delete(artist.artist_id)">Delete</a></td>
         <td>{{artist.artist_id}}</td>
         <td>{{artist.lname}}</td>
         <td>{{artist.fname}}</td>
         <td>{{artist.bio}}</td>
         <td>{{artist.img}}</td>
-        <td><a ng-href="artists/{{ artist.artist_id }}">Edit</a></td>
-        <td><a href ng-click="delete(artist.artist_id)">Delete</a></td>
       </tr>
     </table>
   </div>

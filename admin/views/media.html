@@ -10,6 +10,8 @@
   <div class="table-responsive">
     <table class="table table-striped table-condensed table-hover">
       <tr>
+        <th></th>
+        <th></th>
         <th>ID</th>
         <th>Artist</th>
         <th>Type</th>
@@ -18,11 +20,11 @@
         <th>Price</th>
         <th>Image</th>
         <th>Shipping</th>
-        <th></th>
-        <th></th>
       </tr>
       <!-- data -->
       <tr ng-repeat="media in medias | orderBy: 'media_id'">
+        <td><a ng-href="media/{{ media.media_id }}">Edit</a></td>
+        <td><a href ng-click="delete(media.media_id)">Delete</a></td>
         <td>&#35;{{media.media_id}}</td>
         <td>{{media.lname}},&nbsp;{{media.fname}}</td>
         <td>{{media.type}}</td>
@@ -31,8 +33,6 @@
         <td>{{'$' + media.price}}</td>
         <td>{{media.img}}</td>
         <td><span ng-if="media.shipping">$</span>{{media.shipping}}</td>
-        <td><a ng-href="media/{{ media.media_id }}">Edit</a></td>
-        <td><a href ng-click="delete(media.media_id)">Delete</a></td>
       </tr>
     </table>
   </div>

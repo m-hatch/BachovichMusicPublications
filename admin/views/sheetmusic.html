@@ -10,6 +10,8 @@
   <div class="table-responsive">
     <table class="table table-striped table-condensed table-hover">
       <tr>
+        <th></th>
+        <th></th>
         <th>ID</th>
         <th>Artist/Composer</th>
         <th>Type</th>
@@ -22,11 +24,11 @@
         <th>Price</th>
         <th>Image</th>
         <!--<th>Shipping</th>-->
-        <th></th>
-        <th></th>
       </tr>
       <!-- data -->
       <tr ng-repeat="music in musics | orderBy: 'music_id'">
+        <td><a ng-href="sheetmusic/{{ music.music_id }}">Edit</a></td>
+        <td><a href ng-click="delete(music.music_id)">Delete</a></td>
         <td>&#35;{{music.music_id}}</td>
         <td>
           <span ng-if="music.composer">{{music.composer}}&#47;</span>
@@ -44,8 +46,6 @@
         <td>{{'$' + music.price}}</td>
         <td>{{music.img}}</td>
         <!--<td><span ng-if="music.shipping">{{'$' + music.shipping}}</span></td>-->
-        <td><a ng-href="sheetmusic/{{ music.music_id }}">Edit</a></td>
-        <td><a href ng-click="delete(music.music_id)">Delete</a></td>
       </tr>
     </table>
   </div>
