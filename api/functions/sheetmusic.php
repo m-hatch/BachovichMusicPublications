@@ -64,3 +64,17 @@ function getMixed() {
     $sql = sheetMusicsType('mixed');
     getSheetMusicRows($sql);
 }
+
+// return strings list
+function getStrings() {
+
+    $sql = sheetMusicsType('strings');
+    getSheetMusicRows($sql);
+}
+
+// return choral list
+function getChoral() {
+
+    $sql = sheetMusicsType('choral');
+    getSheetMusicRows($sql);
+}

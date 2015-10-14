@@ -81,6 +81,8 @@ $app->get('/steelband', 'getSteel');
 $app->get('/orchestra', 'getOrch');
 $app->get('/band', 'getBand');
 $app->get('/mixed', 'getMixed');
+$app->get('/strings', 'getStrings');
+$app->get('/choral', 'getChoral');
 
 // sheet music method books
 $app->get('/books/mallets', 'getMalletBooks');
