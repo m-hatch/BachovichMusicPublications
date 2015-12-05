@@ -95,7 +95,11 @@ app.controller('searchResultCtrl', function($scope, $http, SearchService){
         // if all terms are found set boolean to true
         found = (product.fname.toLowerCase().indexOf(term.toLowerCase()) > -1) 
           || (product.lname.toLowerCase().indexOf(term.toLowerCase()) > -1)
-          || (product.title.toLowerCase().indexOf(term.toLowerCase()) > -1);
+          || (product.title.toLowerCase().indexOf(term.toLowerCase()) > -1)
+          || (
+            (product.composer != null) && 
+            (product.composer.toLowerCase().indexOf(term.toLowerCase()) > -1)
+          );
         
         passTest = passTest && found;
       });
