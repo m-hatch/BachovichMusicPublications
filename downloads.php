@@ -92,6 +92,11 @@
       <p>Accompaniment audio for <em>Reich in Rainbows</em></p>
       <a href="downloads/Reich_MINUS_1.m4a" class="downloadButton" download>Download (9.7MB)</a>
       </li>
+      <li class="downloads"><strong>The Rutgers Solos</strong><br />
+      by Thomas O’Hara, Paul Nalesnik, and Michael Winnicki<br />
+      <p>Zip of audio files for <em>The Rutgers Solos</em></p>
+      <a href="downloads/RutgersSolosVolume1.zip" class="downloadButton" download>Download (19.5MB)</a>
+      </li>
     </ul>
 
   </div>
