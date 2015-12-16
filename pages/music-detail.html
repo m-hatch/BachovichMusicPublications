@@ -12,8 +12,7 @@
     <!-- title etc. -->
     <div class="music-desc col-sm-9">
       <h4>
-        <span ng-if="music_detail.composer">{{ music_detail.composer }}&#47;</span>
-        {{ music_detail.fname + ' ' + music_detail.lname + ': ' }}<em>{{ music_detail.title }}&nbsp;</em>
+        <span ng-if="music_detail.composer">{{ music_detail.composer }}&#47;</span>{{ music_detail.fname + ' ' + music_detail.lname + ': ' }}<em>{{ music_detail.title }}&nbsp;</em>
         <span class="sub-title" ng-if="music.duration">&nbsp;{{ '[' + music_detail.duration + ']' }}</span>
         <span class="sub-title" ng-if="music.contents">{{ '(' + music_detail.contents + ')' }}</span>
       </h4>

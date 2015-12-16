@@ -23,8 +23,7 @@
         <div class="music-desc col-sm-9">
           <a class="product-link" ng-href="music/{{ music.music_id }}">
             <h4>
-              <span ng-if="music.composer">{{ music.composer }}&#47;</span>
-              {{ music.lname + ', ' + music.fname + ': ' }}<em>{{ music.title }}&nbsp;</em>
+              <span ng-if="music.composer">{{ music.composer }}&#47;</span>{{ music.lname + ', ' + music.fname + ': ' }}<em>{{ music.title }}&nbsp;</em>
               <span class="sub-title" ng-if="music.duration">&nbsp;{{ '[' + music.duration + ']' }}</span>
               <span class="sub-title" ng-if="music.contents">{{ '(' + music.contents + ')' }}</span>
             </h4>
