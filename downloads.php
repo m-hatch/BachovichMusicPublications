@@ -97,6 +97,11 @@
       <p>Zip of audio files for <em>The Rutgers Solos</em></p>
       <a href="downloads/RutgersSolosVolume1.zip" class="downloadButton" download>Download (19.5MB)</a>
       </li>
+      <li class="downloads"><strong>Drum of Life</strong><br />
+      by Tim Broscious<br />
+      <p>Accompaniment audio for <em>Drum of Life</em></p>
+      <a href="downloads/DrumOfLifeTape.mp3" class="downloadButton" download>Download (11.1MB)</a>
+      </li>
     </ul>
 
   </div>
