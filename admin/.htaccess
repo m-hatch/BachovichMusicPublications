@@ -2,6 +2,7 @@ AuthType Basic
 AuthName "Restricted area"  
 AuthUserFile /home/www/montgomeryhatch.com/.htpasswd
 #AuthUserFile /home/content/a/n/d/andybeall/html/.htpasswd
+#AuthUserFile /home/ungino14/public_html/.htpasswd
 Require valid-user
 
 RewriteEngine On
