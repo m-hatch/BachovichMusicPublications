@@ -104,7 +104,7 @@
       </li>
       <li class="downloads"><strong>Six Impressions for solo snare drum</strong><br />
       by Thomas O’Hara<br />
-      <p>Zip of audio files for <em>Six Impressions for solo snare drum/em></p>
+      <p>Zip of audio files for <em>Six Impressions for solo snare drum</em></p>
       <a href="downloads/siximpressions.zip" class="downloadButton" download>Download (16.4MB)</a>
       </li>
     </ul>
