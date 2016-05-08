@@ -102,6 +102,11 @@
       <p>Accompaniment audio for <em>Drum of Life</em></p>
       <a href="downloads/DrumOfLifeTape.mp3" class="downloadButton" download>Download (11.1MB)</a>
       </li>
+      <li class="downloads"><strong>Six Impressions for solo snare drum</strong><br />
+      by Thomas O’Hara<br />
+      <p>Zip of audio files for <em>Six Impressions for solo snare drum/em></p>
+      <a href="downloads/siximpressions.zip" class="downloadButton" download>Download (16.4MB)</a>
+      </li>
     </ul>
 
   </div>
