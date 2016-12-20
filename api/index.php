@@ -41,7 +41,7 @@ $app->get('/music/:id', 'getMusicDetail');
 // sheet music solos
 $app->get('/solos/marimba', 'getMarimbaSolos');
 $app->get('/solos/marimba-vibes', 'getMarimbaVibesSolos');
-$app->get('/solos/xylophone', 'getXyloSolos');
+$app->get('/solos/xylophone', 'getXyloGlockSolos');
 $app->get('/solos/gyil', 'getGyilSolos');
 $app->get('/solos/hand-drum', 'getHandDrSolos');
 $app->get('/solos/vibes', 'getVibeSolos');
