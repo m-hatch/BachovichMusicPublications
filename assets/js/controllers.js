@@ -143,7 +143,7 @@ app.controller('soloMvCtrl', function($scope, $http){
 app.controller('soloXyloCtrl', function($scope, $http){
   $http.get('api/solos/xylophone')
   .success(function(response) {
-    $scope.heading = 'Solos - Xylophone'
+    $scope.heading = 'Solos - Xylophone/Glockenspiel'
     $scope.musics = response;
   });
 });
