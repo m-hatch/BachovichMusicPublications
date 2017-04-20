@@ -44,6 +44,17 @@ function sheetMusicsSubType2($type, $sub1, $sub2){
     return $sql;
 }
 
+// get sheet music by sub_type1
+function sheetMusicsSubTypeOrSubType($type, $subA, $subB){
+    $sql = "SELECT s.music_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 
+            s.title, s.duration, s.contents, s.description, s.price, s.img, s.shipping
+            FROM SheetMusics s INNER JOIN Artists a 
+            ON s.artist_id = a.artist_id
+            WHERE s.type = '" . $type . "' AND s.sub_type1 = '" . $subA . "' OR s.sub_type1 = '" . $subB . "'";
+
+    return $sql;
+}
+
 // get sheet music by id
 function sheetMusicById($id){
     $sql = "SELECT s.music_id, s.artist_id, a.lname, a.fname, s.composer, s.type, s.sub_type1, 

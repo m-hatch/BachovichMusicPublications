@@ -18,10 +18,18 @@ function getMarimbaVibesSolos() {
 
 }
 
-// return solo/xylophone list
+// return solo/xylophone list // not used. see xylo/glock
 function getXyloSolos() {
  
     $sql = sheetMusicsSubType1('solo', 'xylophone');
+    getSheetMusicRows($sql);
+
+}
+
+// return solo/xylophone list
+function getXyloGlockSolos() {
+ 
+    $sql = sheetMusicsSubTypeOrSubType('solo', 'xylophone', 'glockenspiel');
     getSheetMusicRows($sql);
 
 }
