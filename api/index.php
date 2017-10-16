@@ -72,6 +72,7 @@ $app->get('/duets/multi', 'getMultiDuos');
 $app->get('/duets/multi-strings', 'getMultiStr');
 $app->get('/duets/multi-voice', 'getMultiVox');
 $app->get('/duets/multi-woodwinds', 'getMultiWw');
+$app->get('/duets/drumset-brass', 'getDsBrass');
 
 // sheet music (no sub-menu)
 $app->get('/trios', 'getTrios');

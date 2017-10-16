@@ -161,3 +161,11 @@ function getMultiWw() {
     getSheetMusicRows($sql);
 
 }
+
+// return duets/drumset-brass list
+function getDsBrass() {
+ 
+    $sql = sheetMusicsSubType2('duet', 'drumset', 'brass');
+    getSheetMusicRows($sql);
+
+}

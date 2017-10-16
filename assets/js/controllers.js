@@ -350,6 +350,13 @@ app.controller('duetMultiWwCtrl', function($scope, $http){
     $scope.musics = response;
   });
 });
+app.controller('duetDrumsetBrassCtrl', function($scope, $http){
+  $http.get('api/duets/drumset-brass')
+  .success(function(response) {
+    $scope.heading = 'Duets - Drum Set/Brass'
+    $scope.musics = response;
+  });
+});
 
 /* --------------------------------------------------------------- *
 *                                                                  *

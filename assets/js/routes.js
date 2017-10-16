@@ -186,6 +186,10 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: 'pages/music.html',
       controller: 'duetMultiWwCtrl'
     })
+    .when('/duets/drumset-brass', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetDrumsetBrassCtrl'
+    })
 
     // non sub-menu
     .when('/trios', {
