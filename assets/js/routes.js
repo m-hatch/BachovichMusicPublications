@@ -190,6 +190,10 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: 'pages/music.html',
       controller: 'duetDrumsetBrassCtrl'
     })
+    .when('/duets/drumset-voice', {
+      templateUrl: 'pages/music.html',
+      controller: 'duetDrumsetVoiceCtrl'
+    })
 
     // non sub-menu
     .when('/trios', {

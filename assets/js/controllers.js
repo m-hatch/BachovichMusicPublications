@@ -357,6 +357,13 @@ app.controller('duetDrumsetBrassCtrl', function($scope, $http){
     $scope.musics = response;
   });
 });
+app.controller('duetDrumsetVoiceCtrl', function($scope, $http){
+  $http.get('api/duets/drumset-voice')
+  .success(function(response) {
+    $scope.heading = 'Duets - Drum Set/Voice'
+    $scope.musics = response;
+  });
+});
 
 /* --------------------------------------------------------------- *
 *                                                                  *

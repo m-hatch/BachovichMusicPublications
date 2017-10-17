@@ -169,3 +169,11 @@ function getDsBrass() {
     getSheetMusicRows($sql);
 
 }
+
+// return duets/drumset-voice list
+function getDsVoice() {
+ 
+    $sql = sheetMusicsSubType2('duet', 'drumset', 'voice');
+    getSheetMusicRows($sql);
+
+}
