@@ -144,75 +144,64 @@
     </div><!-- end .row -->
   </div>
 
-  <!-- featured media -->
+  <!-- Featured Video -->
   <div class="featured">
-    <h2>Featured Media</h2>
+    <h2>Featured Video</h2>
   </div>
 
   <div class="featured-content">
-    <div class="row">
-      <div class="feat-img col-sm-5 col-lg-4" ng-if="feat_media.img">
-        <a class="product-link" ng-href="media/{{ feat_media.media_id }}">
-          <img class="img-responsive" ng-src="assets/images/audio_video/{{ feat_media.img }}" />
-        </a>
-      </div>
-      <div class="col-sm-7 col-lg-8">
-        <a class="product-link" ng-href="media/{{ feat_media.media_id }}">
-        <h3><em>{{ feat_media.title }}</em></h3>
-        </a>
-        <h4>By&nbsp;{{ feat_media.fname + ' ' + feat_media.lname }}</h4>
-        <h4>{{ '$' + feat_media.price + ' - #' + feat_media.media_id + ' - ' + feat_media.type }}</h4>
-        <!-- PayPal button -->
-        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-    
-          <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-          
-          <input type="hidden" name="add" value="1">
-          <input type="hidden" name="cmd" value="_cart">
-          <input type="hidden" name="business" value="orders@bachovich.com">
-          <input type="hidden" name="no_shipping" value="2">
-          <input type="hidden" name="no_note" value="1">
-          <input type="hidden" name="currency_code" value="USD">
-          <input type="hidden" name="lc" value="US">
-          <input type="hidden" name="bn" value="PP-ShopCartBF">
-          <input type="hidden" name="charset" value="utf-8">
-          
-          <!-- dynamically genereated values -->
-          <input type="hidden" name="item_name" ng-value="'#' + feat_media.media_id + ' - ' + feat_media.type + ' - ' + feat_media.fname + ' ' + feat_media.lname + ': ' + feat_media.title">
-          <input type="hidden" name="item_number" ng-value="feat_media.media_id"> 
-          <input type="hidden" name="amount" ng-value="feat_media.price">
-          <input type="hidden" name="shipping" ng-value="feat_media.shipping">
-          
-        </form>
-      </div>
-    </div>
-
-    <div class="row feat-info">
-      <div class="col-sm-12">
-        <div ng-bind-html="renderHtml(feat_media.description)"></div>
-      </div>
-    </div>
 
     <!--  Audio/Video -->
-    <div class="row description-links" ng-if="feat_media.audio_video">
-
-      <!-- audio links -->
-      <div class="row">
-        <div class="audio-player col-lg-6" ng-repeat="audio in feat_media.audio_video | filter: {type: 'audio'} | orderBy: 'track'">
-          <span><em>{{audio.audio_title}}</em></span>
-          <audio src="" dynamic-url dynamic-url-src="{{audio.audio_file}}" preload="auto" />
-        </div>
-      </div>
-
-      <!-- video links -->
-      <div class="video-row col-md-8 col-lg-6" ng-repeat="video in feat_media.audio_video | filter: {type: 'video'} | orderBy: 'track' | limitTo: 1">
+    <div class="row description-links">
+      <div class="video-row col-md-8 col-lg-6">
         <div class="video-container">
-          <iframe ng-src="{{ video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+          <iframe ng-src="{{ feat_video.video_embed | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
+    </div>
 
-    </div><!-- end .row -->
+    <!-- Description -->
+    <div class="row feat-info">
+      <div class="col-sm-12">
+        <div ng-bind-html="renderHtml(feat_video.featured_video_description)"></div>
+      </div>
+    </div>
+
+    <!-- Product info -->
+    <div class="row feat-works">
+      <div class="col-sm-12">
+        <h3>View the sheet music</h3>
+          <a class="product-link" ng-href="music/{{ feat_video.product.music_id }}">
+            <h4><em>{{ feat_video.product.title }}</em></h4>
+          </a>
+          <h5>By&nbsp;{{ feat_video.product.fname + ' ' + feat_video.product.lname }}</h5>
+          <h5>{{ '$' + feat_video.product.price + ' - #' + feat_video.product.music_id }}</h5>
+          <!-- PayPal button -->
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      
+            <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but22.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            
+            <input type="hidden" name="add" value="1">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="business" value="orders@bachovich.com">
+            <input type="hidden" name="no_shipping" value="2">
+            <input type="hidden" name="no_note" value="1">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="bn" value="PP-ShopCartBF">
+            <input type="hidden" name="charset" value="utf-8">
+            
+            <!-- dynamically genereated values -->
+            <input type="hidden" name="item_name" ng-value="'#' + feat_video.product.music_id + ' - ' + feat_video.product.fname + ' ' + feat_video.product.lname + ': ' + feat_video.product.title">
+            <input type="hidden" name="item_number" ng-value="feat_video.product.music_id"> 
+            <input type="hidden" name="amount" ng-value="feat_video.product.price">
+            <input type="hidden" name="shipping" ng-value="feat_video.product.shipping">
+            
+          </form>
+      </div>
+    </div>
+
   </div>
 
   <!-- featured composer -->

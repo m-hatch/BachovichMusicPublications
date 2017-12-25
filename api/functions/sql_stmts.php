@@ -94,3 +94,13 @@ function rentalById($id){
 
     return $sql;
 }
+
+// get video by id
+function videoById($id){
+    $sql = "SELECT * 
+            FROM AudiosVideos
+            WHERE av_id = " . $id;
+
+    return $sql;
+}
+

@@ -11,14 +11,14 @@
         <tr>
           <th>Composition id<span class="required">&nbsp;*</span></th>
           <th>Book id<span class="required">&nbsp;*</span></th>
-          <th>Media id<span class="required">&nbsp;*</span></th>
+          <th>Video id<span class="required">&nbsp;*</span></th>
           <th>Artist id<span class="required">&nbsp;*</span></th>
         </tr>
         <!-- data -->
         <tr>
           <td><input type="text" ng-model="formData.composition" pattern="^\d{4}$" title="must be 4 digits only (no other characters)" required></td>
           <td><input type="text"ng-model="formData.book" pattern="^\d{4}$" title="must be 4 digits only (no other characters)" required></td>
-          <td><input type="text"ng-model="formData.media" pattern="^\d{4}$" title="must be 4 digits only (no other characters)" required></td>
+          <td><input type="text"ng-model="formData.video" pattern="^\d+$" title="must be digits only (no other characters)" required></td>
           <td><input type="text"ng-model="formData.artist" pattern="^[0-9]+$" title="must be a number" required></td>
         </tr>
       </table>

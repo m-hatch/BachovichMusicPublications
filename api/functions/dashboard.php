@@ -417,7 +417,7 @@ function addAV() {
     $av = json_decode($form->getBody());
     
     $sql = "INSERT INTO AudiosVideos (product_id, type, track, audio_description, 
-                audio_title, audio_file, video_description, video_embed) 
+                audio_title, audio_file, video_description, featured_video_description, video_embed) 
             VALUES (:product_id, :type, :track, :audio_description, :audio_title, 
                 :audio_file, :video_description, :video_embed)";
 
@@ -434,6 +434,7 @@ function addAV() {
         $stmt->bindParam(':audio_title', $av->audio_title);
         $stmt->bindParam(':audio_file', $av->audio_file);
         $stmt->bindParam(':video_description', $av->video_description);
+        $stmt->bindParam(':featured_video_description', $av->featured_video_description);
         $stmt->bindParam(':video_embed', $av->video_embed);
  
         $stmt->execute();
@@ -462,7 +463,7 @@ function updateAV($id) {
         SET product_id= :product_id, type= :type, track= :track, 
         audio_description= :audio_description, audio_title= :audio_title, 
         audio_file= :audio_file, video_description= :video_description, 
-        video_embed= :video_embed 
+        featured_video_description= :featured_video_description, video_embed= :video_embed 
         WHERE av_id = :id"; 
 
     try {
@@ -479,6 +480,7 @@ function updateAV($id) {
         $stmt->bindParam(':audio_title', $update->audio_title);
         $stmt->bindParam(':audio_file', $update->audio_file);
         $stmt->bindParam(':video_description', $update->video_description);
+        $stmt->bindParam(':featured_video_description', $update->featured_video_description);
         $stmt->bindParam(':video_embed', $update->video_embed);
  
         $stmt->execute();
@@ -520,7 +522,7 @@ function updateFeatures() {
 
     $sql = "UPDATE Features 
         SET composition= '" . $update->composition . "', book= '" . $update->book . 
-        "', media= '" . $update->media . "', artist= " . $update->artist . 
+        "', video= " . $update->video . ", artist= " . $update->artist . 
         " WHERE feat_id = 1";
 
     addUpdateRow($sql);

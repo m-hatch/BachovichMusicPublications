@@ -9,7 +9,7 @@ app.controller('mainCtrl', function($scope, $http, $route, $sce){
   .success(function(response) {
     $scope.feat_comp = response['composition'];
     $scope.feat_book = response['book'];
-    $scope.feat_media = response['media'];
+    $scope.feat_video = response['video'];
     $scope.feat_artist = response['artist'];
   });
   $scope.renderHtml = function(html_code){

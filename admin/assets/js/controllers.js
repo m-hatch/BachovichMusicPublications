@@ -384,6 +384,17 @@ admin.controller('avCtrl', function($scope, $http, $route, popupService){
 });
 
 admin.controller('addAvCtrl', function($scope, $http, $route, $location, MsgService){
+  var ctrl = this;
+  this.updateHtml = function() {
+    ctrl.tinymceHtml = $sce.trustAsHtml(ctrl.tinymce);
+  };
+  $scope.tinymceOptions = {
+    plugins: [
+      "advlist autolink link lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor"
+    ]
+  };
   $scope.formData = {
     "product_id": null,
     "type": null,
@@ -392,6 +403,7 @@ admin.controller('addAvCtrl', function($scope, $http, $route, $location, MsgServ
     "audio_title": null,
     "audio_file": null,
     "video_description": null,
+    "featured_video_description": null,
     "video_embed": null
   };
   MsgService.set('');
@@ -408,6 +420,17 @@ admin.controller('addAvCtrl', function($scope, $http, $route, $location, MsgServ
 });
 
 admin.controller('editAvCtrl', function($scope, $http, $route, $routeParams, $location){
+  var ctrl = this;
+  this.updateHtml = function() {
+    ctrl.tinymceHtml = $sce.trustAsHtml(ctrl.tinymce);
+  };
+  $scope.tinymceOptions = {
+    plugins: [
+      "advlist autolink link lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor"
+    ]
+  };
   $scope.formData = {};
   $scope.msg = '';
   // get rental data
@@ -421,6 +444,7 @@ admin.controller('editAvCtrl', function($scope, $http, $route, $routeParams, $lo
     $scope.formData.audio_title = response.audio_title;
     $scope.formData.audio_file = response.audio_file;
     $scope.formData.video_description = response.video_description;
+    $scope.formData.featured_video_description = response.featured_video_description;
     $scope.formData.video_embed = response.video_embed;
   });
   // process the form
@@ -446,7 +470,7 @@ admin.controller('featCtrl', function($scope, $http, $route){
     $scope.feat = response;
     $scope.formData.composition = response.composition.music_id;
     $scope.formData.book = response.book.music_id;
-    $scope.formData.media = response.media.media_id;
+    $scope.formData.video = response.video.av_id;
     $scope.formData.artist = response.artist.artist_id;
   });
   $scope.edit = function() {
