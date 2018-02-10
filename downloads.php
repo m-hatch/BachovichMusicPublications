@@ -112,6 +112,11 @@
       <p>Zip of audio files for <em>Montague&apos;s Foundry</em></p>
       <a href="downloads/Montagues-Foundry.zip" class="downloadButton" download>Download (137.8MB)</a>
       </li>
+      <li class="downloads"><strong>Hysteresis for vibraphone and sine waves</strong><br />
+      by Jeremy Muller<br />
+      <p>Zip of patch files for <em>Hysteresis for vibraphone and sine waves</em></p>
+      <a href="downloads/Hysteresis-Patch.zip" class="downloadButton" download>Download (22KB)</a>
+      </li>
     </ul>
 
   </div>
