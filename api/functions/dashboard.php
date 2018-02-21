@@ -419,7 +419,7 @@ function addAV() {
     $sql = "INSERT INTO AudiosVideos (product_id, type, track, audio_description, 
                 audio_title, audio_file, video_description, featured_video_description, video_embed) 
             VALUES (:product_id, :type, :track, :audio_description, :audio_title, 
-                :audio_file, :video_description, :video_embed)";
+                :audio_file, :video_description, :featured_video_description, :video_embed)";
 
     try {
         $db = getDB();
