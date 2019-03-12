@@ -82,6 +82,11 @@
       <p>These two downloads contain all the audio mp3 files associated with <em>MbiraTab - Vol 4</em>. The download is in .zip format. Files can be expanded by double clicking on .zip file once downloaded.</p>
       <a href="downloads/Mbira-Vol-4-mp3s.zip" class="downloadButton" download>Download (17.2MB)</a>
       </li>
+      <li class="downloads"><strong>MbiraTab - Vol 5</strong><br />
+      by Michael B. Williams<br />
+      <p>These two downloads contain all the audio mp3 files associated with <em>MbiraTab - Vol 5</em>. The download is in .zip format. Files can be expanded by double clicking on .zip file once downloaded.</p>
+      <a href="downloads/Mbira-Vol-5-mp3s.zip" class="downloadButton" download>Download (17.2MB)</a>
+      </li>
       <li class="downloads"><strong>Music For Botany</strong><br />
       by Jeremy Muller<br />
       <p>Accompaniment audio for <em>Music For Botany</em></p>
